@@ -1,0 +1,65 @@
+.row {
+  transition: 2s all;
+}
+
+h3 {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 100px;
+  color: #000;
+  line-height: 1;
+}
+
+button.cta-btn {
+  display: block;
+  width: auto;
+  margin: 0 auto;
+  border: 0;
+  padding: 10px 30px;
+  border-radius: 5px;
+  background-color: black;
+  color: #e6b40b;
+  letter-spacing: .5px;
+  outline: 0;
+}
+
+.credits {
+  text-align: center;
+  display: block;
+  max-width: 530px;
+  margin: 0 auto 100px;
+  line-height: 20px;
+  color: #525252;
+
+  @media (max-width: 700px) {
+    padding: 0px 20px;
+  }
+
+  h4 {
+    margin: 0 auto 15px auto;
+    padding-top: 120px;
+    width: 40%;
+    font-size: 2.25rem;
+    line-height: 2.6rem;
+  }
+
+  strong {
+    font-family: "Austin News Deck Semibold";
+    white-space: nowrap;
+    margin-right: 3px;
+    margin-left: 3px;
+  }
+
+  .credit-name {
+    white-space: nowrap;
+
+    @media (max-width: 700px) {
+      white-space: normal;
+    }
+  }
+
+  .credit-listing {
+    font-size: 14px;
+    line-height: 25px;
+  }
+}

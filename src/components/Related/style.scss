@@ -1,0 +1,88 @@
+.related-wrap {
+  padding: 0 20px 60px;
+
+  .related {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 1160px;
+    margin: 0 auto;
+
+    @media (min-width: 730px) {
+      flex-wrap: nowrap;
+    }
+  }
+
+  h3 {
+    font-size: 34px;
+    text-align: left;
+    line-height: 1;
+    margin-top: 40px;
+    margin-bottom: 26px;
+    padding-top: 10px;
+    max-width: 1160px;
+    color: #1E1E1C;
+    border-top: 5px solid #6F2C91;
+  }
+
+  .block {
+    width: 100%;
+    text-align: left;
+    max-width: 400px;
+    margin-bottom: 42px;
+
+    @media (min-width: 730px) {
+      margin: 0 13px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .thumbnail {
+      width: 100%;
+      max-width: 400px;
+      height: 252px;
+      background-color: #eee;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+
+      @media (min-width: 730px) {
+        height: 228px;
+      }
+    }
+
+    .t1 {
+      background-image: url('../../assets/related/wellness_puff.jpg');
+    }
+
+    .t2 {
+      background-image: url('../../assets/related/tech_puff.jpg');
+    }
+
+    .t3 {
+      background-image: url('../../assets/related/manufacturing_puff.jpg');
+    }
+
+    .description {
+      margin-top: 12px;
+      display: block;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 26px;
+      color: #1E1E1C;
+      font-family: "Austin News Deck Semibold";
+    }
+
+    a {
+      color: #000;
+      text-decoration: none;
+    }
+  }
+}

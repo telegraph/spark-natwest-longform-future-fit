@@ -1,0 +1,231 @@
+.basic-slider {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background: #43305c;
+  position: relative;
+  min-height: 600px;
+  overflow: hidden;
+
+  .basic-slider__title {
+    font-family: "RN House Sans", arial, sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 50px;
+    color: #fff;
+    text-align: center;
+    margin: 40px 0 80px;
+    max-width: 800px;
+  }
+
+  .basic-slider__container {
+    position: relative;
+    min-height: 400px;
+    width: 100%;
+    max-width: 85%;
+    margin: 0 auto;
+  }
+
+  .basic-slider__item {
+    display: flex;
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    padding-bottom: 50px;
+    justify-content: center;
+    transition: all 0.8s;
+    transform: translateX(100%);
+    p {
+      color: #fff;
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .img-container {
+      position: relative;
+      margin-right: 50px;
+      text-align: center;
+    }
+
+    .img-photo {
+      max-width: 300px;
+    }
+
+    .img-logo {
+      max-width: 100px;
+      position: absolute;
+      bottom: 10px;
+      right: 17px;
+    }
+  }
+
+  .visible {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+
+  .prev-slide {
+    transform: translateX(-100%);
+  }
+
+  .controls {
+    width: 100%;
+    top: 37%;
+    transform: translateY(-50%);
+    position: absolute;
+    z-index: 5;
+
+    .total {
+      display: none;
+      font-family: "RN House Sans", arial, sans-serif;
+      font-size: 23px;
+    }
+
+    .arrow {
+      width: 40px;
+      padding-bottom: 40px;
+      background-color: #00b6be;
+      border-radius: 100%;
+      cursor: pointer;
+      background-image: url(../../assets/r-arrow.svg);
+      background-size: 35%;
+      background-position: 55% 50%;
+      background-repeat: no-repeat;
+      transition: all 0.2s;
+
+      &:hover {
+        background-color: #516CB3;
+      }
+
+      &.left-arrow {
+        float: left;
+        transform: rotate(180deg);
+      }
+
+      &.right-arrow {
+        float: right;
+      }
+
+      &.noclick {
+        opacity: 0.4;
+        pointer-events: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 970px) and (max-width: 1200px) {
+  .basic-slider {
+    .basic-slider__container {
+      .controls {
+        width: 115%;
+        transform: translate(-50%);
+        left: 50%;
+      }
+    }
+  }
+}
+
+@media (max-width: 970px) {
+  .basic-slider {
+    .basic-slider__container {
+      margin: 0 auto 60px;
+      transition: height 0.1s;
+
+      .controls {
+        top: 100%;
+        width: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .arrow {
+          width: 40px;
+          padding-bottom: 40px;
+          &:hover {
+            background-color: #00b6be;
+          }
+        }
+
+        .total {
+          display: block;
+          color: white;
+          text-align: center;
+          position: absolute;
+          right: 50%;
+          transform: translateX(50%);
+          top: 7px;
+        }
+      }
+
+      .basic-slider__item {
+        .img-container {
+          margin: 0 auto 50px auto;
+        }
+      }
+    }
+
+    .basic-slider__item {
+      flex-flow: column;
+
+      p {
+        font-size: 16px;
+        line-height: 22px;
+        margin: 0 auto;
+      }
+    }
+  }
+}
+
+@media (max-width: 730px) {
+  .basic-slider {
+    .basic-slider__container {
+      margin: 0 auto 60px;
+      transition: height 0.1s;
+
+      .controls {
+        top: 100%;
+        width: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+
+        .arrow {
+          width: 40px;
+          padding-bottom: 40px;
+
+          &:hover {
+            background-color: #00b6be;
+          }
+
+        }
+
+        .total {
+          display: block;
+          color: white;
+          text-align: center;
+          position: absolute;
+          right: 50%;
+          transform: translateX(50%);
+          top: 7px;
+        }
+      }
+    }
+
+    .basic-slider__title {
+      font-size: 24px;
+      line-height: 24px;
+      min-width: 100%;
+      padding: 0 25px;
+    }  
+
+    .basic-slider__item {
+      flex-flow: column;
+
+      p {
+        font-size: 16px;
+        line-height: 22px;
+        margin: 0 auto;
+      }
+    }
+  }
+}

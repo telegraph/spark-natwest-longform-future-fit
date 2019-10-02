@@ -1,0 +1,17 @@
+.socials {
+  max-width: 590px;
+  margin: 90px auto 0;
+  padding: 0 20px;
+  display: flex;
+  justify-content: center;
+
+  a {
+    text-decoration: none;
+    border: 0;
+    margin-right: 10px;
+  }
+
+  img {
+    height: 32px;
+  }
+}

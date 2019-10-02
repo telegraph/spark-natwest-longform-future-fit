@@ -1,0 +1,19 @@
+.button {
+  height: 69px;
+  padding: 19px 30px;
+  font-family: "RN House Sans", arial, sans-serif;
+  font-size: 30px;
+  line-height: 30px;
+  transition: all 0.1s;
+  white-space: nowrap;
+
+  a {
+    padding: 19px 31px;
+    height: 69px;
+    background: #00B6BE;
+    color: #fff;
+    &:hover {
+      box-shadow: 0px 10px 0px #516CB3;
+    }
+  } 
+}

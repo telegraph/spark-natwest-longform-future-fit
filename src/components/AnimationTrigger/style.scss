@@ -1,0 +1,10 @@
+.trigger {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: 1s;
+
+  &.visible {
+    opacity: 1;
+    transform: translate3d(0 ,0, 0);
+  }
+}

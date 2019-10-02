@@ -1,0 +1,130 @@
+.pullquote {
+  position: relative;
+  padding: 40px 0;
+  margin: 40px auto;
+  max-width: 540px;
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: 1s;
+
+  &.visible {
+   opacity: 1;
+   transform: translate3d(0, 0, 0);
+  }
+
+  h3 {
+    font-family: 'RN House Sans', arial, sans-serif;
+    font-weight: normal;
+    font-size: 27.8px;
+    line-height: 30px;
+    color: #6F2C91;
+    text-align: left;
+    margin: 0;
+
+    &::selection {
+      background: #42145F;
+      color: white;
+    }
+
+  }
+
+  p {
+    margin-top: 25px;
+  }
+}
+
+.pullquote.pullquote--withquote {
+  padding: 70px 0 50px;
+}
+
+.pullquote:not(.pullquote--withquote).pullquote:not(.pullquote--special):before {
+content: '';
+position: absolute;
+top: 0;
+width: 50px;
+height: 3px;
+background: #00B6BE;
+}
+
+.pullquote:not(.pullquote--withquote).pullquote:not(.pullquote--special):after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  width: 50px;
+  height: 3px;
+  background: #00B6BE;
+  }
+
+  .pullquote--withquote:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    background-image: url(../../assets/quote.svg);
+    width: 47px;
+    height: 40px;
+  }
+
+  .pullquote--withquote:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 50px;
+    height: 3px;
+    background: #00B6BE;
+    }
+
+  .pullquote--special {
+    padding: 100px 0 50px;
+
+    h3 {
+      font-size: 48px;
+      line-height: 48px;
+      text-align: center;
+      margin: 0 0 35px;
+    }
+
+    p {
+      text-align: center;
+    }
+  }
+
+  .pullquote--special:before {
+    content: '';
+    position: absolute;
+    background-image: url(../../assets/quote.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 67px;
+    height: 58px;
+    right: 50%;
+    top: 0;
+    transform: translateX(50%);
+  }
+
+  .pullquote--special:after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    right: 50%;
+    bottom: 0;
+    transform: translateX(50%);
+    background: #00B6BE;
+  }
+
+  @media (max-width: 730px) {
+    .pullquote {
+      
+      h3 {
+        font-size: 19px;
+        line-height: 24px;
+      }
+
+      &.pullquote--special {
+        h3 {
+          font-size: 28px;
+          line-height: 28px;
+        }
+      }
+    }
+  }

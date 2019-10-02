@@ -1,0 +1,138 @@
+.vertical-slider {
+  height: 250vh;
+  background-color: #43305c;
+  overflow: hidden;
+  position: relative;
+
+  .vertical-slider__title {
+    position: absolute;
+    font-family: "RN House Sans", arial, sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 50px;
+    margin: 0 auto;
+    padding: 0 25px;
+    text-align: center;
+    right: 50%;
+    top: 30px;
+    color: white;
+    transform: translateX(50%);
+    z-index: 6;
+    min-width: 100%;
+    transition: opacity 0.4s;
+
+    &.fade {
+      opacity: 0;
+    }
+
+    &.fixed {
+      position: fixed;
+      top: 110px;
+    }
+  }
+
+  .vertical-slider__title:before {
+    content: '';
+    background: linear-gradient(to bottom, #43305c 0%, #43305c 62%, #43305ca1 86%, #43305c00 100%);
+    background-blend-mode: hard-light;
+    height: 350%;
+    width: 100vw;
+    bottom: -67px;
+    right: 0;
+    position: absolute;
+    z-index: -1;
+   }
+
+  .vertical-slider__container {
+    position: relative;
+    height: 100%;
+
+    .vertical-item {
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      background: #271c35;
+      border-radius: 50%;
+      position: absolute;
+      text-align: center;
+      width: 300px;
+      height: 300px;
+      padding: 30px;
+      overflow: hidden;
+      transition: all 0.2s;
+  
+      h4 {
+        font-size: 28px;
+        font-family: 'RN House Sans', arial, sans-serif;
+        font-weight: normal;
+        color: #fff;
+        max-width: 50%;
+        margin: 0 auto;
+      }
+  
+      p {
+        font-size: 17px;
+        line-height: 25px;
+        color: #fff;
+      }
+    }
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1200px) {
+  .vertical-slider {
+    height: 300vh;
+    .vertical-slider__container {
+      max-width: 90%;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .vertical-slider {
+    .vertical-slider__container {
+      max-width: 80%;
+      margin: 0 auto;
+      .vertical-item {
+        height: 260px;
+        width: 260px;
+          h4 {
+            font-size: 23px;
+          }
+          p {
+            font-size: 15px;
+          }
+      }
+    }
+  }
+}
+
+@media (max-width: 730px) {
+  .vertical-slider {
+    height: 3960px;
+    .vertical-slider__title {
+      font-size: 24px;
+      line-height: 24px;
+      min-width: 100%;
+    }
+
+    .vertical-slider__title:before {
+
+      height: 160px;
+      width: 100vw;
+      bottom: -70px;
+      right: 0;
+     }
+
+    .vertical-slider__container {
+      .vertical-item {
+        transform: none!important;
+        position: relative;
+        margin: 134px auto;
+        right: 0!important;
+        top: 0!important;
+      }
+    }
+  }
+}

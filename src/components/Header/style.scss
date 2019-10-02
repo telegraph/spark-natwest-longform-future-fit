@@ -1,0 +1,82 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+}
+
+.header-bar {
+  background-color: #fff;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 20px;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  text-align: center;
+  line-height: 40px;
+  font-size: 30px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, .2);
+  transition: .5s all;
+
+  .btyb-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
+  .btyb {
+    font-size: 12px;
+    line-height: 1;
+    font-family: "Telesans Text Web Regular", "Telesans Text Web", "Telesans Text", sans-serif;
+    margin-right: 13px;
+  }
+
+  a {
+    text-decoration: none;
+    border: 0;
+    line-height: 0;
+  }
+
+  .the-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 152px;
+    width: 100%;
+    height: auto;
+  }
+
+  .the-logo-mobile {
+    width: 50px;
+    height: 50px;
+    margin-left: -15px;
+  }
+
+  .share-icons {
+    height: 31px;
+
+    a {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+    img {
+      height: 31px;
+    }
+  }
+
+  .btyb-btn {
+    width: 110px;
+    margin: 0 4px;
+
+    &.primary {
+      max-width: 110px;
+    }
+
+  }
+}

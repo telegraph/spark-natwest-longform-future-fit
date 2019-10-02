@@ -1,0 +1,65 @@
+a {
+  text-decoration: none;
+  border: 0;
+}
+
+.footer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  margin: 0;
+}
+
+.footer .footer-telegraph-link {
+  display: block;
+  margin: 0 auto;
+}
+
+.footer-telegraph-logo {
+  max-width: 74px;
+  width: 80%;
+  margin-bottom: 20px;
+}
+
+.footer .footer-copy-link {
+  display: inline-block;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  font-size: 14px;
+  color: #000;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px solid #000;
+    margin: 3px auto;
+  }
+}
+
+.footer ul.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer ul.footer-links li {
+  display: inline-block;
+}
+
+.footer ul.footer-links li:first-child {
+  padding-right: 10px;
+  margin-right: 9px;
+  border-right: 1px solid #000;
+}
+
+.footer ul.footer-links li a {
+  display: block;
+  color: #000 !important;
+  font-size: 14px;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+}

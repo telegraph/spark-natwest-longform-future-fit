@@ -1,0 +1,16 @@
+.pullquote-special-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 25px;
+  opacity: 0;
+  transform: translateY(5%);
+  transition: all 1s 1s;
+
+  &.visible {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+
+}

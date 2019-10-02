@@ -1,0 +1,31 @@
+.dropcap {
+  float: left;
+  width: 50px;
+  height: 60px;
+  
+  .dropcap__letter {
+    position: absolute;
+    transform: rotate(-112deg) skew(-21deg, 22deg) translate(-5%, 26%);
+    font-size: 30px;
+    color: #fff;
+    font-size: 25px;
+  }
+  
+}
+.dropcap .face {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+}
+.dropcap .top {
+  transform: rotate(-45deg) skew(15deg, 15deg);
+  background: #44C2C9;
+}
+.dropcap .left {
+  transform: rotate(15deg) skew(15deg, 15deg) translate(-50%, 100%);
+  background: #00B6BD;
+}
+.dropcap .right {
+  transform: rotate(75deg) skew(15deg, 15deg) translate(100%, -50%);
+  background: #516AB3;
+}

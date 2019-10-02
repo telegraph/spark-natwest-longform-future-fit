@@ -1,0 +1,147 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  display: block;
+  color: #333;
+  line-height: auto;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Austin News Text Roman", "Austin News Text", Georgia, Times, serif;
+}
+
+body * {
+  box-sizing: border-box;
+}
+
+body *::selection {
+  color: #fff;
+  background: #42145F;
+}
+
+body,
+html {
+  font-size: 100% !important;
+}
+
+#app {
+  overflow-x: hidden;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 12px !important;
+  line-height: 22px;
+}
+
+.div-line {
+  height: 1px;
+  width: 100%;
+  background-color: #aaa;
+  max-width: 720px;
+  margin: 0 auto;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+p {
+  max-width: 540px;
+  display: block;
+  font-size: 17px;
+  line-height: 25px;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 20px;
+  font-family: Georgia, serif;
+  pointer-events: auto;
+  color: #333333;
+}
+
+a {
+  color: #333;
+  transition: .5s all;
+
+  &:hover {
+    border-color: #3e9eea;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Austin News Deck", Georgia, serif;
+  font-weight: 600;
+  color: #333333;
+}
+
+h1 {
+  font-family: "Austin News Headline", "Austin News Deck", "Georgia", serif;
+  font-weight: 400;
+}
+
+h2 {
+  margin: 0 auto;
+  max-width: 540px;
+}
+
+h3 {
+  font-size: 17px;
+  line-height: 26px;
+  max-width: 540px;
+  display: block;
+  margin: 0 auto;
+  font-weight: 600;
+
+  @media (max-width: 600px) {
+    font-size: 20px;
+    line-height: 26px;
+  }
+}
+
+.desktop-only {
+  @media (max-width: 730px) {
+    display: none;
+  }
+}
+
+.mobile-only {
+  display: none;
+
+  @media (max-width: 730px) {
+    display: block;
+  }
+}
+
+#app {
+  z-index: 2;
+  position: relative;
+}
+
+@font-face {
+  font-family: 'RN House Sans';
+  src: url('./assets/fonts/RNHouseSans-Regular.eot');
+  src: url('./assets/fonts/RNHouseSans-Regular.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/RNHouseSans-Regular.woff2') format('woff2'),
+      url('./assets/fonts/RNHouseSans-Regular.woff') format('woff'),
+      url('./assets/fonts/RNHouseSans-Regular.ttf') format('truetype'),
+      url('./assets/fonts/RNHouseSans-Regular.svg#RNHouseSans-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'RN House Sans';
+  src: url('./assets/fonts/RNHouseSans-Bold.eot');
+  src: url('./assets/fonts/RNHouseSans-Bold.eot?#iefix') format('embedded-opentype'),
+      url('./assets/fonts/RNHouseSans-Bold.woff2') format('woff2'),
+      url('./assets/fonts/RNHouseSans-Bold.woff') format('woff'),
+      url('./assets/fonts/RNHouseSans-Bold.ttf') format('truetype'),
+      url('./assets/fonts/RNHouseSans-Bold.svg#RNHouseSans-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+}
