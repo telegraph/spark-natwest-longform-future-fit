@@ -55,41 +55,31 @@ export const FiveGTimeline = [
   },
 ];
 
-export const skylineSlider = [
+export const shopSlider = [
   {
-    title: '£109bn',
-    copy: 'The value of the freelance economy in the UK, according to IPSE, the Association of Independent Professionals and the Self-Employed.',
+    title: 'Artificial intelligence',
+    copy: 'AI and machine learning are changing the way companies do business in many sectors, allowing companies to rapidly learn from their customers by crunching big data',
   },
   {
-    title: '28%',
+    title: 'Automation',
     copy:
-      'Proportion of millennials who would consider staying in a job for five years, according to Deloitte',
+      'Robotic process automation is affecting every area of business from financial systems to customer service delivered via chatbots',
   },
   {
-    title: '48%',
-    copy: 'of companies have had an issue with recruiting in the UK, according to NatWest Mentor',
+    title: 'Circular economy',
+    copy: 'Increased reuse and recycling of old products is becoming a goal for companies in many sectors, as consumers demand to buy from sustainable businesses',
   },
   {
-    title: '67%',
-    copy: 'of workers think it is important to learn to work with intelligent technologies in the next three to five years ',
+    title: 'Fintech',
+    copy: 'Fintech start-ups are disrupting the markets of traditional banks, and also making it easier for businesses to seek investment in non-traditional ways',
   },
   {
-    title: '55%',
-    copy: 'of workers think technology might impact their job, according to research by Unum',
+    title: 'Smart cities and offices',
+    copy: 'Smart buildings equipped with sensors are helping businesses to control energy use effectively',
   },
   {
-    title: '43%',
-    copy: 'of millennials plan to leave their job within two years, according to Deloitte',
-  },
-  {
-    title: '77%',
-    copy:
-      'of employees say flexibility is important to them, according to Unum',
-  },
-  {
-    title: '38%',
-    copy:
-      'The revenue boost for companies engaging with artificial intelligence, according to Accenture',
+    title: 'Sustainable energy',
+    copy: 'Consumers increasingly want to buy from businesses that are sustainable, with giants such as Apple having shifted to using 100pc renewable energy worldwide',
   },
 ];
 
@@ -123,5 +113,97 @@ export const retainTalent = [
     title: 'Have a business with a purpose',
     copy:
       'For younger workers, the purpose of a business is increasingly important, with 86pc of millennials saying they would leave an employer whose values no longer matched theirs',
+  },
+];
+
+export const verticalSlider = [
+  {
+    stat: 'Automation',
+    copy:
+      'In professional services, such as the accounting, legal and consulting sectors, the automation of routine tasks such as invoicing is already saving time and reducing costs. Increasingly, AI and machine learning will enable innovation and differentiation in product and service offerings as well as the automation of more complex tasks.',
+    coordTop: '6',
+    coordRight: '60',
+  },
+  {
+    stat: 'Navigation and control systems',
+    copy:
+      'Electric technology is already redefining the way cars use fuel, with electric, hybrid and solar energy systems beginning to displace internal combustion engine and gas-fed engines. However, it is the growth of autonomous technologies that will redefine the driving experience, with control slowly being handed over to onboard computers. Ultimately customers will interact with these navigation systems, but will not be in direct control.',
+    coordTop: '12',
+    coordRight: '15',
+  },
+  {
+    stat: 'Digital tracking',
+    copy:
+      'Tiny sensors mean manufacturers can monitor products long after they have left the factory. This lets customers know how long goods will take to arrive with customers. It also allows manufacturers to offer that monitoring to their customers as an additional, paid-for, service – warning customers if a component is wearing out or malfunctioning, for example.',
+    coordTop: '21',
+    coordRight: '42',
+  },
+  {
+    stat: 'Just-in-time delivery',
+    copy:
+      'Big data lets manufacturers track each item sold, including sale date and time. Inputting additional information such as when demand peaks and drops means companies can generate detailed demand forecasts and manufacture products to order, minimising the amount of inventory that will go unsold.',
+    coordTop: '32',
+    coordRight: '20',
+  },
+  {
+    stat: 'Dynamic pricing',
+    copy:
+      'Retailers can use algorithms that change prices according to various criteria, for example matching the lowest competitor’s price or keeping a price below average. Because the process is automated, retailers can react to rivals’ moves in minutes rather than days, improving margins and top-line profit.',
+    coordTop: '43',
+    coordRight: '65',
+  },
+  {
+    stat: 'Data analytics',
+    copy:
+      'Firms can increasingly capture high-quality information on their customers, allowing them to understand who they are and what they want. Sectors such as banking and leisure, for example, can use this to build tailored, customised promotions and offers to meet those demands, increasing customer loyalty.',
+    coordTop: '54',
+    coordRight: '30',
+  },
+  {
+    stat: 'Chatbots',
+    copy:
+      'Banks have already taken advantage of AI-enabled tools such as chatbots to interact with customers. This is just the beginning. AI is also enabling banks to automate credit scoring and predict future customer behaviours. Automation means staff can focus on valuable, higher-level work such as conversations with customers about new products.',
+    coordTop: '65',
+    coordRight: '54',
+  },
+  {
+    stat: 'Artificial intelligence',
+    copy:
+      'AI is increasingly being used to detect diseases, such as cancers, more accurately and at an early stage. The use of AI is also allowing health organisations to review X-rays faster and with more accuracy. Meanwhile, a rapid increase in consumer tech means doctors and other health specialists are able to better monitor and detect disease and illness earlier when it is still treatable.',
+    coordTop: '76',
+    coordRight: '10',
+  },
+];
+
+export const flipBoardData = [
+  {
+    img: books,
+    title: 'Artificial intelligence',
+    copy: 'AI uses algorithms to find patterns in large sets of data (for example, from customer interactions)',
+  },
+  {
+    img: books,
+    title: 'Chatbots',
+    copy: 'AI-enabled software that can simulate chats with users through instant messaging systems, apps or on the phone. They streamline customer interactions and can improve operational efficiency.',
+  },
+  {
+    img: books,
+    title: 'The Fourth Industrial Revolution',
+    copy: 'Also known as 4IR, it refers to a change in the way manufacturing works, with sensors and smart factories used to deliver more information to companies',
+  },
+  {
+    img: books,
+    title: 'Internet of things',
+    copy: 'Connected objects, such as sensors, that can allow businesses to gather data, for example from smart factories)',
+  },
+  {
+    img: books,
+    title: 'Data mining',
+    copy: 'How companies can examine large data sets, for instance the behaviour of customers, to find patterns and innovate',
+  },
+  {
+    img: books,
+    title: '3D printing',
+    copy: 'Also known as additive manufacturing, a process where devices can print three-dimensional objects, which can considerably lower the cost of manufacturing',
   },
 ];

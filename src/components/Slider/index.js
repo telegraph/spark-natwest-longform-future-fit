@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { skylineSlider } from '../../data';
+
+import { shopSlider } from '../../data';
+
 import officeSliderCube from '../../assets/office-slider-cube.svg';
 
 import './style.scss';
-import SkylineSVG from '../svgs/SkylineSVG';
 
-function Slider() {
+function Slider({ link }) {
   const [items, setItems] = useState([]);
   const [currentItem, changeCurrentItem] = useState(0);
   const [itemProgress, changeItemProgress] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
 
   const points = useRef(null);
 
@@ -24,17 +24,8 @@ function Slider() {
 
   useEffect(() => {
     // on Mount
-    setItems(skylineSlider);
+    setItems(shopSlider);
   }, []);
-
-  useEffect(() => {
-    const width = window.innerWidth;
-    if (width < 970) {
-      setIsMobile(true);
-    } else if (width > 970) {
-      setIsMobile(false);
-    }
-  });
 
   useEffect(() => {
     // Whenever currentItem is updated...
@@ -61,21 +52,18 @@ function Slider() {
   }
 
   return (
-    <div className="slider">
-      {/* <h2 className="slider__title">
-        The sustainable office
-      </h2> */}
-      <div className="slider__bg">
-        <SkylineSVG isMobile={isMobile} />
-      </div>
+    <div className="slider" id={link || ''}>
+      <h2 className="slider__title">
+        Transforming our business landscape
+      </h2>
+      <div className="slider__bg" />
       <div className="slider__container">
         {items.map((item, i) => (
           <div
             className={`container__item ${currentItem === i ? 'visible' : ''}`}
             key={`container-item-${i + 1}`}
           >
-            <h4>{item.title}</h4>
-            <p>{item.copy}</p>
+            {item.copy}
           </div>
         ))}
       </div>
@@ -84,7 +72,7 @@ function Slider() {
         <div className="slider-total">
           {`${currentItem + 1} of ${items.length}`}
         </div>
-        <div role="button" className={`slider-cont slider-next ${currentItem >= 7 ? 'noclick' : ''}`} onClick={() => nextItem()} />
+        <div role="button" className={`slider-cont slider-next ${currentItem >= 16 ? 'noclick' : ''}`} onClick={() => nextItem()} />
       </div>
       <div className="slider__progress">
         <div className="progress-points" ref={points}>
@@ -93,7 +81,7 @@ function Slider() {
               <div
                 className={`progress-point ${
                   currentItem === i ? 'active' : ''
-                }`}
+                  }`}
                 onClick={(e) => changeItem(i, e)}
                 key={`office-slider${i + 1}`}
               />
@@ -101,14 +89,8 @@ function Slider() {
           })}
         </div>
         <div className="progress-line">
-          <input
-            type="range"
-            min="0"
-            max="7"
-            onChange={handleThis}
-            value={currentItem}
-            step="1"
-          />
+          <input type="range"
+            min="0" max="16" onChange={handleThis} value={currentItem} step="1"></input>
           <div className="line-marker" style={{ left: `${itemProgress}%` }}>
             <img src={officeSliderCube} />
           </div>

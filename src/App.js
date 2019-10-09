@@ -21,6 +21,8 @@ import Footer from './components/Footer';
 import Socials from './components/Socials';
 import AnimationTrigger from './components/AnimationTrigger';
 import Bubbles from './components/Bubbles';
+import Flipboard from './components/Flipboard';
+import VerticalSlider from './components/VerticalSlider';
 
 // Assets
 import ladder from './assets/titles/ladder.svg';
@@ -72,279 +74,95 @@ function App() {
             and automation supercharge the pace of innovation worldwide.
           </p>
           <p>
-          Technological innovation is coming faster than ever, with 94pc of tech
-          decision-makers saying that the rate of technological advancement is
-          higher now than three years ago, according to the Accenture
-          Technology Vision 2019 report.
+            Technological innovation is coming faster than ever, with 94pc of tech
+            decision-makers saying that the rate of technological advancement is
+            higher now than three years ago, according to the Accenture
+            Technology Vision 2019 report.
           </p>
           <p>
-          Businesses need to keep abreast of technology megatrends and adapt to
-          stay relevant, says Neil Bellamy, head of technology, media and
-          telecoms at NatWest. “We're in the middle of a fundamental change
-          from an industrial age to an increasingly digital age,” he says.
-          “Innovation is more and more rapid.”
+            Businesses need to keep abreast of technology megatrends and adapt to
+            stay relevant, says Neil Bellamy, head of technology, media and
+            telecoms at NatWest. “We're in the middle of a fundamental change
+            from an industrial age to an increasingly digital age,” he says.
+            “Innovation is more and more rapid.”
           </p>
           <p>
-          Mr Bellamy says that British businesses need to “avoid obsessing on
-          individual technologies or fads to look beyond the immediate horizon
-          and consider megatrends and convergent technologies. These will
-          shape not only their business but whole sectors and industries.”
+            Mr Bellamy says that British businesses need to “avoid obsessing on
+            individual technologies or fads to look beyond the immediate horizon
+            and consider megatrends and convergent technologies. These will
+            shape not only their business but whole sectors and industries.”
           </p>
           <p>
-          “All businesses are being framed by one macro force: complexity,” says
-          Nelson Phillips, professor of strategy and innovation at Imperial
-          College Business School in London. “From automotive to nancial
-          services, retail to leisure and luxury, adapting to the disruption
-          associated with new technologies, and complex customer and
-          consumer demand, is framing everything. Digital strategy has become
-          corporate strategy. It is reshaping how whole industries work.”
+            “All businesses are being framed by one macro force: complexity,” says
+            Nelson Phillips, professor of strategy and innovation at Imperial
+            College Business School in London. “From automotive to nancial
+            services, retail to leisure and luxury, adapting to the disruption
+            associated with new technologies, and complex customer and
+            consumer demand, is framing everything. Digital strategy has become
+            corporate strategy. It is reshaping how whole industries work.”
           </p>
         </AnimationTrigger>
       </Pagebody>
       <Slider />
-      <Pagebody title="The rise of the 5G workforce" img={ladder}>
+      <Pagebody title="How climate change and tech are shaping business" img={ladder}>
         <AnimationTrigger>
           <p>
-            In response, people are embracing these changes and actively
-            looking for non-traditional work, says Chris Gray, brand leader at
-            recruitment company Manpower UK. Mr Gray says: “Over a third of UK
-            workers are now looking for alternatives – including freelancing
-            and gig working – over full-time jobs.”
+            Even small businesses are facing huge change from technologies such as artificial intelligence, along with opportunities to innovate. The two most important trends for businesses to grapple with are big data and AI, says Prof Nelson Phillips of Imperial College Business School in London.
           </p>
           <p>
-            Workplaces are also facing challenges from technology, with up to
-            38pc of work potentially becoming automated, according to Accenture
-            research.
+            Prof Phillips says: “These are the two technologies that I hear businesses talking about the most. These technologies are fundamentally reshaping how companies think about solving problems, innovating and creating value for customers.
           </p>
           <Pullquote quote>
             <h3>
-              For mid-market companies, automation will mean a change in
-              mindset about recruitment and HR.
+              Most businesses I work with realise that if they are going to compete with born-digital businesses they need to get busy and deal effectively with these digital technologies.
             </h3>
-            <p>Dr Naeema Pasha, director of careers at Henley Business School.</p>
+            <p>
+              explains Nelson Phillips, professor of strategy and innovation at Imperial College Business School
+            </p>
           </Pullquote>
         </AnimationTrigger>
         <AnimationTrigger>
           <p>
-            Dr Pasha says: “Career and human resources professionals need to do
-            more to support workers as traditional HR delivery has not been
-            adapted sufficiently to the future of work.”
+            Consumer expectation is also changing, with sustainability and recycling – the circular economy – now increasingly important. Research in 2017 by Unilever suggested that 33pc of consumers want to buy from companies they see as “doing good”.
           </p>
           <p>
-            Companies will need to focus on recruiting adaptable workers who
-            have the skills to keep up with technology, she says. “Companies
-            will need to retrain and recruit a workforce that is able to adapt
-            to change effectively. The crucial skills include agility; critical
-            thought; resilience and – most importantly – human skills and
-            emotional intelligence, in order to build teams, collaborate and
-            enable successful growth and transformation.”
+            Changes driven by technology and increased consumer demand for sustainability are affecting businesses in every sector, says Jon Tipple, global chief strategy officer of branding agency Future Brand.
           </p>
           <p>
-            Technology can already help companies find the right employees,
-            says Chris Gray, brand leader, Manpower UK. He says: “Integrating
-            technology into your organisation is about striking the right
-            balance. Take HR for example. Attracting and retaining the right
-            talent should not be a battle between human and robot.
-          </p>
-          <p>
-            “The best approach for HR is to blend high-tech with a high-touch
-            approach. HR leaders can use automation and artificial intelligence
-            (AI) to reduce the administrative burden and streamline hiring
-            processes, without losing the personal interaction that candidates
-            have come to value in recent years.
-          </p>
-          <p>
-            “In fact, with so much of the initial contact between candidates
-            and employers becoming automated, the need for in-person
-            interaction is only set to further increase in importance.”
-          </p>
-          <Pullquote quote>
-            <h3>
-              Our research shows nearly two-thirds (61%) of UK jobseekers
-              favour in-person interviews as their preferred recruitment method.
-            </h3>
-            <p>
-              Morten Petersen, of the artificial-intelligence-enabled
-              recruitment company Worksome.
-            </p>
-          </Pullquote>
-          <p>
-            For employers in the UK, this trend offers an opportunity,
-            according to Mr Petersen. He says: “Freelancers will come to play
-            an even more pivotal role in the British economy than they already
-            do. Since 2009, the freelance economy in the UK has grown by 25pc
-            and generates an estimated £109bn a year, according to IPSE.
-          </p>
-          <p>
-            “There are around two million freelance workers in the UK. They
-            represent an amazing pool of talent that can help companies
-            suffering from the skills shortage.”
-          </p>
-          <p>
-            The shift in Britain’s way of working is reflected around the
-            world, says Adrian Wright, principal lecturer at the University of
-            Central Lancashire. Dr Wright says: “The changing workforce in the
-            UK is reflective of other developed economies, as shifts to new
-            emerging industries have led to more part-time work, increased
-            self-employment and casual work.”
+            Prof Philips says: “Beyond technology, I think climate change could more correctly be called a megatrend. It is big, on the horizon, and companies need to be doing something.”
           </p>
         </AnimationTrigger>
       </Pagebody>
+      <Flipboard />
       <Pagebody
-        title="Trends in the global workforce"
+        title="How to take the right risks for your business to survive"
         img={globe}
       >
         <AnimationTrigger>
           <p>
-            These trends are mirrored across territories including America and
-            Europe, says Mr Petersen. “In the next five years, 45pc of workers
-            in Europe will be self-employed, either completely or in combination
-            with another job, according to (market intelligence provider) IDC.
-            Fifty-three million people in the US are already freelancing either
-            full-time or part-time.”
+            Businesses often spend time attempting to reduce risks, but this can lead to becoming inflexible and unable to change, says Howard Kerr, chief executive at BSI.
           </p>
           <p>
-            This means that workers across Europe are embracing new ways of
-            working, and are reluctant to engage in traditional ways of applying
-            for jobs, says Mr Bradley.
-          </p>
-        </AnimationTrigger>
-        <Pullquote quote>
-          <h3>
-            The employment landscape is shifting. With a widespread skills
-            shortage, employers are under constant pressure to attract and
-            retain talent.
-          </h3>
-          <p>Richard Bradley, MD UK & Ireland of staffing company Kelly Services.</p>
-        </Pullquote>
-        <AnimationTrigger>
-          <p>
-            One way they can do this is by being flexible. Kelly Services’
-            research found that in the UK a relatively large number of workers
-            aged 15-64 work full-time, with 80pc in full-time work, 14pc
-            self-employed and 6pc on temporary contracts, according to Eurostat
-            statistics. Around a third, 34pc of workers, have been in their role
-            for 10 years.
+            He says: “With economic, political and technological challenges, it can be tempting to seek safe harbour and ride out the storm. But future-proofing is just as important; avoiding all short-term risk inevitably means missing out on long-term opportunity.”
           </p>
           <p>
-            Other countries are even more reliant on temporary jobs. In the
-            Netherlands, 64pc of workers are full-time, with 21pc temporary and
-            15pc self-employed.
+            Businesses face challenges not just from evolving technology but from market conditions and external factors such as Brexit, says Mr Kerr. “Our research reveals clear external challenges for business decision-makers around the globe. These are technological change, and skills shortages.
           </p>
           <p>
-            In Italy, 63pc are full-time, 16pc are temporary, and 21pc
-            self-employed. Italian workers tend to be more loyal to one
-            employer, with 52pc having stayed in their current role for 10
-            years.
+            “Interestingly, but perhaps unsurprisingly, British businesses were alone in ranking government policies and international politics at the top of their list of concerns. This indicates how ongoing Brexit negotiations are uniquely absorbing a lot of time and effort among organisations.”
           </p>
           <p>
-            Ireland’s statistics are closer to the UK’s, with 77pc in full-time
-            employment, 9pc in temporary employment and 14pc self-employed, and
-            42pc of workers have stayed in their current role for 10 years.
+            In many industries, the so-called Fourth Industrial Revolution poses both challenges and opportunities, with technologies such as smart factories projected to add $3.7trn (£2.9trn) in value to the world economy by 2025, according to McKinsey research.
           </p>
           <p>
-            In France, 72pc of workers are full-time, with 17pc on temporary
-            contracts and 11pc self-employed; 46pc of workers have been in their
-            current role for 10 years.
-          </p>
-        </AnimationTrigger>
-        <Pullquote quote>
-          <h3>
-            Companies actively seeking skills and experience may have to rethink
-            their recruitment approach. Under 40% of our interviewees said they
-            would go through the traditional job application process to find
-            new or different work.
-          </h3>
-          <p>
-            Richard Bradley, MD UK & Ireland of staffing company Kelly Services.
-          </p>
-        </Pullquote>
-        <AnimationTrigger>
-          <p>
-            This has also filtered down into the way that businesses operate
-            day-to-day. Several companies now offer software such as employee
-            engagement platforms, which integrate messaging with work-related
-            functions such as schedules, delivered via apps.
+            Companies need to take an innovative approach to keep up, says Emilie Colker, London managing director of design and innovation company IDEO. “By only following a traditional, analytical approach, there’s a huge risk that businesses will all end up at the same point, with very little to differentiate them,” she says.
           </p>
           <p>
-            Heathrow and Exclusive Hotels use software from Beekeeper, and have
-            subsequently seen increased employee satisfaction and decreased
-            staff turnover.
-          </p>
-          <p>
-            Cristian Grossmann, chief executive, Beekeeper, says: “You might
-            assume it’s just millennials who want to communicate through a
-            team app, but this is not the case. In fact, the baby-boomer
-            generation has also embraced this tool, and they are adopting
-            communications and information technology at a higher rate than
-            younger generations.
-          </p>
-          <p>
-            “In our experience, we find that all employees, regardless of age or
-            role, want the ability to communicate and feel engaged in the
-            workplace.”
+            “The ability to innovate will be critical to the next wave of stand-out companies, and that relies on a culture of creativity, which is inherently risky and requires outside thinking.”
           </p>
         </AnimationTrigger>
       </Pagebody>
-      <Pagebody purple anchor="challenges">
-        <AnimationTrigger>
-          <h2 className="title__content">Tackling the talent drain in Europe</h2>
-        </AnimationTrigger>
-        <AnimationTrigger>
-          <img className="stars" src={stars} alt="stars" />
-        </AnimationTrigger>
-        <AnimationTrigger>
-          <p>
-            Offering part-time work is key to engaging workers in EU nations,
-            with 19pc of EU workers engaged on a part-time basis, rising to 32pc
-            among women, according to research by staffing company Kelly
-            Services.
-          </p>
-          <p>
-            Dealing with staff as individuals can help workers to deal with the
-            pressure of balancing work and home life, says Clare Eagle, chief
-            people officer at cloud telephony platform Natterbox.
-          </p>
-          <p>
-            Ms Eagle says: “Whether it’s being late to work because of dropping
-            the children off at school, or leaving early for a doctor’s
-            appointment, staff feel guilty that they are having to put
-            something else ahead of work. Companies should work with staff
-            individually to create a workplace environment that best suits
-            their needs and removes this guilt.”
-          </p>
-          <p>
-            Research by Kelly Services shows that workers in temporary and
-            part-time work are being well rewarded in European countries, with
-            19pc saying that their motivation was increased reward. Kelly
-            Services found that many employees are reluctant to engage with a
-            traditional interview process, with just 38pc of interviewees
-            having applied via an online portal without previous contact with
-            the company.
-          </p>
-          <p>
-            Alister Esam, chief executive of Process Bliss, which advises SMEs,
-            says: “The conventional approach to recruitment is flawed – it’s
-            too much of a one-way street and the candidate has to effectively
-            sell themselves to the employer. There is lots of talent out there
-            but traditional approaches to recruitment are fundamentally unsuited
-            to finding and developing it.”
-          </p>
-          <p>
-            Instead, Mr Esam invites applicants to complete a game-based
-            psychometric assessment before selecting a shortlist, which he
-            believes helps to find candidates who will stick.
-          </p>
-          <p>
-            He says: “We gather several candidates for a talk on what the
-            business is all about, and see how they interact. Then each person
-            will go for a walk with someone to interview them. We’ll then swap
-            candidates and walk again, and then make a final decision about who
-            to recruit.”
-          </p>
-        </AnimationTrigger>
-        <Bubbles leastBubbles />
-      </Pagebody>
+      <VerticalSlider />
       <Pagebody
         title="The challenges of the 5G workforce..."
         img={dumbbell}
