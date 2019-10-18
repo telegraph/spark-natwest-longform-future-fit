@@ -37,6 +37,13 @@
   padding: 70px 0 50px;
 }
 
+.pullquote--notopborder {
+
+  &:before {
+    display: none;
+  }
+}
+
 .pullquote:not(.pullquote--withquote).pullquote:not(.pullquote--special):before {
 content: '';
 position: absolute;

@@ -71,7 +71,7 @@ function VerticalSlider() {
 
   return (
     <div className="vertical-slider" ref={bubbleSlider}>
-      <h2 className={`vertical-slider__title ${fixed ? 'fixed' : ''} ${titleFade ? 'fade' : ''}`} ref={bubbleTitle}>Sustainability in numbers</h2>
+      <h2 className={`vertical-slider__title ${fixed ? 'fixed' : ''} ${titleFade ? 'fade' : ''}`} ref={bubbleTitle}>What challenges do businesses face in becoming Future Fit?</h2>
       <div className="vertical-slider__container">
         {data.map((item, i) => {
           return (

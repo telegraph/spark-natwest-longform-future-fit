@@ -4,15 +4,13 @@ import Slide from './subcomponents/Slide';
 
 import './style.scss';
 
-import { basicSlider } from '../../data';
-
-export default function BasicSlider() {
+export default function BasicSlider({ dataProp, columns, title }) {
   const [currentSlide, changeCurrentSlide] = useState(0);
   const [data, setData] = useState([]);
   const [currentSlideHeight, setCurrentSlideHeight] = useState(0);
 
   const grabData = () => {
-    setData(basicSlider);
+    setData(dataProp);
   };
 
   const prevSlide = () => {
@@ -35,7 +33,7 @@ export default function BasicSlider() {
   return (
     <div className="basic-slider">
       <h2 className="basic-slider__title">
-        Seven sustainable businesses setting the trend
+        {title}
       </h2>
       <div className="basic-slider__container" style={{ height: `${currentSlideHeight}px` }}>
         <div className="controls">
@@ -48,14 +46,14 @@ export default function BasicSlider() {
           </div>
           <div
             className={`arrow right-arrow ${
-              currentSlide >= data.length -1 ? 'noclick' : ''
-            }`}
+              currentSlide >= data.length - 1 ? 'noclick' : ''
+              }`}
             onClick={() => nextSlide()}
           />
         </div>
         {data.map((item, i) => {
           return (
-            <Slide currentSlide={currentSlide} img={item.img} logo={item.logo} copy={item.copy} i={i} getHeight={grabSlideRefHeight} key={`basic-${i + 1}`} />
+            <Slide twoColumns={!!columns} currentSlide={currentSlide} img={item.img} logo={item.logo} title={item.title} copy={item.copy} i={i} getHeight={grabSlideRefHeight} key={`basic-${i + 1}`} />
           );
         })}
       </div>

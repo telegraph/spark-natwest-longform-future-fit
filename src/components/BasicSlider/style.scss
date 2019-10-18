@@ -5,8 +5,8 @@
   align-items: center;
   background: #43305c;
   position: relative;
-  min-height: 600px;
   overflow: hidden;
+  padding: 0 0 30px;
 
   .basic-slider__title {
     font-family: "RN House Sans", arial, sans-serif;
@@ -21,9 +21,8 @@
 
   .basic-slider__container {
     position: relative;
-    min-height: 400px;
     width: 100%;
-    max-width: 85%;
+    max-width: 1200px;
     margin: 0 auto;
   }
 
@@ -36,6 +35,29 @@
     justify-content: center;
     transition: all 0.8s;
     transform: translateX(100%);
+    padding: 0 70px;
+
+    .column-container {
+      column-rule: 2px solid #00b6be;
+      column-gap: 60px;
+
+      @media (max-width: 730px) {
+        columns: unset!important;
+      }
+
+    }
+
+    h3 {
+      display: block;
+      min-width: 100%;
+      color: #fff;
+      text-align: center;
+      font-family: 'RN House Sans', arial, sans-serif;
+      font-weight: 300;
+      font-size: 32px;
+      margin: 0 0 50px;
+    }
+
     p {
       color: #fff;
       margin-left: 0;
@@ -44,8 +66,16 @@
 
     .img-container {
       position: relative;
-      margin-right: 50px;
       text-align: center;
+
+      &--headshot {
+        margin-right: 30px;
+      }
+
+      @media (max-width: 730px) {
+        margin: 0!important;
+      }
+
     }
 
     .img-photo {
@@ -57,6 +87,12 @@
       position: absolute;
       bottom: 10px;
       right: 17px;
+
+      &--columns {
+        position: relative;
+        max-height: 119px;
+      }
+
     }
   }
 
@@ -166,7 +202,7 @@
     }
 
     .basic-slider__item {
-      flex-flow: column;
+      flex-flow: column!important;
 
       p {
         font-size: 16px;
@@ -220,6 +256,11 @@
 
     .basic-slider__item {
       flex-flow: column;
+      padding: 0 25px;
+
+      .img-photo {
+        max-width: 100%;
+      }
 
       p {
         font-size: 16px;

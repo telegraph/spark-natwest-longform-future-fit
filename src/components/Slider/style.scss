@@ -50,7 +50,7 @@
 
   .slider__bg {
     width: 100vw;
-    // background: url('../../assets/scene.png');
+    background: url('../../assets/scene.png');
     background-size: cover;
     background-position: center;
     height: 80vh;
@@ -60,7 +60,7 @@
     position: absolute;
     min-width: 33%;
     min-height: 110px;
-    background: #401663;
+    border: 1px solid #fff;
     top: 26%;
     right: 50%;
     transform: translateX(50%);
@@ -75,6 +75,18 @@
       transition: opacity 0.3s, transform 0.4s;
       transform: translateX(-100%);
       text-align: center;
+
+      h3 {
+        color: #fff;
+        margin: 0;
+        font-family: 'RN House Sans', arial, sans-serif;
+        font-weight: 300;
+        font-size: 32px;
+      }
+
+      p {
+        color: #fff;
+      }
 
       &.visible {
         opacity: 1;

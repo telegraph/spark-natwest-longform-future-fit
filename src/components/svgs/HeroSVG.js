@@ -1,434 +1,1864 @@
-import React, {useState, useRef, useEffect} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { TweenMax, TimelineMax, Elastic, Power3, Power1 } from 'gsap';
 
 import './style.scss';
 
 export default function HeroSVG() {
   // Define Wifi refs
-  const wifiSmall = useRef(null);
-  const wifiMed = useRef(null);
-  const wifiLarge = useRef(null);
-  // Define msg refs
-  const msg1 = useRef(null);
-  const msg1Bub1 = useRef(null);
-  const msg1Bub2 = useRef(null);
-  const msg1Bub3 = useRef(null);
-
-  const msg2Bub1 = useRef(null);
-  const msg2Bub2 = useRef(null);
-  const msg2Bub3 = useRef(null);
-
-  const msg2 = useRef(null);
-  // Define 3d Printer ref
-  const ThreeDPrinter = useRef(null);
-
-  // Robot parts
-  const strutMain = useRef(null);
-  const strutTop = useRef(null);
-
-  // Container for all svg sections
-  const cont1Printer = useRef(null);
-  const cont2Wifi = useRef(null);
-  const cont3Watch = useRef(null);
-  const cont4Msg = useRef(null);
-  const cont5Msg = useRef(null);
-  const cont6Cloud = useRef(null);
-  const cont7Cyl = useRef(null);
-  const cont8Robot = useRef(null);
-
-  useEffect(() => {
-    // On Mount
-    const elFadeIn = new TimelineMax({ paused: true });
-    // Fade in all elements on mount
-    elFadeIn
-      .fromTo(cont1Printer.current, 0.6, { ease: Power3.easeOut, opacity: 0, y: -100 }, { opacity: 1, y: 0 }, 0)
-      .fromTo(cont2Wifi.current, 0.6, { ease: Power3.easeOut, opacity: 0, y: -100 }, { opacity: 1, y: 0 }, 0.15)
-      .fromTo(cont3Watch.current, 0.6, { ease: Power3.easeOut, opacity: 0, y: -100 }, { opacity: 1, y: 0 }, 0.3)
-      .fromTo(cont4Msg.current, 0.6, { ease: Power3.easeOut, opacity: 0, y: -100 }, { opacity: 1, y: 0 }, 0.45)
-      .fromTo(cont5Msg.current, 0.6, { ease: Power3.easeOut, opacity: 0, y: -100 }, { opacity: 1, y: 0 }, 0.6)
-      .fromTo(cont6Cloud.current, 0.6, { ease: Power3.easeOut, opacity: 0, y: -100 }, { opacity: 1, y: 0 }, 0.75)
-      .fromTo(cont7Cyl.current, 0.6, { ease: Power3.easeOut, opacity: 0, y: -100 }, { opacity: 1, y: 0 }, 0.9)
-      .fromTo(cont8Robot.current, 0.6, { ease: Power3.easeOut, opacity: 0, y: -100 }, { opacity: 1, y: 0 }, 1.05);
-
-    setTimeout(() => {
-      elFadeIn.play();
-    }, 1500);
-
-
-    const wifiTL = new TimelineMax({ repeat: -1, yoyo: true });
-    wifiTL
-      .fromTo(wifiSmall.current, 1, { opacity: 0 }, { opacity: 1 })
-      .fromTo(wifiMed.current, 1, { opacity: 0 }, { opacity: 1 })
-      .fromTo(wifiLarge.current, 1, { opacity: 0 }, { opacity: 1 });
-
-    const msg1TL = new TimelineMax({ repeat: -1, yoyo: true });
-
-    msg1TL
-      .to(msg1Bub3.current, 2, { ease: Elastic.easeInOut.config(1.75, 0.3), x: 0, y: -5 }, 0)
-      .to(msg1Bub2.current, 2, { ease: Elastic.easeInOut.config(1.75, 0.3), x: 0, y: -5 }, 0.1)
-      .to(msg1Bub1.current, 2, { ease: Elastic.easeInOut.config(1.75, 0.3), x: 0, y: -5 }, 0.2);
-
-    const threeDpTL = new TimelineMax({ repeat: -1, yoyo: true });
-    threeDpTL
-      .to(ThreeDPrinter.current, 5, { x: 15, y: -10 });
-
-    const strutMove = new TimelineMax({ repeat: -1, yoyo: true });
-    strutMove
-      .fromTo(strutMain.current, 8, { ease: Power3.easeInOut, rotation: -20, scale: 1, transformOrigin: 'bottom bottom'}, {rotation: 30, scale: 0.9}, 0)
-      .fromTo(strutTop.current, 8, { ease: Power3.easeInOut, y: -15, x: -35, scale: 1 }, { y: 25, x: 45, scale: 0.95 }, 0);
-  }, []);
 
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
-id="Layer_1" viewBox=" 0 0 683.2 424.1" data-name="Layer 1">
-    <defs>
-        <linearGradient id="linear-gradient" x1="403.9" x2="488.4" y1="353.6"
-        y2="313.2" gradientTransform="matrix(1 0 0 -1 0 426)" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stopColor="#f6f3f7" />
-            <stop offset="1" stopColor="#77488a" />
-        </linearGradient>
-        <linearGradient id="linear-gradient-2" x1="374.2" x2="455.5" y1="401.8"
-        y2="354.8" xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-3" x1="172.1" x2="190.4" y1="172.3"
-        y2="155.7" xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-4" x1="141.6" x2="189.6" y1="212.3"
-        y2="154.8" xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-5" x1="104" x2="152.3" y1="316.9"
-        y2="263.8" xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-6" x1="93.3" x2="107.2" y1="261.1"
-        y2="261.1" xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-7" x1="79.1" x2="92.9" y1="245.3"
-        y2="245.3" xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-8" x1="122.9" x2="162.1" y1="232.6"
-        y2="207.2" xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-9" x1="142.8" x2="179" y1="271.2"
-        y2="234.5" xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-10" x1="142.3" x2="174.2" y1="225.1"
-        y2="191" xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-11" x1="117.9" x2="166.1" y1="307.6"
-        y2="254.3" xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-12" x1="548" x2="573.9" y1="286.4"
-        y2="268.9" xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-13" x1="486.2" x2="573.4" y1="363.4"
-        y2="363.4" xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-14" x1="500.2" x2="564.7" y1="346.3"
-        y2="346.3" xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-15" x1="514.1" x2="555.8" y1="329.1"
-        y2="329.1" xlinkHref="#linear-gradient" />
-        <clipPath id="clip-path">
-            <polygon fill="none" points="297.6 161.6 272 176.5 246.2 161.6 271.8 146.7 297.6 161.6"
-            />
+    <svg viewBox="0 0 478.04 472.03">
+      <defs>
+        <clipPath id="prefix__clip-path-12">
+          <path
+            d="M106.9 260.7l17.3-26.9-4.8-9.2-17.3 26.9 4.8 9.2z"
+            className="prefix__cls-1"
+          />
         </clipPath>
-        <linearGradient id="linear-gradient-16" x1="247.4" x2="319.7" y1="373.1"
-        y2="315.6" xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-17" x1="283" x2="338" y1="191.4" y2="165.1"
-        xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-18" x1="299.2" x2="354.2" y1="249.1"
-        y2="222.9" xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-19" x1="404.9" x2="469.4" y1="225.3"
-        y2="225.3" xlinkHref="#linear-gradient" />
-        <linearGradient id="linear-gradient-20" x1="401.9" x2="467.3" y1="269.3"
-        y2="269.3" xlinkHref="#linear-gradient" />
-    </defs>
-    <g id="NatWest-longform_1-sustainability-desktop" data-name="NatWest-longform 1-sustainability-desktop">
-        <path fill="#00b0bc" d="M0 300v-28.2l58-11.3L451.4 33.3c10.2-6 26.8-6 37 0l165.2 96 29.6-5.8v29.2c0 4-2.6 7.8-7.7 10.8L231.9 419.7a41 41 0 0 1-37.1 0L7.6 311c-5.2-3-7.7-7.1-7.6-11z"
+        <clipPath id="prefix__clip-path">
+          <path
+            d="M153.8 138.6l91.2-125 175.7 101.5-91.3 125-175.6-101.5z"
+            className="prefix__cls-1"
+          />
+        </clipPath>
+        <clipPath id="prefix__clip-path-3">
+          <path
+            d="M15.6 215.1L202.2 323v118L15.6 333.3v-118z"
+            className="prefix__cls-1"
+          />
+        </clipPath>
+        <clipPath id="prefix__clip-path-4">
+          <path
+            d="M144.5 148.5l173 100L216 307l-71.5-40V148.5z"
+            className="prefix__cls-1"
+          />
+        </clipPath>
+        <clipPath id="prefix__clip-path-5">
+          <path
+            d="M144.5 148.5L29.3 215l101.4 58.6 13.8-8V148.5z"
+            className="prefix__cls-1"
+          />
+        </clipPath>
+        <clipPath id="prefix__clip-path-6">
+          <path
+            d="M430 113.2l8.4 9.2c18.8 20.6 12 67.5-15.3 104.9a113.9 113.9 0 01-33.8 31.6c-19.1 11-38 11.4-49.7-1.3l-8.4-9.3z"
+            className="prefix__cls-1"
+          />
+        </clipPath>
+        <clipPath id="prefix__clip-path-7">
+          <path
+            d="M245 13.7l-91.3 124.9 30.1 17.4c7.3-.4 15.2-3 23.2-7.6a105.3 105.3 0 0031.3-29.2C263.6 84.6 270 41 252.6 22z"
+            className="prefix__cls-1"
+          />
+        </clipPath>
+        <clipPath id="prefix__clip-path-8">
+          <path
+            d="M29.3 215V84.8h376.5v163.6h-88.4L202.2 315 29.3 215z"
+            className="prefix__cls-1"
+          />
+        </clipPath>
+        <clipPath id="prefix__clip-path-9">
+          <path
+            d="M91.1 198.3a9.3 9.3 0 00-.4 8.4c1.3 2.4 3.4 2.5 5 .2a9.3 9.3 0 00.3-8.4c-1.2-2.4-3.4-2.5-4.9-.3z"
+            className="prefix__cls-1"
+          />
+        </clipPath>
+        <clipPath id="prefix__clip-path-10">
+          <path
+            d="M82.4 211.6a9.3 9.3 0 00-.4 8.4c1.2 2.4 3.4 2.5 4.9.2a9.3 9.3 0 00.4-8.4c-1.3-2.4-3.5-2.5-5-.3z"
+            className="prefix__cls-1"
+          />
+        </clipPath>
+        <clipPath id="prefix__clip-path-11">
+          <path
+            d="M89 233.8l14-21.7-1-2.2-14 21.7 1 2.3z"
+            className="prefix__cls-1"
+          />
+        </clipPath>
+        <clipPath id="prefix__clip-path-2">
+          <path
+            d="M331.2 248.4l-129 74.5v118l129-74.4v-118z"
+            className="prefix__cls-1"
+          />
+        </clipPath>
+        <linearGradient
+          id="prefix__linear-gradient-6"
+          x1={-2697.29}
+          x2={-2631.1}
+          y1={7046.92}
+          y2={7046.92}
+          gradientTransform="rotate(43.7 7234.5 7154.5)"
+          xlinkHref="#prefix__linear-gradient"
         />
-        <path fill="#4a6cb8" d="M213 170.9v253.2a37.2 37.2 0 0 1-18.2-4.4L7.6 311c-5.2-3-7.7-7-7.6-11v-28.2l58-11.3z"
+        <linearGradient
+          id="prefix__linear-gradient"
+          x1={169.62}
+          x2={468.65}
+          y1={276.14}
+          y2={487.29}
+          gradientUnits="userSpaceOnUse"
+        >
+          <stop offset={0} stopColor="#f6f3f7" />
+          <stop offset={1} stopColor="#77488a" />
+        </linearGradient>
+        <linearGradient
+          id="prefix__linear-gradient-3"
+          x1={42.21}
+          x2={90.7}
+          y1={444.2}
+          y2={461.44}
+          xlinkHref="#prefix__linear-gradient"
         />
-        <path fill="#26bcc6" d="M7.8 260.7c-10.3 5.9-10.4 15.5-.2 21.4L194.8 391c10.2 6 26.8 6 37 0l443.7-256.2c10.3-6 10.3-15.6 0-21.5L488.6 4.4c-10.3-5.9-26.9-5.9-37.1 0z"
+        <linearGradient
+          id="prefix__linear-gradient-4"
+          x1={58.45}
+          x2={102.84}
+          y1={344.16}
+          y2={344.16}
+          xlinkHref="#prefix__linear-gradient"
         />
-        <polygon fill="#4a6cb7" points="66.7 243.5 261.9 356.9 632.5 142.7 437.4 29.3 66.7 243.5"
+        <linearGradient
+          id="prefix__linear-gradient-5"
+          x1={63.65}
+          x2={263}
+          y1={125.67}
+          y2={292.61}
+          xlinkHref="#prefix__linear-gradient"
         />
-        <g id="cont-printer" ref={cont1Printer}>
-        <polygon fill="#6581c3" points="488.6 95.4 403.4 143.9 336.4 106.1 421.6 57.5 488.6 95.4"
+        <linearGradient
+          id="prefix__linear-gradient-2"
+          x1={352.34}
+          x2={557.74}
+          y1={168.24}
+          y2={282.26}
+          xlinkHref="#prefix__linear-gradient"
         />
-        <polygon fill="#f8f4fa" points="421.6 17 421.6 61.9 460.4 39.5 421.6 17"
+        <linearGradient
+          id="prefix__linear-gradient-7"
+          x1={4056.25}
+          x2={4067.42}
+          y1={-2125.44}
+          y2={-2113.56}
+          gradientTransform="rotate(-27.2 7121.9 7186)"
+          xlinkHref="#prefix__linear-gradient"
         />
-        <polygon fill="#00b0bc" points="426.7 25.9 426.7 55.7 464.5 77.5 464.4 47.7 426.7 25.9"
+        <linearGradient
+          id="prefix__linear-gradient-8"
+          x1={4031.81}
+          x2={4042.98}
+          y1={-2111.13}
+          y2={-2099.25}
+          gradientTransform="rotate(-27.2 7121.9 7186)"
+          xlinkHref="#prefix__linear-gradient"
         />
-        <polygon fill="url(#linear-gradient)" points="469.7 39.5 400.6 79.4 400.8 135.3 469.7 95.4 469.7 39.5"
+        <linearGradient
+          id="prefix__linear-gradient-9"
+          x1={4013.86}
+          x2={4025.03}
+          y1={-2195.16}
+          y2={-2183.28}
+          gradientTransform="rotate(-27.2 7121.9 7186)"
+          xlinkHref="#prefix__linear-gradient"
         />
-        <polygon fill="#f8f4fa" points="352.7 51.7 352.7 107.6 400.8 135.3 400.6 79.4 352.7 51.7"
+        <linearGradient
+          id="prefix__linear-gradient-10"
+          x1={180.12}
+          x2={246.31}
+          y1={279.23}
+          y2={279.23}
+          xlinkHref="#prefix__linear-gradient"
         />
-        <polygon fill="#00b0bc" points="357.8 60.6 357.8 90.5 395.6 112.2 395.5 82.4 357.8 60.6"
-        />
-        <polygon fill="url(#linear-gradient-2)" points="361.9 51.7 400.6 74.1 421.6 61.9 421.6 17 361.9 51.7"
-        />
-        <polygon fill="#00b0bc" points="445.8 30.9 435.6 25 435.6 33.4 445.8 39.3 445.8 30.9"
-        />
-        <polygon fill="#4a6cb8" points="446.9 31.6 445.8 30.9 445.8 39.3 446.9 38.8 446.9 31.6"
-        />
-        <line x1="444.7" x2="385" y1="32.4" y2="67.1" fill="none" stroke="#7a2296"
-        strokeMiterlimit="10" strokeWidth="2" />
-        <line x1="437.4" x2="378.7" y1="28.8" y2="62.9" fill="none" stroke="#7a2296"
-        strokeMiterlimit="10" strokeWidth="2" />
-        <polygon fill="#f8f4fa" points="462.8 49 407.5 81 407.6 104.5 438 108.1 462.8 93.8 462.8 49"
-        />
-        <polygon fill="#33c0c9" points="462.8 76.5 462.8 49 439 62.8 462.8 76.5"
-        />
-        <polygon fill="#fff" points="462.8 93.8 462.8 91.4 426.2 70.2 407.5 81 407.6 104.5 438 108.1 462.8 93.8"
-        />
-        <polygon fill="#4a6cb8" points="440 91.7 416.4 105.6 407.6 104.5 438.2 87.4 440 91.7"
-        />
-        <polygon fill="#33c0c9" points="418 74.9 438.2 87.4 407.6 104.5 407.6 81 418 74.9"
-        />
-        <path fill="#fff" d="M421.6 11.6l-69 40.1 48 27.7 69-40zm-21 62.5l-38.7-22.4L421.6 17l38.8 22.5z"
-        />
-        <g id="_3d-printer" data-name="3d-printer" ref={ThreeDPrinter}>
-            <polygon fill="#4a6cb8" points="384.2 25.9 384.2 40 387.5 40 387.5 25.9 385.8 24.3 384.2 25.9"
+        <style>
+          {
+            '.prefix__cls-1,.prefix__cls-26,.prefix__cls-34,.prefix__cls-6,.prefix__cls-9{fill:none}.prefix__cls-3{fill:#fff}.prefix__cls-4{fill:#00b0bc}.prefix__cls-6{stroke:#33c0c9}.prefix__cls-26,.prefix__cls-34,.prefix__cls-6,.prefix__cls-9{stroke-miterlimit:10}.prefix__cls-6,.prefix__cls-9{stroke-width:1.15px}.prefix__cls-7{fill:#4a6cb8}.prefix__cls-9{stroke:#6e89c7}.prefix__cls-12{fill:#33c0c9}.prefix__cls-14{fill:#f8f4fa}.prefix__cls-20{fill:#ebdeef}.prefix__cls-26,.prefix__cls-34{stroke-width:.57px}.prefix__cls-22{fill:#6e89c7}.prefix__cls-26{stroke:#fff}.prefix__cls-29{fill:#f6f3f7}.prefix__cls-32{fill:#490b63}.prefix__cls-34{stroke:#490b63}'
+          }
+        </style>
+      </defs>
+      <title>{'01_header'}</title>
+      <g id="prefix__Layer_2" data-name="Layer 2">
+        <g id="prefix__NatWest-longform_3-digitisation-desktop">
+          <path
+            d="M346.2 263l-60.6-35.6 14-5.6 42.2 24.8 4.4 16.4z"
+            fill="#00afbb"
+          />
+          <path
+            d="M243.3 5.4l186.6 107.8-98.7 135.1-186.7-107.8 98.8-135z"
+            className="prefix__cls-3"
+          />
+          <path
+            d="M153.8 138.6l91.2-125 175.7 101.5-91.3 125-175.6-101.5z"
+            className="prefix__cls-4"
+          />
+          <g clipPath="url(#prefix__clip-path)">
+            <path
+              d="M230.3 5.2L432 121.7M224.2 13.5L426 129.9M218.1 21.8l201.7 116.4M212 30l201.6 116.5M205.9 38.4l201.6 116.4M199.8 46.6l201.6 116.5M193.6 55l201.7 116.4M187.5 63.2l201.7 116.5M181.4 71.5L383.1 188M175.3 79.8l201.6 116.5M169.2 88l201.6 116.6M163 96.4l201.7 116.4M157 104.7L358.5 221M150.8 113l201.7 116.4M144.7 121.2l201.7 116.5M138.6 129.5L340.2 246"
+              className="prefix__cls-6"
             />
-            <path fill="#4a6cb8" d="M407.3 58.7h-4l1.4 3.8a.3.3 0 0 0 .2.2 1 1 0 0 0 .9 0 .3.3 0 0 0 .1-.2z"
+          </g>
+          <path
+            d="M245 13.7l-91.3 124.9 30.1 17.4c7.3-.4 15.2-3 23.2-7.6a105.3 105.3 0 0031.3-29.2C263.6 84.6 270 41 252.6 22z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M15.6 333.2L202.2 441V322.9L15.6 215v118zm128.9-74.6l186.7 107.8v-118L144.5 140.5v118z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M331.2 248.4l-129 74.5v118l129-74.4v-118z"
+            className="prefix__cls-7"
+          />
+          <g clipPath="url(#prefix__clip-path-2)">
+            <path
+              d="M195.1 445l154.7-89.4m-154.7 77.7l154.7-89.5m-154.7 77.7L349.8 332m-154.7 77.6l154.7-89.4m-154.7 77.7l154.7-89.5M195.1 386l154.7-89.4m-154.7 77.6l154.7-89.4m-154.7 77.6L349.8 273m-154.7 77.6l154.7-89.4m-154.7 77.6l154.7-89.4M195.1 327l154.7-89.4"
+              className="prefix__cls-9"
             />
-            <path fill="#00bfc8" d="M408.6 57.7a1.6 1.6 0 0 1-1 1.4 5 5 0 0 1-4.6 0 1.6 1.6 0 0 1-1-1.4V53h6.6z"
+          </g>
+          <g clipPath="url(#prefix__clip-path-3)">
+            <path
+              d="M209.3 445L15.6 333.2m193.7 100.1l-193.7-112m193.7 100.2l-193.7-112m193.7 100.1L15.6 297.8m193.7 100.1l-193.7-112M209.3 386L15.6 274.1m193.7 100.1L15.6 262.3m193.7 100.1L15.6 250.5m193.7 100.1L15.6 238.7m193.7 100.1L15.6 227m193.7 100L15.6 215.1"
+              className="prefix__cls-6"
             />
-            <polygon fill="#00b0bc" points="405.4 46.1 396.9 41.3 396.9 51.1 405.4 56 405.4 46.1"
+          </g>
+          <path
+            d="M144.5 140.6L15.5 215l186.7 107.9 129-74.5-186.7-107.8z"
+            className="prefix__cls-3"
+          />
+          <path
+            d="M29.3 215l115.2-66.5 173 100-115.3 66.4L29.3 215z"
+            className="prefix__cls-4"
+          />
+          <g clipPath="url(#prefix__clip-path-4)">
+            <path
+              d="M337.7 378L144 266.1m193.7 100.2L144 254.3m193.7 100.1L144 242.5m193.7 100.1L144 230.7m193.7 100.1L144 219m193.7 100L144 207.1m193.7 100.1L144 195.3m193.7 100.1L144 183.5m193.7 100.1L144 171.7m193.7 100.1L144 160m193.7 100L144 148.1"
+              className="prefix__cls-6"
             />
-            <polygon fill="#33c0c9" points="413.8 41.3 405.4 36.4 396.9 41.3 405.4 46.1 413.8 41.3"
+          </g>
+          <path
+            d="M130.7 273.6l71.5 41.3 13.8-8-71.5-41.3-13.8 8z"
+            className="prefix__cls-12"
+          />
+          <path
+            d="M144.5 265.6V148.5L29.3 215l101.4 58.6 13.8-8z"
+            className="prefix__cls-7"
+          />
+          <g clipPath="url(#prefix__clip-path-5)">
+            <path
+              d="M8.5 345.1l154.7-89.4M8.5 333.3l154.7-89.5M8.5 321.5l154.7-89.4M8.5 309.7l154.7-89.4M8.5 298l154.7-89.6M8.5 286.1l154.7-89.5M8.5 274.3l154.7-89.5M8.5 262.5L163.2 173M8.5 250.7l154.7-89.5M8.5 238.9l154.7-89.5M8.5 227l154.7-89.4"
+              className="prefix__cls-9"
             />
-            <polygon fill="#4a6cb8" points="405.4 46.1 413.8 41.3 413.8 51.1 405.4 56 405.4 46.1"
+          </g>
+          <path
+            d="M15.6 215v118.2l170.7 98.6 16 9.2V322.9zm170.7 205L31.5 330.6v-94.4l154.8 89.4z"
+            className="prefix__cls-14"
+          />
+          <path
+            d="M315.3 257.6l-113 65.3V441l129-74.5v-118zm0 106.3L218 420v-94.4l97.2-56.1z"
+            fill="url(#prefix__linear-gradient)"
+          />
+          <path
+            d="M430 113.2l8.4 9.2c18.8 20.6 12 67.5-15.3 104.9a113.9 113.9 0 01-33.8 31.6c-19.1 11-38 11.4-49.7-1.3l-8.4-9.3z"
+            className="prefix__cls-7"
+          />
+          <g clipPath="url(#prefix__clip-path-6)">
+            <path
+              d="M328.2 252.4l104.2-142.7m-96.6 149.8L440 117m-96.7 149.7L447.5 124m-96.7 149.8L455 131m-96.7 150l104.2-142.7M365.9 288L470 145.5m-96.6 149.7l104.2-142.7"
+              className="prefix__cls-9"
             />
-            <path fill="#4a6cb8" d="M402 23.2c-3.3-4.7-8.7-7.2-12.8-5.9-3.3 1-5.2 4.2-5.2 8.6h3.3c0-2 .5-4.7 2.9-5.4s6.3.6 9 4.6a25.6 25.6 0 0 1 4.5 16.1.8.8 0 0 0 .5.7 2.5 2.5 0 0 0 2.4 0 .8.8 0 0 0 .4-.6v-.1c0-5.3-.4-11.3-5-18z"
+          </g>
+          <g clipPath="url(#prefix__clip-path-7)">
+            <path
+              d="M144.5 143L248.7.3M152 150.1L256.2 7.5m-96.6 149.8L263.8 14.6M167 164.4L271.4 21.7m-96.8 149.8L278.8 29m-96.7 149.7L286.3 36m-96.6 149.8L293.9 43"
+              className="prefix__cls-9"
             />
+          </g>
+          <path
+            d="M438.4 122.4l-8.5-9.2-98.7 135.1 8.4 9.3c11.7 12.7 30.5 12.4 49.7 1.3a113.9 113.9 0 0033.8-31.6c27.3-37.4 34.1-84.3 15.3-104.9zM417.1 223a106.5 106.5 0 01-31.6 29.6 48 48 0 01-23.3 7.2 22 22 0 01-17-7.2l-4.4-4.7L430.6 125l2.3 2.6c16.3 17.7 9 61.4-15.8 95.4z"
+            fill="url(#prefix__linear-gradient-2)"
+          />
+          <path
+            d="M99 292.9l19.9 11.5v-29.6l-20-11.6V293z"
+            className="prefix__cls-14"
+          />
+          <path d="M109 274.1a10.4 10.4 0 014.6 8.2c0 2-.8 3.1-2.1 3.4v8.4l-5.2-3v-8.4a10.2 10.2 0 01-2.1-5.9c0-3 2.1-4.2 4.7-2.7z" />
+          <path
+            d="M46 430.6l-15-8.9a10.3 10.3 0 010-17.7 21.2 21.2 0 0121.5 0l11.7 7-2.4 4.2-11.8-7a16.3 16.3 0 00-16.6 0 5.4 5.4 0 000 9.3l15 8.9z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M20.2 446.3l26.5 15.6v-9.3l-26.5-15.7v9.4z"
+            className="prefix__cls-14"
+          />
+          <path
+            d="M20.2 437l26.5 15.6 24.5-14.2-26.5-15.7L20.2 437z"
+            className="prefix__cls-3"
+          />
+          <path
+            d="M46.7 461.9l24.5-14.2v-9.3l-24.5 14.2v9.3z"
+            fill="url(#prefix__linear-gradient-3)"
+          />
+          <ellipse
+            cx={58.93}
+            cy={450.15}
+            className="prefix__cls-20"
+            rx={3.68}
+            ry={2.13}
+            transform="rotate(-59.8 59 450.1)"
+          />
+          <ellipse
+            cx={62.99}
+            cy={413.14}
+            className="prefix__cls-12"
+            rx={2.4}
+            ry={1.39}
+            transform="matrix(.5 -.86 .86 .5 -325.9 260)"
+          />
+          <path
+            d="M59 452.2v-4"
+            strokeWidth={0.57}
+            stroke="#7a2296"
+            strokeMiterlimit={10}
+            fill="none"
+          />
+          <path
+            d="M94.3 447.1c0 2.2 1.5 4.3 4.3 6 5.7 3.3 15 3.3 20.6 0 2.9-1.6 4.3-3.8 4.3-6v-3.5H94.3z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M119.2 453a11.4 11.4 0 001.6-1v-8.3h-1.6zm-4.2 1.8a18.9 18.9 0 002.9-1v-10.2H115z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M119.2 437.7c5.7 3.3 5.7 8.6 0 12s-14.9 3.2-20.6 0-5.7-8.7 0-12 14.9-3.3 20.6 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M109 451.2a20.1 20.1 0 01-9.9-2.3c-2.5-1.5-3.9-3.3-3.9-5.3s1.4-3.8 3.8-5.2a19.9 19.9 0 019.9-2.3 20.1 20.1 0 019.9 2.3c2.5 1.5 3.9 3.3 3.9 5.3s-1.4 3.7-3.8 5.2a20 20 0 01-9.9 2.3z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M99 439.3a19.9 19.9 0 019.8-2.4 20.1 20.1 0 0110 2.4c2.2 1.3 3.6 3 3.8 4.8a3.3 3.3 0 000-.4c0-2-1.4-3.8-3.9-5.3a20.1 20.1 0 00-9.9-2.3 19.9 19.9 0 00-9.8 2.3c-2.5 1.5-3.8 3.3-3.8 5.2v.4c.2-1.7 1.5-3.4 3.8-4.7zm-18.4-23.4c0 2.1 1.5 4.3 4.3 6 5.7 3.3 15 3.3 20.6 0 2.9-1.7 4.3-3.8 4.3-6v-3.5H80.6z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M105.5 421.8a11.4 11.4 0 001.6-1v-8.4h-1.6zm-4.2 1.7a17.8 17.8 0 002.8-1v-10.1h-2.8z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M105.5 406.4c5.7 3.3 5.7 8.7 0 12s-14.9 3.2-20.6 0-5.7-8.7 0-12 14.8-3.3 20.6 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M95.2 420a20.1 20.1 0 01-9.9-2.4c-2.4-1.4-3.8-3.3-3.8-5.2s1.3-3.8 3.8-5.2a20 20 0 019.8-2.4 20.1 20.1 0 0110 2.4c2.4 1.4 3.8 3.3 3.8 5.3s-1.4 3.7-3.8 5.1a20 20 0 01-9.9 2.4z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M85.3 408a20 20 0 019.8-2.4 20.1 20.1 0 019.9 2.4c2.3 1.3 3.6 3 3.8 4.8a3.1 3.1 0 000-.4c0-2-1.3-3.8-3.8-5.3a20.1 20.1 0 00-10-2.3 20 20 0 00-9.8 2.3c-2.4 1.5-3.8 3.3-3.8 5.2v.5c.3-1.8 1.6-3.5 3.9-4.8zm131.1 55.6c0 2.1 1.4 4.3 4.3 6 5.7 3.3 15 3.3 20.6 0 2.8-1.7 4.2-3.8 4.2-6V460h-29.1z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M241.3 469.6a11.4 11.4 0 001.6-1.1V460h-1.6zm-4.3 1.7a17 17 0 003-1V460h-3z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M241.2 454.2c5.8 3.3 5.8 8.6.1 11.9s-14.9 3.3-20.6 0-5.7-8.6 0-12 14.8-3.2 20.5 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M231 467.7a20.1 20.1 0 01-9.9-2.4c-2.5-1.4-3.9-3.3-3.9-5.2s1.4-3.8 3.9-5.2a20 20 0 019.8-2.4 20.1 20.1 0 019.9 2.4c2.5 1.4 3.9 3.3 3.9 5.3s-1.4 3.7-3.8 5.1a20 20 0 01-9.9 2.4z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M221 455.8a20 20 0 0110-2.4 20.1 20.1 0 019.8 2.4c2.3 1.3 3.7 3 3.8 4.8a3.3 3.3 0 000-.5c0-1.9-1.3-3.8-3.8-5.2a20.1 20.1 0 00-10-2.4 20 20 0 00-9.8 2.4c-2.4 1.4-3.8 3.3-3.8 5.2a3 3 0 000 .4c.3-1.7 1.6-3.4 3.9-4.7zm-106.1-18.5c-.3 2.1.8 4.4 3.4 6.5 5.2 4 14.3 5.4 20.4 3 3-1.2 4.7-3.2 5-5.3l.5-3.4-28.8-4.2z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M138.7 446.8a12 12 0 001.7-.9l1.2-8.2-1.6-.3zm-4.5 1a17.7 17.7 0 003-.6l1.5-10-2.8-.4z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M140.8 431.5c5.2 4 4.5 9.4-1.6 11.8s-15.2 1.1-20.4-3-4.5-9.4 1.6-11.8 15.3-1 20.4 3z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M128.8 443.4a20 20 0 01-9.5-3.7c-2.3-1.8-3.3-3.8-3-5.8s1.8-3.5 4.5-4.6a22 22 0 0119.5 2.9c2.2 1.8 3.3 3.8 3 5.7s-1.8 3.6-4.5 4.6a19.9 19.9 0 01-10 1z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M120.6 430.2a21.9 21.9 0 0119.6 2.8c2 1.6 3.1 3.5 3 5.3l.2-.4c.2-2-.9-4-3.1-5.8a22 22 0 00-19.5-2.8c-2.7 1-4.3 2.7-4.6 4.6a3.1 3.1 0 000 .4c.5-1.7 2-3.1 4.4-4.1zM0 374.4c0 1.6 1 3.1 3 4.3a16 16 0 0014.5 0c2-1.2 3-2.7 3-4.3v-2.2H0z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M15.3 379.6a11.8 11.8 0 002.3-1v-6.4h-2.3zm3.2-1.6a6.4 6.4 0 001.2-1.2v-4.6h-1.2zm-17.4-.9a6.7 6.7 0 001.2 1v-6H1.1z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M17.5 368c4 2.3 4 6 0 8.4a16 16 0 01-14.5 0c-4-2.3-4-6.1 0-8.4a16 16 0 0114.5 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M10.3 377.3a14 14 0 01-6.8-1.7c-1.7-1-2.6-2.2-2.6-3.4s.9-2.5 2.5-3.5a13.8 13.8 0 016.8-1.6 14 14 0 016.9 1.6c1.7 1 2.6 2.2 2.6 3.5s-1 2.5-2.6 3.5a13.8 13.8 0 01-6.8 1.6z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M3.4 369.6a13.8 13.8 0 016.8-1.6 14 14 0 016.9 1.6 4.7 4.7 0 012.5 3 2.1 2.1 0 000-.4c0-1.2-.9-2.5-2.6-3.4a14 14 0 00-6.8-1.7 13.8 13.8 0 00-6.8 1.7c-1.7 1-2.6 2.2-2.6 3.4a3 3 0 000 .4 4.7 4.7 0 012.6-3zm224.2 71.6c0 1.6 1 3 3 4.2a16 16 0 0014.5 0c2-1.1 3-2.6 3-4.2V439h-20.5z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M243 446.4a11.8 11.8 0 002.1-1h.1V439H243zm3-1.6a5.9 5.9 0 001.3-1.2V439H246zm-17.3-.8a6.7 6.7 0 001.2 1v-6h-1.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M245 434.8c4 2.3 4 6 0 8.4a16 16 0 01-14.4 0c-4-2.4-4-6.1 0-8.4a16 16 0 0114.5 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M237.9 444a13.9 13.9 0 01-6.9-1.6c-1.6-1-2.6-2.2-2.6-3.5s1-2.4 2.6-3.4a13.8 13.8 0 016.8-1.6 14 14 0 016.9 1.6c1.6 1 2.6 2.2 2.6 3.5s-1 2.5-2.6 3.4a13.8 13.8 0 01-6.8 1.7z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M231 436.4a13.8 13.8 0 016.8-1.7 14 14 0 016.9 1.7 4.7 4.7 0 012.5 3 3.1 3.1 0 000-.4c0-1.3-.9-2.5-2.6-3.5a14 14 0 00-6.8-1.6 13.8 13.8 0 00-6.8 1.6c-1.7 1-2.6 2.2-2.6 3.4a3 3 0 000 .5 4.6 4.6 0 012.6-3zm91.3-62.9c0 1.5 1 3 3 4.2a16 16 0 0014.6 0c2-1.1 3-2.7 3-4.2v-2.2h-20.6z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M337.7 378.7a12.5 12.5 0 002.2-1h.1v-6.5h-2.3zm3.1-1.7a6.5 6.5 0 001.2-1v-4.7h-1.2zm-17.4-.8a6.7 6.7 0 001.2 1v-6h-1.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M339.8 367c4 2.4 4 6.1 0 8.5a16 16 0 01-14.5 0c-4-2.4-4-6.1 0-8.4a16 16 0 0114.5 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M332.6 376.4a14 14 0 01-6.8-1.7c-1.7-1-2.6-2.2-2.6-3.5s.9-2.4 2.5-3.4a13.8 13.8 0 016.9-1.6 14 14 0 016.8 1.6c1.7 1 2.6 2.2 2.6 3.5s-.9 2.5-2.5 3.4a13.8 13.8 0 01-6.9 1.7z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M325.7 368.6a13.8 13.8 0 016.9-1.6 14 14 0 016.8 1.6 4.7 4.7 0 012.6 3.1 2.1 2.1 0 000-.4c0-1.3-1-2.5-2.6-3.5a14 14 0 00-6.9-1.6 13.8 13.8 0 00-6.8 1.6c-1.6 1-2.6 2.2-2.6 3.4a3 3 0 000 .5 4.6 4.6 0 012.6-3zM202.1 204.5c.5 2.1 2.3 4 5.4 5 6.3 2 15.3.2 20.2-4.1 2.5-2.2 3.4-4.6 3-6.7l-.7-3.4-28.6 5.8z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M227.7 205.3a12.2 12.2 0 001.3-1.3l-1.7-8.2-1.6.3zm-3.8 2.6a18.6 18.6 0 002.6-1.6l-2-10-2.8.6z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M224.5 190.3c6.3 2 7.4 7.3 2.5 11.6s-14 6.3-20.2 4.2-7.3-7.3-2.4-11.7 13.9-6.2 20.1-4.1z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M217.3 205.6a20.1 20.1 0 01-10.2-.3c-2.7-1-4.5-2.5-4.8-4.4s.5-4 2.6-5.9a21.8 21.8 0 0119.4-4c2.7 1 4.4 2.5 4.8 4.4s-.5 4-2.7 5.9a20 20 0 01-9.1 4.3z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M205.1 195.9a21.9 21.9 0 0119.4-4c2.5.8 4.1 2.2 4.7 4a3.3 3.3 0 000-.5c-.4-1.9-2.1-3.5-4.9-4.4a21.8 21.8 0 00-19.3 4c-2.1 2-3 4-2.7 5.9a2.8 2.8 0 00.1.4c-.2-1.8.8-3.7 2.7-5.4z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M102.8 319.3l-19 74.3-.8.5-24.5-99.4.9-.5 43.4 25.1z"
+            fill="url(#prefix__linear-gradient-4)"
+          />
+          <path
+            d="M102 319.8l-19 74.3-43.5-25 19-74.4 43.4 25.1z"
+            className="prefix__cls-14"
+          />
+          <path
+            d="M45.5 361.7L61 300.8l36.3 21-15.5 60.9-36.3-21z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M102 319.8l.8-.5-43.4-25.1-1 .5 43.5 25.1z"
+            className="prefix__cls-3"
+          />
+          <ellipse
+            cx={61.34}
+            cy={376.73}
+            className="prefix__cls-20"
+            rx={2.65}
+            ry={2.2}
+            transform="rotate(-86.2 61.4 376.7)"
+          />
+          <path
+            d="M247.8 223.4c0 2.1 1.5 4.3 4.4 6 5.7 3.2 15 3.1 20.6-.2 2.8-1.6 4.2-3.8 4.2-6v-3.4h-29.2z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M272.8 229.2a12.8 12.8 0 001.5-1v-8.4h-1.6zm-4.3 1.8a18.6 18.6 0 002.9-1v-10.2h-3z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M272.6 213.8c5.7 3.3 5.8 8.6.1 12s-14.8 3.3-20.6 0-5.7-8.6 0-11.9 14.8-3.4 20.5 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M262.5 227.4a20.3 20.3 0 01-10-2.3c-2.4-1.4-3.8-3.3-3.8-5.2s1.3-3.8 3.8-5.3a21.9 21.9 0 0119.7 0c2.5 1.4 3.9 3.2 3.9 5.2s-1.3 3.8-3.8 5.2a20 20 0 01-9.8 2.4z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M252.5 215.5a21.9 21.9 0 0119.7 0c2.3 1.2 3.7 3 3.9 4.7v-.4c0-2-1.4-3.8-4-5.2a21.9 21.9 0 00-19.7 0c-2.4 1.5-3.8 3.3-3.8 5.3v.4c.3-1.8 1.6-3.5 3.9-4.8zM214.6 249c-.1 2.2 1.2 4.5 4 6.3 5.5 3.5 14.7 4 20.5 1 3-1.5 4.5-3.5 4.6-5.7l.2-3.5-29.1-1.5z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M239.1 256.4a11.4 11.4 0 001.6-1l.5-8.4h-1.6zm-4.3 1.4a17.7 17.7 0 002.9-.8l.5-10.2-2.8-.1z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M239.9 241c5.5 3.6 5.2 9-.6 12s-15 2.4-20.6-1.2-5.2-8.9.6-11.9 15-2.5 20.6 1.1z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M229 254a20.2 20.2 0 01-9.8-2.9c-2.4-1.5-3.6-3.5-3.5-5.4s1.5-3.7 4-5a20 20 0 0110-1.8 20.1 20.1 0 019.8 2.8c2.4 1.6 3.7 3.5 3.6 5.5s-1.6 3.7-4.1 5a20 20 0 01-10 1.8z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M219.6 241.5a21.9 21.9 0 0119.7 1c2.3 1.5 3.5 3.2 3.6 5v-.4c.2-2-1-4-3.5-5.5a20.1 20.1 0 00-9.8-2.8 20 20 0 00-10 1.8c-2.5 1.3-4 3-4 5v.4c.3-1.7 1.7-3.3 4-4.5zm6.8-17.7c-.1 2.2 1.2 4.4 4 6.2 5.5 3.6 14.7 4 20.6 1.1 2.9-1.5 4.4-3.6 4.5-5.7l.2-3.5-29.1-1.5z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M251 231.1a11 11 0 001.6-1l.4-8.3-1.6-.1zm-4.4 1.5a18.9 18.9 0 003-.9l.5-10.1-2.9-.1z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M251.7 215.7c5.5 3.6 5.3 9-.6 12s-15 2.4-20.5-1.1-5.3-9 .5-12 15-2.5 20.6 1.1z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M240.8 228.7a20.2 20.2 0 01-9.8-2.9c-2.4-1.5-3.7-3.5-3.6-5.4s1.6-3.7 4.1-5a19.9 19.9 0 0110-1.8 20.2 20.2 0 019.8 2.8c2.4 1.6 3.6 3.5 3.5 5.5s-1.5 3.7-4 5a19.9 19.9 0 01-10 1.8z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M231.5 216.3a19.9 19.9 0 0110-1.9 20.1 20.1 0 019.7 2.9c2.3 1.4 3.5 3.2 3.6 5a2.1 2.1 0 000-.4c.1-2-1.1-4-3.5-5.5a20.2 20.2 0 00-9.8-2.9 19.9 19.9 0 00-10 1.9c-2.5 1.3-4 3-4 5a3 3 0 000 .4c.2-1.8 1.6-3.4 4-4.6zm-8.2 20.6c-.1 2.1 1.2 4.4 4 6.2 5.5 3.6 14.7 4 20.6 1 2.9-1.4 4.4-3.5 4.5-5.7l.2-3.4-29.1-1.6z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M247.8 244.2a11.2 11.2 0 001.7-1l.4-8.4h-1.6zm-4.3 1.4a18.1 18.1 0 003-.8l.5-10.2-2.9-.1z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M248.6 228.8c5.5 3.5 5.3 8.9-.6 11.9s-15 2.5-20.5-1.1-5.3-9 .5-12 15-2.4 20.6 1.2z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M237.7 241.8a20.2 20.2 0 01-9.8-3c-2.4-1.5-3.7-3.4-3.6-5.4s1.6-3.7 4.1-5a19.9 19.9 0 0110-1.8 20.2 20.2 0 019.8 2.9c2.4 1.5 3.7 3.5 3.6 5.4s-1.6 3.7-4.1 5a20 20 0 01-10 1.8z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M228.4 229.3a19.9 19.9 0 0110-1.8 20.1 20.1 0 019.7 2.8c2.3 1.5 3.5 3.3 3.6 5v-.4c.2-2-1.1-3.9-3.5-5.4a20.2 20.2 0 00-9.8-3 19.9 19.9 0 00-10 2c-2.5 1.2-4 3-4 5v.4c.2-1.8 1.6-3.4 4-4.6z"
+            className="prefix__cls-7"
+          />
+          <g clipPath="url(#prefix__clip-path-8)">
+            <path
+              d="M205.1 230c.8 2 2.9 3.5 6.1 4 6.5 1.1 15.2-2 19.4-7.1 2-2.5 2.6-5 1.9-7l-1.2-3.3-27.4 10z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M230.6 227a12.2 12.2 0 001-1.6l-2.8-7.9-1.5.6zm-3.4 3a19.4 19.4 0 002.3-2l-3.5-9.5-2.7 1z"
+              className="prefix__cls-22"
+            />
+            <path
+              d="M225.2 212.5c6.5 1 8.4 6.1 4.2 11.1s-12.9 8.3-19.4 7.2-8.3-6.2-4.2-11.2 12.9-8.3 19.4-7.1z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M220.3 228.7a20 20 0 01-10.1 1.2c-2.8-.5-4.8-1.7-5.5-3.6s0-4 1.8-6.2a21.8 21.8 0 0118.5-6.8c2.8.5 4.8 1.8 5.4 3.6s0 4-1.7 6.2a19.8 19.8 0 01-8.4 5.6z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M206.8 221a21.8 21.8 0 0118.5-6.8c2.7.4 4.5 1.6 5.3 3.2a3.5 3.5 0 00-.1-.5c-.7-1.8-2.6-3-5.5-3.5a21.8 21.8 0 00-18.5 6.8c-1.8 2.2-2.4 4.4-1.8 6.2l.2.4c-.4-1.8.2-3.8 2-5.8z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M210.8 211.1c-.1 2.2 1.1 4.4 3.8 6.3a22.7 22.7 0 0020.6 1.6c3-1.4 4.5-3.4 4.7-5.6l.2-3.4-29-2.3z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M235.2 219a12.8 12.8 0 001.6-1l.7-8.3-1.6-.1zm-4.4 1.4a18.2 18.2 0 003-.8l.7-10-2.8-.3z"
+              className="prefix__cls-22"
+            />
+            <path
+              d="M236.3 203.7c5.5 3.7 5 9-.9 11.9s-15 2-20.5-1.7-5-9 .9-11.9 15-2 20.5 1.7z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M225 216.4a20 20 0 01-9.6-3.2c-2.4-1.6-3.6-3.6-3.5-5.5s1.7-3.7 4.3-4.9a21.9 21.9 0 0119.6 1.6c2.4 1.6 3.6 3.6 3.5 5.5s-1.7 3.7-4.2 4.9a20.1 20.1 0 01-10 1.6z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M216 203.7a21.8 21.8 0 0119.8 1.5c2.2 1.5 3.4 3.3 3.4 5.1a3.4 3.4 0 000-.4c.2-2-1-3.9-3.4-5.5a21.9 21.9 0 00-19.6-1.6c-2.6 1.2-4.1 3-4.2 4.9a3 3 0 000 .4c.3-1.7 1.7-3.3 4-4.4z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M56 125.1l167.9-.2 4.3 2.8L43.4 244.5l-4.3-2.9L56 125.1z"
+              className="prefix__cls-14"
+            />
+            <path
+              d="M65.1 133.4l156.7-.2-15.3 105.6L50 239l15-105.6z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M228 127.7l-167.7.2-14 96.3-2.9 20.3 168-.2 16.8-116.6zm-163 5.7l156.7-.2-13 90.8-156.7.2z"
+              fill="url(#prefix__linear-gradient-5)"
+            />
+            <path
+              d="M56 125.1l4.3 2.8 167.9-.2-4.3-2.8-168 .2z"
+              className="prefix__cls-3"
+            />
+            <ellipse
+              cx={140.68}
+              cy={234.89}
+              className="prefix__cls-26"
+              rx={5.04}
+              ry={4.37}
+              transform="rotate(-32.8 140.7 234.9)"
+            />
+            <path
+              d="M111.7 232.5l78.2 10.7.7 2.6-27.7 12-50.5-22.7-.7-2.6z"
+              fill="url(#prefix__linear-gradient-6)"
+            />
+            <path
+              d="M139.4 220.5l50.5 22.7-27.6 12-50.6-22.7 27.7-12z"
+              className="prefix__cls-20"
+            />
+            <path
+              d="M139.4 221.9l41.8 18.7-24.6 10.6-41.8-18.7 24.6-10.6z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M162.3 255.2l.6 2.5-50.5-22.6-.7-2.6 50.6 22.7z"
+              className="prefix__cls-14"
+            />
+            <ellipse
+              cx={171.94}
+              cy={247.74}
+              className="prefix__cls-14"
+              rx={1.43}
+              ry={2.29}
+              transform="rotate(-89.2 172 247.7)"
+            />
+            <path
+              d="M114.4 249.2c.5 2.1 2.3 4 5.4 5 6.3 2.1 15.3.3 20.2-4 2.5-2.2 3.4-4.6 3-6.7l-.7-3.4-28.5 5.7z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M140 250.2a11.4 11.4 0 001.3-1.4l-1.6-8.2-1.6.3zm-3.8 2.5a19.1 19.1 0 002.6-1.6l-2-10-2.8.7z"
+              className="prefix__cls-22"
+            />
+            <path
+              d="M137 235c6.2 2.2 7.2 7.4 2.3 11.8s-14 6.1-20.2 4-7.3-7.4-2.4-11.7 14-6.1 20.2-4z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M129.6 250.4a20.1 20.1 0 01-10.2-.4c-2.7-1-4.4-2.5-4.8-4.4s.6-4 2.7-5.8a21.9 21.9 0 0119.3-3.9c2.8 1 4.5 2.5 4.9 4.4s-.6 4-2.7 5.8a19.8 19.8 0 01-9.2 4.3z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M117.5 240.6a20 20 0 019.2-4.2 20.2 20.2 0 0110.1.3c2.5.9 4.2 2.3 4.7 4v-.4c-.4-1.9-2.1-3.5-4.9-4.4a21.9 21.9 0 00-19.3 3.9c-2.1 1.9-3.1 4-2.7 5.9l.1.4c-.2-1.8.8-3.7 2.8-5.5z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M161.1 314.6l7.4-11.4-3.4-6.5a8.3 8.3 0 00-7-4.5l-6.5-.3-7.3 11.4z"
+              className="prefix__cls-12"
+            />
+            <path
+              d="M130.7 302.7l13.6.6-19.4-37.7-13.6-.7 19.4 37.8z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M136.3 313.4l24.8 1.2-3.3-6.5a8.3 8.3 0 00-7-4.5l-6.6-.3-13.5-.6z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M151.6 292l-7.3 11.3-19.4-37.7 7.3-11.4 19.4 37.7zm6.2 16.1l7.3-11.4 3.4 6.5-7.4 11.4-3.3-6.5z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M144.4 309.7a2 2 0 00-.2-1.9 6 6 0 00-4.6-3 2 2 0 00-1.8.7l-1.2 1.9 6.7 4z"
+              fill="url(#prefix__linear-gradient-7)"
+            />
+            <path
+              d="M142 305.6a5.5 5.5 0 00-2.4-.8 2 2 0 00-1.8.8l-1.2 1.8 3.1 1.9z"
+              className="prefix__cls-3"
+            />
+            <path
+              d="M138.5 306.6a6 6 0 014.6 3c.8 1.5 0 2.7-1.7 2.6a6 6 0 01-4.7-3c-.7-1.5 0-2.7 1.8-2.6z"
+              className="prefix__cls-29"
+            />
+            <path
+              d="M146 338.6l7.3-11.5-3.4-6.5a8.3 8.3 0 00-7-4.5l-6.5-.3-7.3 11.4z"
+              className="prefix__cls-12"
+            />
+            <path
+              d="M115.5 326.6l13.6.6-19.4-37.7-13.6-.7 19.4 37.8z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M121 337.4l25 1.2-3.4-6.6a8.3 8.3 0 00-7-4.5l-6.5-.3-13.6-.7z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M136.4 315.8l-7.3 11.4-19.4-37.7L117 278l19.4 37.7zm6.2 16.2l7.3-11.4 3.4 6.5-7.4 11.4-3.3-6.5z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M129.2 333.6a2 2 0 00-.2-1.9 6 6 0 00-4.6-3 2 2 0 00-1.8.8l-1.2 1.8 6.7 4z"
+              fill="url(#prefix__linear-gradient-8)"
+            />
+            <path
+              d="M126.8 329.5a5.5 5.5 0 00-2.4-.8 2 2 0 00-1.8.8l-1.2 1.8 3.1 1.9z"
+              className="prefix__cls-3"
+            />
+            <path
+              d="M123.3 330.5a6 6 0 014.6 3c.8 1.5 0 2.7-1.7 2.6a6 6 0 01-4.6-3c-.8-1.5 0-2.7 1.7-2.6z"
+              className="prefix__cls-29"
+            />
+            <path
+              d="M115.1 291.6l24.5-38-19.7-38.2-24.5 38 19.7 38.2z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M95.4 253.3l24.5-38-45.1-2.2-24.5 38 45.1 2.2z"
+              className="prefix__cls-12"
+            />
+            <path
+              d="M115.1 291.6L70 289.4 50.3 251l45.1 2.2 19.7 38.3z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M89.6 242l17.7-27.5-1.8 7.5-14.6 22.6-1.3-2.7z"
+              className="prefix__cls-22"
+            />
+            <path
+              d="M89.6 242l17.7-27.5L92 185l-17.7 27.4L89.6 242z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M74.4 212.4L92.1 185l-32.6-1.6-17.7 27.4 32.6 1.6z"
+              className="prefix__cls-12"
+            />
+            <path
+              d="M44.4 205l14.5-22.7 26.9 1.3-14.6 22.6-26.8-1.3z"
+              fill="#4dc8d0"
+            />
+            <path
+              d="M89.6 242l-32.7-1.7-15.1-29.5 32.6 1.6L89.6 242z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M67.3 227.4a3.6 3.6 0 00-.2-3.6 11.3 11.3 0 00-8.6-5.5 3.8 3.8 0 00-3.3 1l-1 1.5 12.4 7.6z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M58.5 218.3a3.8 3.8 0 00-3.3 1l-1 1.5 4.1 2.5 3.6.9 2.3-3.7a10.9 10.9 0 00-5.7-2.3z"
+              className="prefix__cls-12"
+            />
+            <path
+              d="M57.7 219.5a11.3 11.3 0 018.6 5.5c1.5 2.9 0 5.1-3.2 5a11.3 11.3 0 01-8.7-5.5c-1.4-3 0-5.2 3.3-5z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M91.2 211l3.5 1.9-2.8 4.3-.7-6.3z"
+              className="prefix__cls-26"
+            />
+            <path
+              d="M94.5 209c-1.6.8-3.4 0-4.4-2a10 10 0 01.4-9.1 4.6 4.6 0 011.7-1.6c1.7-.9 3.4-.1 4.5 1.9a10 10 0 01-.5 9.2 4.6 4.6 0 01-1.7 1.6z"
+              className="prefix__cls-32"
+            />
+            <path
+              d="M91.1 198.3a9.3 9.3 0 00-.4 8.4c1.3 2.4 3.4 2.5 5 .2a9.3 9.3 0 00.3-8.4c-1.2-2.4-3.4-2.5-4.9-.3z"
+              className="prefix__cls-3"
+            />
+            <g clipPath="url(#prefix__clip-path-9)">
+              <path
+                d="M96.5 208.8l-6.3-12.4m-.1 11.2l6.5-10M93 210.1l.8-15m7.2 7.5H85.7"
+                className="prefix__cls-34"
+              />
+            </g>
+            <path
+              d="M92.3 200.6a4.4 4.4 0 00-.2 4 1.2 1.2 0 002.3 0 4.4 4.4 0 00.2-4 1.2 1.2 0 00-2.3 0z"
+              className="prefix__cls-3"
+            />
+            <path
+              d="M92.7 201.3a2.8 2.8 0 00-.1 2.5.8.8 0 001.5.1 2.8 2.8 0 000-2.6.8.8 0 00-1.4 0zm-6.9 20.9c-1.7.9-3.5.1-4.5-1.9a10 10 0 01.5-9.1 4.5 4.5 0 011.7-1.7c1.6-.8 3.4 0 4.4 2a10 10 0 01-.4 9.1 4.6 4.6 0 01-1.7 1.6z"
+              className="prefix__cls-32"
+            />
+            <path
+              d="M82.4 211.6a9.3 9.3 0 00-.4 8.4c1.2 2.4 3.4 2.5 4.9.2a9.3 9.3 0 00.4-8.4c-1.3-2.4-3.5-2.5-5-.3z"
+              className="prefix__cls-3"
+            />
+            <g clipPath="url(#prefix__clip-path-10)">
+              <path
+                d="M87.8 222l-6.4-12.3m0 11.2l6.4-10m-3.6 12.5l.8-15m7.2 7.5H77"
+                className="prefix__cls-34"
+              />
+            </g>
+            <path
+              d="M83.6 213.8a4.3 4.3 0 00-.2 4 1.2 1.2 0 002.3.1 4.4 4.4 0 00.2-4 1.2 1.2 0 00-2.3 0z"
+              className="prefix__cls-3"
+            />
+            <path
+              d="M84 214.6a2.8 2.8 0 00-.2 2.5.8.8 0 001.5 0 2.8 2.8 0 00.1-2.5.8.8 0 00-1.5 0z"
+              className="prefix__cls-32"
+            />
+            <path
+              d="M88.9 235l14.9-23-1.7-3.3L87.2 232l1.8 3z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M89 233.8l14-21.7-1-2.2-14 21.7 1 2.3z"
+              className="prefix__cls-3"
+            />
+            <g clipPath="url(#prefix__clip-path-11)">
+              <path
+                d="M88.2 233.3l14.6-22.8m-2.9 1.6l1.5 3m-3.2-.3l1.5 3m-3.3-.2l1.6 3m-3.3-.3l1.5 3M93 223l1.5 3m-3.3-.3l1.5 3m-3.3-.3l1.6 3"
+                className="prefix__cls-34"
+              />
+            </g>
+            <path
+              d="M71.2 206.2l3.2 6.2L92.1 185l-6.3-1.4-14.6 22.6z"
+              className="prefix__cls-22"
+            />
+            <path
+              d="M44.4 205l-2.6 5.8 32.6 1.6-3.2-6.2-26.8-1.3z"
+              className="prefix__cls-12"
+            />
+            <path
+              d="M53.5 197.2a8.8 8.8 0 016.6 4.3c1.2 2.2 0 4-2.5 3.8A8.8 8.8 0 0151 201c-1.1-2.2 0-4 2.6-3.8z"
+              className="prefix__cls-26"
+            />
+            <path
+              d="M56.2 193a8.8 8.8 0 016.7 4.3c1.1 2.3 0 4-2.5 3.9a8.8 8.8 0 01-6.7-4.3c-1.2-2.3 0-4 2.5-3.9z"
+              className="prefix__cls-26"
+            />
+            <path
+              d="M59 188.8a8.8 8.8 0 016.7 4.3c1.1 2.2 0 4-2.5 3.8a8.7 8.7 0 01-6.7-4.3c-1.2-2.2 0-4 2.5-3.8z"
+              className="prefix__cls-26"
+            />
+            <path
+              d="M61.7 184.6a8.8 8.8 0 016.7 4.3c1.1 2.3 0 4-2.5 3.9a8.8 8.8 0 01-6.7-4.4c-1.2-2.2 0-4 2.5-3.8z"
+              className="prefix__cls-26"
+            />
+            <path
+              d="M64.5 180.4a8.8 8.8 0 016.6 4.3c1.2 2.3 0 4-2.5 3.9a8.8 8.8 0 01-6.7-4.3c-1.1-2.3 0-4 2.6-3.9z"
+              className="prefix__cls-26"
+            />
+            <path
+              d="M67.2 176.2a8.8 8.8 0 016.7 4.3c1.1 2.3 0 4-2.5 3.9a8.8 8.8 0 01-6.7-4.3c-1.2-2.3 0-4 2.5-3.9zm-8.7 43.1l-4.1-8s4.3-1.5 3.2-6"
+              className="prefix__cls-26"
+            />
+            <path
+              d="M91 244.6l-1.4-2.7-32.7-1.6 7.2 3 26.8 1.3z"
+              className="prefix__cls-12"
+            />
+            <path
+              d="M91.4 295l3.9-6a8.4 8.4 0 00-2.9-.7c-3-.1-4.3 2-3 4.6l.5.9-2.2-.1c-1.3-2.7-.7-5.5 1.6-6.7a6 6 0 013.2-.5 10.4 10.4 0 013.8 1 12 12 0 015.6 5l1.8 3.5-5 7.6L97 300a12 12 0 00-5.6-5.1zm-3.9.9a9 9 0 013.4 1l-4.5 7-1.4-2.5-.5-1c-1.3-2.6 0-4.6 3-4.5z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M73.4 260l5-7.5 18.5 36-4.9 7.6-18.6-36z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M87.6 294a6.2 6.2 0 00-3.1.6 4.2 4.2 0 00-1.4 1v.4l-18.7-36.4 9 .4 18 35a10.6 10.6 0 00-3.8-1z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M69.3 252l-4.9 7.6 9 .4 5-7.5-9-.4z"
+              className="prefix__cls-12"
+            />
+            <path
+              d="M85 301.4l-2.2-.1c-1.3-2.8-.7-5.5 1.6-6.7a6.2 6.2 0 013.2-.6 12.2 12.2 0 019.4 6.1l.5 1-2.2-.2a10.3 10.3 0 00-7.8-5c-3-.1-4.3 1.9-3 4.5z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M86.3 304l-2.1-.2-1.3-2.5H85l1.3 2.6zm12.5-.4l-2.1-.1-1.4-2.6 2.2.2 1.3 2.5z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M96.3 287.5a12 12 0 015.6 5l-4.9 7.6a12 12 0 00-5.6-5l5-7.6z"
+              className="prefix__cls-12"
+            />
+            <path
+              d="M74.8 267a2 2 0 00-.1-1.8 6 6 0 00-4.7-3 2 2 0 00-1.8.7l-1.2 1.9 6.7 4z"
+              fill="url(#prefix__linear-gradient-9)"
+            />
+            <path
+              d="M72.4 263a5.5 5.5 0 00-2.4-.8 2 2 0 00-1.8.7l-1.2 1.9 3.2 1.9z"
+              className="prefix__cls-3"
+            />
+            <path
+              d="M69 264a6 6 0 014.5 3c.8 1.5 0 2.7-1.7 2.6a6 6 0 01-4.6-3c-.8-1.6 0-2.8 1.7-2.7z"
+              className="prefix__cls-29"
+            />
+            <path
+              d="M118 276.3a2 2 0 01-1.4-1.2 6 6 0 01.2-5.5 2 2 0 011.7-1h2.2l-.7 7.8z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M116 272a5.4 5.4 0 01.8-2.4 2 2 0 011.7-1h2.2l-.4 3.7z"
+              className="prefix__cls-12"
+            />
+            <path
+              d="M118.9 269.7a6 6 0 00-.3 5.5c.8 1.6 2.2 1.7 3.2.2a6 6 0 00.3-5.5c-.8-1.6-2.3-1.6-3.2-.2z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M124.3 267.4a2 2 0 01-1.5-1.2 6 6 0 01.3-5.4 2 2 0 011.7-1.1h2.2l-.7 7.8z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M122.3 263.2a5.6 5.6 0 01.8-2.4 2 2 0 011.7-1.1h2.2l-.4 3.7z"
+              className="prefix__cls-12"
+            />
+            <path
+              d="M125.2 260.8a6.1 6.1 0 00-.3 5.5c.8 1.6 2.2 1.7 3.2.2a6.1 6.1 0 00.2-5.5c-.8-1.6-2.2-1.6-3.2-.2z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M130.6 258.6a2 2 0 01-1.5-1.3 6 6 0 01.3-5.4 2 2 0 011.6-1.1h2.2l-.7 7.8z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M128.6 254.3a5.4 5.4 0 01.8-2.4 2 2 0 011.6-1.1h2.2l-.3 3.8z"
+              className="prefix__cls-12"
+            />
+            <path
+              d="M131.4 252a6 6 0 00-.2 5.5c.8 1.6 2.2 1.6 3.1.1a6 6 0 00.3-5.5c-.8-1.6-2.2-1.6-3.2-.1z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M104.6 264.7l16.3-43.4h-1.6l-20.6 32 5.9 11.4z"
+              className="prefix__cls-12"
+            />
+            <path
+              d="M106.1 264.8l20.7-32-6-11.5-20.6 32 6 11.5z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M100.2 253.4l-1.5-.1 5.9 11.4 1.5.1-5.9-11.4z"
+              className="prefix__cls-4"
+            />
+            <g clipPath="url(#prefix__clip-path-12)">
+              <path
+                d="M98.3 260.5l27.3-42.3m-26.1 44.6l27.3-42.3M100.7 265l27.2-42.2m-26.1 44.6l27.3-42.3"
+                className="prefix__cls-34"
+              />
+            </g>
+            <path
+              d="M128 245.2a1.6 1.6 0 00-.1 1.4c.2.5.6.5.8 0a1.6 1.6 0 000-1.4c-.1-.4-.5-.4-.8 0zm-2.8 4.2a1.6 1.6 0 000 1.5.5.5 0 00.8 0 1.7 1.7 0 000-1.5c-.2-.4-.5-.4-.8 0zm-2.7 4.3a1.6 1.6 0 000 1.4.5.5 0 00.8 0 1.6 1.6 0 000-1.5c-.2-.3-.5-.3-.8 0zm-2.7 4.2a1.6 1.6 0 00-.1 1.5.5.5 0 00.8 0 1.6 1.6 0 00.1-1.5.5.5 0 00-.8 0zm-2.8 4.2a1.6 1.6 0 000 1.5c.2.4.5.4.8 0a1.6 1.6 0 000-1.5c-.1-.4-.5-.4-.8 0zm-2.7 4.3a1.6 1.6 0 000 1.4.5.5 0 00.8 0 1.7 1.7 0 000-1.4c-.1-.4-.5-.4-.8 0zm-2.7 4.2a1.6 1.6 0 000 1.5.5.5 0 00.8 0 1.6 1.6 0 000-1.5c-.2-.4-.6-.4-.8 0z"
+              className="prefix__cls-3"
+            />
+            <path
+              d="M179 246.6c0 1.5 1 3 3 4.1a16 16 0 0014.5-.1c2-1.2 3-2.8 3-4.3V244l-20.6.3z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M194.3 251.6a11.7 11.7 0 002.2-1l.2-.1-.1-6.4h-2.4zm3.2-1.7a6 6 0 001.1-1.2v-4.6h-1.1zm-17.5-.7a6.8 6.8 0 001.3 1l-.1-6H180z"
+              className="prefix__cls-22"
+            />
+            <path
+              d="M196.4 239.9c4 2.2 4 6 .1 8.4a16 16 0 01-14.5.2c-4-2.3-4.1-6-.2-8.5a16 16 0 0114.6-.1z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M189.3 249.3a14 14 0 01-6.9-1.6c-1.7-1-2.6-2.2-2.6-3.4s.8-2.6 2.5-3.5a15.1 15.1 0 0113.7-.2c1.6 1 2.6 2.2 2.6 3.5s-.9 2.5-2.5 3.4a13.8 13.8 0 01-6.8 1.8z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M182.3 241.6a15.1 15.1 0 0113.7-.1 4.7 4.7 0 012.6 3 3.1 3.1 0 000-.5c0-1.2-1-2.5-2.7-3.4a15.1 15.1 0 00-13.7.2c-1.6 1-2.5 2.2-2.5 3.4a3 3 0 000 .5 4.6 4.6 0 012.6-3z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M193.4 240.2c-.2 2.2 1 4.5 3.6 6.4a22.7 22.7 0 0020.5 2.3c3-1.4 4.7-3.4 4.9-5.5l.3-3.5-29-3.1z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M217.5 248.9a12.6 12.6 0 001.7-1l.9-8.2-1.6-.2zm-4.4 1.1a18.6 18.6 0 003-.6l1-10-2.8-.4z"
+              className="prefix__cls-22"
+            />
+            <path
+              d="M219.1 233.5c5.3 4 4.8 9.2-1.2 12s-15.2 1.6-20.5-2.3-4.8-9.2 1.2-11.9 15.2-1.7 20.5 2.2z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M207.5 245.9a20.2 20.2 0 01-9.6-3.4c-2.3-1.7-3.5-3.7-3.3-5.6s1.8-3.6 4.4-4.8a20 20 0 0110-1.3 20.2 20.2 0 019.6 3.4c2.3 1.7 3.4 3.7 3.2 5.7s-1.7 3.6-4.3 4.7a20 20 0 01-10 1.3z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M198.9 233a21.9 21.9 0 0119.6 2.1c2.2 1.6 3.3 3.4 3.3 5.2a3.3 3.3 0 000-.4c.3-2-.9-4-3.2-5.6a20.2 20.2 0 00-9.6-3.4 20 20 0 00-10 1.2c-2.6 1.2-4.1 2.9-4.3 4.8v.4c.3-1.8 1.8-3.3 4.2-4.3zm-139.3 4c-.2 2 1.1 4.3 3.8 6.2a22.7 22.7 0 0020.6 1.4c3-1.5 4.5-3.5 4.6-5.7l.3-3.4-29-2z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M84 244.6a11.8 11.8 0 001.6-1l.6-8.3-1.6-.2zm-4.3 1.4a17.9 17.9 0 002.9-.8l.7-10.1-2.9-.2z"
+              className="prefix__cls-22"
+            />
+            <path
+              d="M85 229.2c5.5 3.7 5.1 9-.8 12s-15 2.2-20.5-1.5-5.1-9 .7-11.9 15.1-2.3 20.6 1.4z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M73.9 242a20.1 20.1 0 01-9.7-3c-2.4-1.6-3.7-3.6-3.5-5.5s1.6-3.7 4.1-5a19.8 19.8 0 0110-1.6 20 20 0 019.7 3c2.4 1.6 3.7 3.6 3.5 5.5s-1.6 3.7-4.1 5a20 20 0 01-10 1.6z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M64.8 229.4a20 20 0 0110-1.7 20.1 20.1 0 019.7 3c2.2 1.5 3.4 3.3 3.5 5.1v-.4c.2-2-1-3.9-3.5-5.5a20 20 0 00-9.7-3 19.8 19.8 0 00-10 1.7c-2.5 1.2-4 3-4.1 4.9v.4c.3-1.7 1.7-3.3 4-4.5zm182.6 41.4c.1 2.3 1.7 4.6 4.8 6.2a24 24 0 0021.9-.7c3-1.9 4.4-4.2 4.3-6.5l-.1-3.7-31 1z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M274 276.3a12.5 12.5 0 001.7-1.2l-.3-8.9h-1.7zm-4.4 2a19.9 19.9 0 003-1.2l-.3-10.8-3 .1z"
+              className="prefix__cls-22"
+            />
+            <path
+              d="M273.5 260c6.2 3.2 6.4 9 .5 12.6s-15.7 4-22 .7-6.3-9-.4-12.6 15.7-4 21.9-.8z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M263.1 274.7a21.4 21.4 0 01-10.6-2.2c-2.7-1.4-4.2-3.3-4.3-5.4s1.3-4 3.9-5.7a21 21 0 0110.4-2.8 21.4 21.4 0 0110.6 2.2c2.6 1.4 4.2 3.3 4.2 5.4s-1.3 4-3.8 5.6a21.3 21.3 0 01-10.4 2.9z"
+              className="prefix__cls-4"
+            />
+            <path
+              d="M252.1 262.4a23.2 23.2 0 0121-.7c2.5 1.3 4 3 4.3 5a3.7 3.7 0 000-.5c-.1-2-1.6-4-4.3-5.4a21.4 21.4 0 00-10.6-2.2 21 21 0 00-10.4 2.8c-2.5 1.7-4 3.7-3.8 5.7a3.4 3.4 0 000 .4c.1-1.8 1.4-3.7 3.8-5.1z"
+              className="prefix__cls-7"
+            />
+            <path
+              d="M309 178.2l32.4 44-55.5 60.7-1.4.8 23.2-104.8 1.4-.7z"
+              className="prefix__cls-3"
+            />
+            <path
+              d="M307.7 179l32.3 43.9-55.5 60.8-32.3-44 55.5-60.8z"
+              className="prefix__cls-14"
+            />
+            <path
+              d="M257 241.2l47-51.4 26.8 36.4-47 51.4-26.7-36.4zm83-18.3l1.4-.8-55.5 60.8-1.4.8 55.5-60.8z"
+              className="prefix__cls-7"
+            />
+            <ellipse
+              cx={321.26}
+              cy={205.46}
+              className="prefix__cls-20"
+              rx={2.59}
+              ry={2.22}
+              transform="rotate(-62.8 321.3 205.5)"
+            />
+          </g>
+          <path
+            d="M142 249.8c.8 2 3 3.6 6.2 4 6.5 1.1 15.1-2.1 19.3-7.2 2-2.6 2.6-5 1.8-7.1l-1.2-3.3-27.3 10.4z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M167.5 246.6a13 13 0 001-1.6l-3-7.8-1.4.6zm-3.4 3.1a18.4 18.4 0 002.3-2l-3.6-9.5-2.7 1z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M162 232.2c6.4 1 8.4 6 4.2 11.1s-12.7 8.4-19.2 7.3-8.5-6-4.3-11 12.7-8.4 19.2-7.4z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M157.2 248.5a20.2 20.2 0 01-10 1.3c-3-.5-4.9-1.7-5.6-3.5s0-4 1.7-6.3a21.9 21.9 0 0118.5-7c2.8.5 4.8 1.8 5.5 3.6s0 4-1.7 6.2a20 20 0 01-8.4 5.7z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M143.7 240.9a21.8 21.8 0 0118.4-7c2.7.4 4.5 1.5 5.3 3.1l-.1-.4c-.7-1.8-2.6-3-5.5-3.5a21.9 21.9 0 00-18.4 7c-1.8 2.2-2.4 4.4-1.8 6.2l.2.3c-.4-1.7.2-3.7 1.8-5.7zm-20.4 20c.2 2.1 1.9 4.2 4.9 5.5 6 2.8 15.1 2 20.5-1.9 2.6-2 3.8-4.2 3.6-6.3l-.3-3.5-29 2.7z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M148.7 264.5a12.4 12.4 0 001.4-1.2l-.8-8.3-1.5.1zm-4.1 2.1a19.3 19.3 0 002.8-1.3l-1-10-2.9.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M147.2 249.2c6 2.7 6.5 8 1.2 11.8s-14.6 4.7-20.6 2-6.5-8-1.1-11.9 14.5-4.7 20.5-2z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M138.3 263.6a20 20 0 01-10.1-1.4c-2.6-1.2-4.2-3-4.4-4.9s1-3.9 3.3-5.5a20 20 0 019.6-3.3 20.2 20.2 0 0110.1 1.5c2.6 1.2 4.2 3 4.3 4.9s-1 3.8-3.2 5.5a20 20 0 01-9.6 3.2z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M127.2 252.7a19.9 19.9 0 019.6-3.3 20 20 0 0110 1.4c2.5 1.1 4 2.7 4.3 4.4v-.4c-.1-2-1.7-3.7-4.3-4.9a20.2 20.2 0 00-10-1.4 20 20 0 00-9.7 3.3c-2.3 1.6-3.4 3.6-3.3 5.5l.1.4c0-1.7 1.2-3.5 3.3-5zm-73.8-21.3c.2 1.5 1.4 3 3.5 3.8a16 16 0 0014.5-1.7c1.8-1.4 2.6-3 2.4-4.6l-.3-2.2-20.4 2.5z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M69.3 234.7a12.3 12.3 0 002-1.2.4.4 0 01.1-.1l-.7-6.4-2.4.3zm2.9-2a6 6 0 001-1.3l-.6-4.6-1.1.1zM54.8 234a7.2 7.2 0 001.3.9l-.7-6-1.2.1z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M70 222.9c4.3 1.8 4.8 5.5 1 8.3a16 16 0 01-14.4 1.8c-4.2-1.8-4.7-5.6-1-8.3a16 16 0 0114.4-1.8z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M64 233a13.9 13.9 0 01-7-.8c-1.8-.7-2.9-1.8-3-3.1s.6-2.6 2.1-3.8a15.2 15.2 0 0113.6-1.6c1.8.7 2.8 1.9 3 3.1s-.6 2.6-2.1 3.8A13.8 13.8 0 0164 233z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M56.2 226.2a13.7 13.7 0 016.6-2.4 13.9 13.9 0 017 .7 4.7 4.7 0 012.9 2.8 2.2 2.2 0 000-.5c-.2-1.3-1.2-2.4-3-3.1a15.2 15.2 0 00-13.6 1.6c-1.5 1.2-2.2 2.5-2.1 3.8a3.1 3.1 0 000 .4 4.6 4.6 0 012.2-3.3zm72.8 21c0 1.5 1 3 3 4.2a16 16 0 0014.6-.1c2-1.2 3-2.7 3-4.2v-2.3l-20.6.1z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M144.4 252.3a11 11 0 002.2-1v-6.5h-2.2zm3.1-1.7a6.5 6.5 0 001.2-1.1v-4.7h-1.2zm-17.4-.8a6.7 6.7 0 001.2 1v-6h-1.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M146.5 240.6c4 2.3 4 6 0 8.4a16 16 0 01-14.5 0c-4-2.2-4-6 0-8.3a16 16 0 0114.5-.1z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M139.3 250a14 14 0 01-6.8-1.7c-1.7-1-2.7-2.2-2.7-3.4s1-2.5 2.6-3.5a15.2 15.2 0 0113.6 0c1.7 1 2.7 2.1 2.7 3.4s-1 2.5-2.6 3.5a13.8 13.8 0 01-6.8 1.6z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M132.4 242.3a15.1 15.1 0 0113.7 0 4.7 4.7 0 012.5 3 2.2 2.2 0 000-.5c0-1.3-.9-2.5-2.6-3.5a15.2 15.2 0 00-13.7 0c-1.6 1-2.5 2.3-2.5 3.5a3 3 0 000 .5 4.7 4.7 0 012.6-3zM167 296c.3 2.1 1.9 4.2 4.9 5.5 6 2.8 15.2 2 20.5-1.9 2.7-2 3.9-4.2 3.7-6.3l-.4-3.5-29 2.7z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M192.4 299.6a13.3 13.3 0 001.5-1.2l-.8-8.3-1.6.1zm-4.1 2.1a18.3 18.3 0 002.8-1.2l-1-10.1-2.9.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M190.9 284.3c6 2.7 6.5 8 1.2 11.9s-14.5 4.7-20.5 1.9-6.6-8-1.2-11.9 14.5-4.6 20.5-2z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M182 298.7a20 20 0 01-10-1.4c-2.7-1.2-4.2-3-4.4-4.8s1-4 3.3-5.6a21.9 21.9 0 0119.7-1.8c2.6 1.2 4.1 2.9 4.3 4.8s-1 4-3.3 5.6a20 20 0 01-9.6 3.2z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M171 287.8a19.9 19.9 0 019.6-3.3 20.2 20.2 0 0110 1.4c2.5 1.1 4 2.7 4.3 4.5v-.5c-.2-1.9-1.7-3.6-4.3-4.8a21.9 21.9 0 00-19.7 1.8c-2.3 1.7-3.5 3.6-3.3 5.6v.4c0-1.8 1.2-3.6 3.4-5.1z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M172.7 282.3c0 1.5 1 3 3 4.2a16 16 0 0014.6 0c2-1.3 3-2.8 3-4.3v-2.3l-20.5.1z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M188.1 287.4a11.2 11.2 0 002.2-1h.1v-6.5h-2.3zm3.2-1.6a6.5 6.5 0 001.1-1.2v-4.7h-1.1zm-17.4-.8a7.6 7.6 0 001.1 1v-6h-1z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M190.2 275.7c4 2.3 4.1 6.1.1 8.4a16 16 0 01-14.5.1c-4-2.3-4.1-6-.1-8.4a16 16 0 0114.5 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M183 285a14 14 0 01-6.8-1.5c-1.7-1-2.6-2.2-2.6-3.5s.9-2.5 2.5-3.5a13.8 13.8 0 016.8-1.6 14 14 0 016.9 1.6c1.7 1 2.6 2.2 2.6 3.4s-.9 2.5-2.5 3.5a13.8 13.8 0 01-6.8 1.7z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M176.1 277.4a13.8 13.8 0 016.8-1.7 14 14 0 016.9 1.6 4.7 4.7 0 012.6 3 3.3 3.3 0 000-.4c0-1.2-1-2.5-2.6-3.4a14 14 0 00-6.9-1.6 13.8 13.8 0 00-6.8 1.6c-1.6 1-2.6 2.2-2.5 3.5a3 3 0 000 .4 4.6 4.6 0 012.5-3zm-84.7-37.8c-.2 2.2 1.1 4.4 3.8 6.3a22.7 22.7 0 0020.6 1.4c3-1.5 4.5-3.5 4.6-5.7l.3-3.4-29.1-2z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M115.8 247.3a11.8 11.8 0 001.6-1l.6-8.3-1.6-.1zm-4.4 1.4a17.9 17.9 0 003-.8l.7-10.1-2.9-.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M116.8 232c5.5 3.6 5.1 9-.8 11.8s-15 2.3-20.5-1.4-5.1-9 .7-11.9 15.1-2.3 20.6 1.4z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M105.7 244.7a20.1 20.1 0 01-9.7-3c-2.4-1.6-3.7-3.5-3.5-5.5s1.6-3.6 4.1-4.9a21.9 21.9 0 0119.7 1.4c2.4 1.6 3.7 3.5 3.5 5.5s-1.6 3.6-4.1 4.9a20 20 0 01-10 1.6z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M96.6 232.1a19.9 19.9 0 0110-1.6 20 20 0 019.7 3c2.2 1.5 3.4 3.2 3.5 5v-.4c.2-2-1-3.9-3.5-5.5a21.9 21.9 0 00-19.7-1.4c-2.5 1.3-4 3-4.1 5v.4c.3-1.7 1.7-3.3 4-4.5zM76 244.9c0 1.5 1 3 3 4.2a16 16 0 0014.6 0c2-1.2 3-2.7 3-4.2v-2.3H76z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M91.4 250a11.7 11.7 0 002.2-1h.2v-6.4h-2.4zm3.2-1.5a6.5 6.5 0 001.2-1.2v-4.7h-1.2zm-17.4-.9a7 7 0 001.2 1v-6h-1.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M93.6 238.4c4 2.4 4 6.1 0 8.5a16 16 0 01-14.5 0c-4-2.4-4-6.2 0-8.5a16 16 0 0114.5 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M86.4 247.7a13.9 13.9 0 01-6.9-1.6c-1.6-1-2.6-2.2-2.6-3.5s1-2.5 2.6-3.4a15.2 15.2 0 0113.7 0c1.6 1 2.6 2.2 2.6 3.4s-1 2.5-2.6 3.5a13.8 13.8 0 01-6.8 1.6z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M79.5 240a15.2 15.2 0 0113.7 0 4.7 4.7 0 012.5 3 3.3 3.3 0 000-.4c0-1.2-.9-2.5-2.6-3.5a15.2 15.2 0 00-13.6 0c-1.7 1-2.6 2.2-2.6 3.5a2 2 0 000 .4 4.6 4.6 0 012.6-3zm9.5 11.1c0 1.5 1 3 3 4.2a16 16 0 0014.6 0c2-1.2 3-2.7 3-4.2v-2.3H89z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M104.4 256.3a12.1 12.1 0 002.2-1h.1v-6.5h-2.3zm3.2-1.6a6.4 6.4 0 001.1-1.2V249h-1.1zm-17.4-.9a7 7 0 001.1 1v-6h-1.1z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M106.6 244.7c4 2.3 4 6 0 8.4a16 16 0 01-14.5 0c-4-2.4-4-6.1 0-8.5a16 16 0 0114.5 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M99.4 254a13.9 13.9 0 01-6.9-1.6c-1.7-1-2.6-2.3-2.6-3.5s1-2.5 2.6-3.5a15.2 15.2 0 0113.7 0c1.6 1 2.6 2.2 2.6 3.5s-1 2.5-2.6 3.5a13.8 13.8 0 01-6.8 1.6z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M92.5 246.2a15.2 15.2 0 0113.7 0 4.7 4.7 0 012.5 3 2 2 0 000-.3c0-1.3-1-2.6-2.6-3.5a15.2 15.2 0 00-13.7 0c-1.6 1-2.5 2.1-2.5 3.4a2 2 0 000 .4 4.6 4.6 0 012.6-3zm-64-31c.2 1.6 1.4 3 3.5 3.9a16 16 0 0014.4-1.8c1.9-1.4 2.7-3 2.5-4.6l-.3-2.2-20.4 2.5z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M44.4 218.5a11.9 11.9 0 002-1.2l.1-.1-.7-6.4-2.4.3zm2.9-2a6.5 6.5 0 001-1.3l-.6-4.6-1.1.1zM30 217.8a7 7 0 001.2.9l-.7-6-1.2.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M45 206.7c4.4 1.8 4.9 5.5 1.2 8.3a16 16 0 01-14.5 1.8c-4.2-1.8-4.7-5.6-1-8.3a16 16 0 0114.4-1.8z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M39 216.8a14 14 0 01-7-.8c-1.7-.8-2.8-1.9-3-3.1s.7-2.6 2.2-3.8a13.7 13.7 0 016.6-2.4 13.9 13.9 0 017 .8c1.8.7 2.8 1.8 3 3.1s-.6 2.6-2.2 3.7a13.9 13.9 0 01-6.5 2.5z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M31.3 210a14 14 0 016.6-2.4 13.9 13.9 0 017 .8 4.7 4.7 0 012.9 2.7 3.2 3.2 0 000-.5c-.2-1.2-1.2-2.3-3-3.1a13.9 13.9 0 00-7-.8 13.7 13.7 0 00-6.6 2.5c-1.5 1.1-2.3 2.4-2.1 3.7a1.9 1.9 0 000 .4 4.6 4.6 0 012.2-3.3zm10.2 14.3c0 1.5 1 3 3 4.2a16 16 0 0014.6-.2c2-1.2 3-2.7 2.9-4.2v-2.3l-20.6.2z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M56.9 229.3a11.7 11.7 0 002.2-1v-6.5h-2.3zm3.1-1.7a6.1 6.1 0 001.2-1.1l-.1-4.7h-1.2zm-17.4-.6a6.4 6.4 0 001.2 1v-6h-1.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M58.9 217.6c4.1 2.3 4.1 6 .1 8.4a16 16 0 01-14.5.2c-4-2.3-4.2-6-.2-8.4a16 16 0 0114.6-.2z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M51.8 227a14 14 0 01-6.9-1.6c-1.7-.9-2.6-2.1-2.6-3.4s.9-2.5 2.5-3.5a14 14 0 016.8-1.7 14 14 0 016.9 1.6c1.7 1 2.6 2.2 2.6 3.4s-.9 2.5-2.5 3.5a13.8 13.8 0 01-6.8 1.7z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M44.8 219.4a14 14 0 016.8-1.7 14 14 0 016.9 1.5 4.7 4.7 0 012.6 3 2.2 2.2 0 000-.4c0-1.3-1-2.5-2.7-3.5a14 14 0 00-6.8-1.5 14 14 0 00-6.8 1.7c-1.7 1-2.6 2.2-2.5 3.5a3 3 0 000 .4 4.7 4.7 0 012.5-3z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M43.3 224.9c1.3.7 3.2.5 5.1-.8a16 16 0 006.7-12.9c-.1-2.3-1-3.9-2.4-4.6l-2-1-9.4 18.3z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M55 213.7a11.8 11.8 0 000-2.5v-.1l-5.6-3-1 2.1zm0-3.7a6.4 6.4 0 00-.5-1.5l-4.1-2.1-.6 1zm-8.8 15.1a6.7 6.7 0 001.5-.5l-5.4-2.8-.5 1z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M45.6 206.4c3.9-2.5 7.2-.8 7.5 3.8a16 16 0 01-6.7 12.9c-4 2.5-7.3.8-7.5-3.8a16 16 0 016.7-13z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M50.5 217a13.9 13.9 0 01-4.6 5.3c-1.6 1-3.1 1.3-4.3.8s-1.7-2-1.8-4a13.8 13.8 0 011.6-6.7A14 14 0 0146 207c1.6-1 3.2-1.3 4.3-.7s1.8 2 1.9 3.8a13.8 13.8 0 01-1.7 6.8z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M40.5 219.6a15.2 15.2 0 016.3-12.1 4.7 4.7 0 013.9-.9 2.4 2.4 0 00-.4-.2c-1.1-.6-2.6-.4-4.3.7a14 14 0 00-4.5 5.3 13.8 13.8 0 00-1.7 6.8c0 2 .7 3.3 1.9 3.9l.4.2a4.7 4.7 0 01-1.6-3.7zm25.8 5c-.5 1.5 0 3.2 1.4 5a16 16 0 0013.6 5.2c2.2-.4 3.7-1.5 4.2-2.9l.8-2.1-19.2-7.3z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M78.8 235a11.4 11.4 0 002.5-.2l2.4-6-2.2-.8zm3.6-.5a6.5 6.5 0 001.5-.6l1.6-4.4-1-.4zm-16-7a6.4 6.4 0 00.8 1.4l2-5.6-1-.4z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M85 224.8c3 3.6 1.6 7.1-3 7.9a16 16 0 01-13.5-5.2c-3-3.6-1.7-7.1 3-7.9a16 16 0 0113.5 5.2z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M75 231a13.8 13.8 0 01-5.8-4c-1.2-1.6-1.7-3-1.2-4.2s1.7-2 3.6-2.4a15.2 15.2 0 0112.8 4.9c1.2 1.5 1.6 3 1.2 4.2s-1.8 2-3.6 2.3a13.8 13.8 0 01-7-.9z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M71.3 221.3a13.8 13.8 0 017 .9 14 14 0 015.7 4 4.7 4.7 0 011.3 3.7 2.4 2.4 0 00.2-.4c.5-1.2 0-2.7-1.2-4.2a15.2 15.2 0 00-12.8-4.8c-1.9.3-3.1 1.1-3.6 2.3a2.8 2.8 0 00-.1.4 4.6 4.6 0 013.5-2zm129.3 13.1c.8 2 3 3.4 6.2 3.9 6.5 1 15.1-2.5 19.2-7.6 2-2.6 2.5-5.1 1.7-7.1l-1.3-3.3-27 10.8z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M226 230.7a11.9 11.9 0 001-1.6l-3-7.8-1.5.6zm-3.4 3.1a19.2 19.2 0 002.3-2l-3.7-9.4-2.7 1z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M220.2 216.4c6.5 1 8.5 5.9 4.5 11s-12.6 8.6-19.2 7.7-8.5-6-4.4-11.1 12.6-8.6 19-7.6z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M215.7 232.8a20 20 0 01-10 1.4c-2.9-.4-4.8-1.6-5.6-3.4s-.1-4 1.6-6.3a19.9 19.9 0 018.3-5.8 20.2 20.2 0 0110-1.5c3 .5 4.9 1.7 5.6 3.5s.2 4-1.6 6.2a19.9 19.9 0 01-8.3 5.9z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M202 225.3a19.8 19.8 0 018.3-5.8 20.2 20.2 0 0110-1.5c2.7.4 4.6 1.5 5.4 3v-.4c-.8-1.8-2.8-3-5.6-3.4a20.2 20.2 0 00-10.1 1.5 19.9 19.9 0 00-8.3 5.9c-1.7 2.2-2.3 4.4-1.6 6.2l.2.4c-.5-1.7.1-3.8 1.8-5.8zm-101 35.4c0 2.1 1.2 4.4 4 6.2a22.7 22.7 0 0020.5 1.5c3-1.5 4.5-3.6 4.6-5.7l.3-3.5-29-2z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M125.5 268.4a11.7 11.7 0 001.6-1l.6-8.4h-1.6zm-4.3 1.4a19.4 19.4 0 002.9-.8l.7-10.2-2.9-.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M126.5 253c5.5 3.7 5.1 9-.7 12s-15.1 2.2-20.6-1.5-5.1-9 .8-12 15-2.2 20.5 1.5z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M115.4 265.8a20.1 20.1 0 01-9.7-3c-2.4-1.6-3.7-3.6-3.5-5.5s1.6-3.7 4.1-5a20 20 0 0110-1.6 20.2 20.2 0 019.7 3c2.4 1.6 3.7 3.6 3.5 5.5s-1.6 3.7-4.1 5a19.9 19.9 0 01-10 1.6z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M106.3 253.2a21.9 21.9 0 0119.7 1.4c2.2 1.4 3.4 3.2 3.5 5a3.4 3.4 0 000-.4c.2-2-1-3.9-3.5-5.5a20.2 20.2 0 00-9.7-3 20 20 0 00-10 1.7c-2.5 1.2-4 3-4.1 4.9a3 3 0 000 .4c.3-1.8 1.7-3.3 4-4.5zm148.5-10.3c1 1 2.8 1.4 5 .9a16 16 0 0010.5-10.1c.6-2.3.3-4-.8-5.1l-1.5-1.7-14.8 14.3z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M269.4 236a12.3 12.3 0 001-2.3v-.2l-4.5-4.6-1.7 1.7zm1.1-3.5a6.6 6.6 0 000-1.6l-3.2-3.4-.8.9zM257.4 244a6.5 6.5 0 001.6 0l-4.2-4.4-.8.8z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M262.8 226c4.5-1.1 7.2 1.6 6 6a16 16 0 01-10.5 10.1c-4.5 1.2-7.2-1.5-5.9-6a16 16 0 0110.4-10.1z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M264.1 237.7a14 14 0 01-6 3.6c-1.9.5-3.4.2-4.3-.7s-1-2.4-.6-4.2a15.2 15.2 0 019.9-9.5c1.8-.5 3.3-.3 4.2.7s1.1 2.4.6 4.2a13.7 13.7 0 01-3.8 6z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M253.8 237a13.7 13.7 0 013.8-6 14 14 0 016-3.5 4.7 4.7 0 014 .4 3.2 3.2 0 00-.2-.3c-1-1-2.4-1.2-4.3-.7a15.2 15.2 0 00-9.8 9.5c-.6 1.8-.4 3.3.5 4.2l.3.3a4.6 4.6 0 01-.3-3.9zm5.6 9c-.3 1.5.3 3.2 2 4.8a16 16 0 0014.2 3.2c2.2-.7 3.5-2 3.9-3.4l.5-2.2-20-4.6z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M273.2 254.5a11.4 11.4 0 002.4-.5h.1l1.5-6.2-2.3-.6zm3.5-.9a6 6 0 001.4-.9l1-4.5-1.2-.3zm-16.7-4.7a6.4 6.4 0 00.8 1.3l1.4-5.9-1.2-.3z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M278 243.6c3.3 3.2 2.5 6.8-1.9 8.2a16 16 0 01-14.1-3.2c-3.4-3.2-2.6-6.9 1.8-8.2a16 16 0 0114.1 3.2z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M268.9 251a14 14 0 01-6.4-3c-1.4-1.4-2-2.8-1.7-4s1.4-2.3 3.2-2.8a13.8 13.8 0 017-.1 14 14 0 016.4 3.1c1.4 1.3 2 2.7 1.7 4s-1.4 2.2-3.2 2.8a13.8 13.8 0 01-7 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M263.8 242a15.2 15.2 0 0113.4 3 4.7 4.7 0 011.8 3.5 2.3 2.3 0 00.1-.4c.3-1.2-.3-2.6-1.7-4a14 14 0 00-6.4-3 13.8 13.8 0 00-7 0c-1.8.6-3 1.6-3.2 2.8a3 3 0 000 .4 4.7 4.7 0 013-2.3zm-40.5 38.6c-.4 2.2.7 4.7 3.3 6.9 5.3 4.4 14.9 6 21.3 3.6 3.2-1.2 5-3.1 5.4-5.4l.6-3.5-30-5.2z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M247.9 291.1a12.1 12.1 0 001.8-.8l1.5-8.6-1.7-.3zm-4.7 1a19.5 19.5 0 003.1-.5l1.8-10.4-3-.5z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M250.5 275.3c5.3 4.4 4.4 9.9-2 12.3s-15.9.7-21.2-3.7-4.4-9.9 2-12.3 16-.8 21.2 3.7z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M237.6 287.4a21 21 0 01-9.8-4.2c-2.3-1.9-3.4-4-3-6s2-3.7 4.8-4.7A22.9 22.9 0 01250 276c2.3 2 3.4 4 3 6s-2 3.7-4.8 4.8a20.9 20.9 0 01-10.6.6z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M229.5 273.3a20.9 20.9 0 0110.5-.7 21.2 21.2 0 019.8 4.2c2.2 1.8 3.2 3.8 3.1 5.7a3.1 3.1 0 00.1-.5c.3-2-.7-4.2-3-6a22.9 22.9 0 00-20.4-3.6c-2.8 1-4.5 2.7-4.8 4.7a3.4 3.4 0 000 .4c.4-1.7 2-3.2 4.7-4.2zM204 305.1c.6 2 2.5 3.8 5.7 4.6 6.4 1.7 15.3-.7 19.9-5.4 2.3-2.3 3-4.8 2.5-6.9l-.9-3.3-28.1 7.6z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M229.6 304.3a10.7 10.7 0 001.2-1.5l-2.2-8-1.5.4zM226 307a19 19 0 002.5-1.7l-2.7-9.7-2.7.7z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M225.5 289.4c6.4 1.7 7.8 6.9 3.2 11.6s-13.5 7-19.9 5.4-7.8-6.8-3.2-11.5 13.5-7.1 19.9-5.4z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M219.2 305.2a20 20 0 01-10.1.3c-2.8-.7-4.6-2.1-5.2-4s.3-4 2.3-6a20 20 0 019-4.8 20.1 20.1 0 0110-.4c2.9.8 4.7 2.2 5.2 4s-.3 4-2.3 6a19.9 19.9 0 01-8.9 5z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M206.5 296.3a19.9 19.9 0 018.8-4.9 20.1 20.1 0 0110.2-.3c2.6.7 4.3 2 5 3.7a3.4 3.4 0 000-.5c-.6-1.9-2.4-3.3-5.2-4a20.1 20.1 0 00-10.2.4 20 20 0 00-8.8 4.8c-2 2-2.8 4.2-2.3 6l.1.4c-.3-1.8.5-3.7 2.4-5.6z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M221.7 291c-.1 1.6.9 3.2 3 4.6a16.7 16.7 0 0015.1.8c2.1-1.1 3.3-2.7 3.3-4.3l.2-2.3-21.5-1.2z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M237.4 297.2a12 12 0 002.4-.9h.1l.4-6.7-2.5-.2zm3.4-1.5a6.6 6.6 0 001.3-1.2l.3-4.8-1.3-.1zm-18.1-1.9a7 7 0 001.2 1.2l.3-6.3H223z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M240.3 285.1c4.1 2.7 4 6.6-.4 8.8a16.7 16.7 0 01-15.2-.7c-4-2.7-3.8-6.6.5-8.9a16.8 16.8 0 0115.1.8z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M232.3 294.5a14.6 14.6 0 01-7-2.1c-1.8-1.1-2.7-2.4-2.6-3.8s1-2.5 2.9-3.4a15.9 15.9 0 0114.2.7c1.7 1.1 2.6 2.5 2.6 3.8s-1.1 2.5-2.9 3.5a14.6 14.6 0 01-7.2 1.3z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M225.5 286a15.8 15.8 0 0114.3.8 4.9 4.9 0 012.5 3.3 2.3 2.3 0 000-.4c.1-1.3-.8-2.7-2.5-3.8a15.9 15.9 0 00-14.2-.7c-1.8.9-2.8 2.1-2.9 3.4a2.2 2.2 0 000 .5 4.8 4.8 0 012.8-3zm32-21.2c.4 2.1 2.2 4 5.4 5 6.2 2.1 15.3.3 20.2-4 2.4-2.2 3.4-4.6 3-6.7l-.7-3.4-28.6 5.7z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M283 265.8a11.4 11.4 0 001.4-1.4l-1.7-8.2-1.5.3zm-3.8 2.5a19.1 19.1 0 002.6-1.6l-2-10-2.8.6z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M280 250.7c6.3 2 7.3 7.3 2.4 11.7s-14 6.1-20.2 4-7.3-7.4-2.4-11.7 14-6.1 20.2-4z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M272.6 266a20.1 20.1 0 01-10.1-.4c-2.8-.9-4.5-2.4-4.9-4.3s.6-4 2.7-5.9a21.8 21.8 0 0119.4-3.9c2.7 1 4.4 2.5 4.8 4.4s-.6 4-2.7 5.8a19.8 19.8 0 01-9.2 4.3z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M260.5 256.2a21.8 21.8 0 0119.4-3.9c2.5.9 4.1 2.3 4.7 4a3.1 3.1 0 000-.4c-.5-2-2.2-3.5-4.9-4.4a21.8 21.8 0 00-19.4 3.9c-2 1.9-3 4-2.7 5.8l.1.4c-.1-1.8.8-3.7 2.8-5.4zM197.8 268c0 2.2 1.4 4.3 4.3 6 5.7 3.3 15 3.2 20.6-.1 2.8-1.7 4.2-3.8 4.2-6v-3.5l-29.1.2z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M222.7 273.9a13 13 0 001.5-1.1v-8.3h-1.5zm-4.2 1.7a18 18 0 002.8-1v-10.1h-2.9z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M222.6 258.5c5.7 3.3 5.7 8.6 0 12s-14.8 3.3-20.5 0-5.8-8.6-.1-12 14.8-3.3 20.6 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M212.4 272a20.1 20.1 0 01-9.9-2.2c-2.5-1.5-3.9-3.3-3.9-5.3s1.3-3.7 3.8-5.2a21.9 21.9 0 0119.7 0c2.5 1.3 4 3.2 4 5.1s-1.4 3.8-3.8 5.3a19.9 19.9 0 01-9.9 2.4z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M202.4 260.2a19.8 19.8 0 019.8-2.4 20 20 0 0110 2.3c2.3 1.3 3.6 3 3.8 4.8a3.3 3.3 0 000-.4c0-2-1.4-3.8-4-5.3a21.9 21.9 0 00-19.6.1c-2.5 1.5-3.8 3.3-3.8 5.2a3 3 0 000 .5c.2-1.8 1.5-3.5 3.8-4.8z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M216.4 262.5c0 2.2 1.5 4.3 4.3 6 5.8 3.2 15 3.2 20.7-.2 2.8-1.6 4.2-3.8 4.2-6V259l-29.2.1z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M241.3 268.4a12.8 12.8 0 001.6-1.1v-8.4h-1.6zm-4.2 1.6a19.2 19.2 0 002.9-1v-10h-3z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M241.2 253c5.7 3.2 5.8 8.6.1 11.9s-14.9 3.3-20.6 0-5.8-8.5-.1-11.9 14.9-3.3 20.6 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M231 266.5a20 20 0 01-9.8-2.3c-2.5-1.4-4-3.3-4-5.2s1.4-3.8 3.8-5.2a21.9 21.9 0 0119.8-.1c2.5 1.4 3.9 3.3 3.9 5.2s-1.4 3.8-3.8 5.2a20 20 0 01-9.8 2.4z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M221 254.6a21.9 21.9 0 0119.7 0c2.4 1.3 3.7 3 3.9 4.7v-.4c0-2-1.4-3.8-3.9-5.2a21.9 21.9 0 00-19.7 0c-2.5 1.5-3.8 3.4-3.8 5.3v.4c.3-1.8 1.6-3.4 3.8-4.8zm14.4 15c0 1.5 1 3 3 4.2a16 16 0 0014.6 0c2-1.2 3-2.8 3-4.3v-2.3l-20.6.1z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M250.7 274.7a11.8 11.8 0 002.3-1v-6.5h-2.3zm3.3-1.7a6.5 6.5 0 001-1.1v-4.7h-1zm-17.5-.7a6.7 6.7 0 001.2 1v-6h-1.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M252.9 263c4 2.3 4 6 0 8.4a16 16 0 01-14.5 0c-4-2.2-4-6 0-8.3a16 16 0 0114.5-.1z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M245.7 272.4a14 14 0 01-6.9-1.6c-1.6-1-2.6-2.2-2.6-3.5s1-2.5 2.6-3.5a15.2 15.2 0 0113.6 0c1.7 1 2.6 2.2 2.6 3.5s-.8 2.4-2.5 3.4a14 14 0 01-6.8 1.7z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M238.8 264.7a15.1 15.1 0 0113.6 0 4.7 4.7 0 012.6 3 3.1 3.1 0 000-.5c0-1.3-1-2.5-2.6-3.5a15.2 15.2 0 00-13.7.1c-1.6 1-2.5 2.2-2.5 3.5a3.1 3.1 0 000 .4 4.7 4.7 0 012.6-3z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M234.5 256c.2 2.1 1.9 4.2 4.9 5.5 6 2.8 15.1 2 20.5-1.9 2.7-1.9 3.9-4.2 3.6-6.3l-.3-3.5-29 2.8z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M259.9 259.6a12.3 12.3 0 001.4-1.2l-.8-8.3-1.5.2zm-4.1 2.1a18.2 18.2 0 002.8-1.2l-1-10.1-2.8.3z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M258.4 244.3c6 2.8 6.5 8 1.2 11.9s-14.6 4.7-20.6 2-6.5-8.1-1.1-12 14.5-4.6 20.5-1.9z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M249.5 258.8a20.2 20.2 0 01-10.1-1.5c-2.6-1.2-4.2-2.9-4.3-4.8s1-3.9 3.3-5.6a22 22 0 0119.6-1.8c2.6 1.2 4.2 3 4.3 4.9s-1 3.8-3.2 5.5a19.9 19.9 0 01-9.6 3.3z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M238.4 247.8a21.8 21.8 0 0119.7-1.8c2.4 1.1 4 2.7 4.3 4.4a3.2 3.2 0 000-.4c-.2-2-1.8-3.7-4.4-4.9a22 22 0 00-19.6 1.9c-2.4 1.6-3.5 3.6-3.3 5.5a3.1 3.1 0 000 .4c0-1.8 1.2-3.6 3.3-5.1zM170 262.6c.2 2.2 1.8 4.2 4.8 5.5 6 2.8 15.2 2 20.6-1.9 2.6-1.9 3.8-4.2 3.6-6.3l-.3-3.5-29 2.8z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M195.4 266.2a11.3 11.3 0 001.4-1.2l-.7-8.3-1.6.1zm-4.1 2.1a18.2 18.2 0 002.8-1.3l-1-10-2.8.3z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M193.9 250.9c6 2.7 6.5 8 1.2 11.9s-14.6 4.6-20.5 1.9-6.6-8-1.2-11.9 14.5-4.7 20.5-2z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M185 265.3a20.1 20.1 0 01-10-1.4c-2.7-1.2-4.2-2.9-4.4-4.8s1-4 3.3-5.6a21.9 21.9 0 0119.6-1.8c2.7 1.2 4.2 2.9 4.4 4.8s-1 4-3.3 5.6a20 20 0 01-9.6 3.2z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M174 254.4a19.9 19.9 0 019.5-3.3 20.2 20.2 0 0110 1.4c2.5 1.1 4 2.7 4.4 4.5a3.2 3.2 0 000-.5c-.2-1.9-1.8-3.6-4.4-4.8a21.9 21.9 0 00-19.6 1.8c-2.3 1.7-3.5 3.6-3.3 5.6v.4c0-1.8 1.2-3.6 3.3-5.1z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M180.1 301.7l64-46.3 2.2 1.4-11.7 27.7-52.2 18.6-2.3-1.4z"
+            fill="url(#prefix__linear-gradient-10)"
+          />
+          <path
+            d="M191.8 274l52.3-18.6-11.8 27.7-52.2 18.6 11.7-27.8z"
+            className="prefix__cls-20"
+          />
+          <path
+            d="M192.8 274.9l43.1-15.4-10.4 24.7-43.2 15.4 10.5-24.7z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M232.3 283.1l2.3 1.4-52.2 18.6-2.3-1.4 52.2-18.6z"
+            className="prefix__cls-14"
+          />
+          <ellipse
+            cx={234.18}
+            cy={271.1}
+            className="prefix__cls-14"
+            rx={2.29}
+            ry={1.43}
+            transform="rotate(-42.8 234.2 271.1)"
+          />
+          <path
+            d="M179.9 310c.9 2 3.1 3.3 6.4 3.6 6.6.5 15-3.4 18.6-8.8 2-2.7 2.3-5.3 1.3-7.2l-1.4-3.1-26.4 12.4z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M205 304.8a10.5 10.5 0 001-1.6l-3.6-7.6-1.5.7zm-3.2 3.4a19 19 0 002.2-2.2l-4.3-9.2-2.6 1.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M198.3 290.9c6.6.6 9 5.4 5.2 10.8s-12.1 9.3-18.7 8.7-8.8-5.4-5.1-10.7 12-9.4 18.6-8.8z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M194.8 307.5a20.2 20.2 0 01-9.9 2c-2.9-.2-5-1.3-5.7-3s-.4-4 1.2-6.4a19.9 19.9 0 018-6.3 20.1 20.1 0 019.9-2c2.8.2 4.9 1.3 5.7 3s.4 4-1.2 6.4a20 20 0 01-8 6.3z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M180.8 301a20 20 0 017.9-6.4 20.2 20.2 0 0110-2c2.6.2 4.5 1.1 5.4 2.7l-.1-.4c-.8-1.8-2.9-2.9-5.7-3.1a20.1 20.1 0 00-10 2 19.9 19.9 0 00-7.9 6.3c-1.6 2.4-2 4.6-1.2 6.4l.2.3c-.6-1.6-.1-3.7 1.4-5.9zm12.6 11c.2 1.5 1.3 2.9 3.5 3.8a16 16 0 0014.4-1.8c1.8-1.4 2.6-3 2.4-4.5l-.2-2.3-20.4 2.5z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M209.2 315.3a12.3 12.3 0 002.1-1.3h.1l-.8-6.4-2.3.3zm3-2a6 6 0 001-1.3l-.6-4.7-1.2.2zm-17.4 1.2a7.2 7.2 0 001.3 1l-.7-6h-1.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M210 303.4c4.3 1.9 4.8 5.6 1 8.4a16 16 0 01-14.4 1.8c-4.2-1.9-4.7-5.6-1-8.4a16 16 0 0114.4-1.8z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M204 313.6a13.9 13.9 0 01-7-.8c-1.8-.8-3-1.9-3-3.2s.5-2.5 2-3.7a15.2 15.2 0 0113.6-1.7c1.8.8 2.9 2 3 3.2s-.6 2.6-2.1 3.7a13.8 13.8 0 01-6.6 2.4z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M196.2 306.8a13.8 13.8 0 016.5-2.5 14 14 0 017 .8 4.7 4.7 0 013 2.7 2.2 2.2 0 000-.4c-.2-1.3-1.3-2.4-3-3.2A15.2 15.2 0 00196 306c-1.5 1.2-2.3 2.5-2.1 3.7a2.7 2.7 0 000 .4 4.6 4.6 0 012.2-3.3zm46.6-74.9c0 1.5 1 3 3 4.2a16 16 0 0014.5-.1c2-1.2 3-2.7 3-4.2v-2.3l-20.5.1z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M258.1 237a11.4 11.4 0 002.2-1h.2v-6.5H258zm3.2-1.7a6 6 0 001.2-1.1v-4.7h-1.2zm-17.4-.7a6.4 6.4 0 001.2 1v-6h-1.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M260.2 225.3c4 2.3 4.1 6 .1 8.4a16 16 0 01-14.5.1c-4-2.3-4-6 0-8.4a16 16 0 0114.4 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M253 234.7a14 14 0 01-6.8-1.6c-1.7-1-2.6-2.2-2.6-3.5s.9-2.5 2.5-3.5a15.2 15.2 0 0113.7 0c1.7 1 2.6 2.2 2.6 3.4s-.9 2.5-2.5 3.5a13.8 13.8 0 01-6.8 1.7z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M246.2 227a15.1 15.1 0 0113.6 0 4.7 4.7 0 012.6 3 3.4 3.4 0 000-.4c0-1.3-1-2.5-2.6-3.5a15.2 15.2 0 00-13.7 0c-1.6 1-2.5 2.3-2.5 3.5a3 3 0 000 .4 4.7 4.7 0 012.6-3zm-10.6-15.5c0 1.5 1 3 3 4.2a16 16 0 0014.6 0c2-1.2 3-2.8 3-4.3v-2.2h-20.6z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M251 216.6a11.5 11.5 0 002.2-1h.1v-6.4H251zm3.1-1.6a6.2 6.2 0 001.2-1.2v-4.6h-1.2zm-17.4-.8a6.3 6.3 0 001.2 1v-6h-1.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M253 205c4 2.3 4.2 6 .2 8.4a16 16 0 01-14.6 0c-4-2.2-4-6 0-8.3a16 16 0 0114.5-.1z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M246 214.3a14 14 0 01-7-1.6c-1.6-1-2.6-2.2-2.6-3.5s1-2.5 2.6-3.4a15.1 15.1 0 0113.6 0c1.7 1 2.7 2.1 2.7 3.4s-1 2.5-2.6 3.4a14 14 0 01-6.8 1.7z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M239 206.6a13.8 13.8 0 016.8-1.6 14 14 0 016.9 1.6 4.7 4.7 0 012.5 3 3.1 3.1 0 000-.4c0-1.3-.9-2.5-2.6-3.5a15.1 15.1 0 00-13.6 0c-1.7 1-2.6 2.3-2.6 3.5a3.1 3.1 0 000 .5 4.7 4.7 0 012.6-3z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M220.5 203.3c0 1.5 1 3 3 4.2a16 16 0 0014.6 0c2-1.2 3-2.8 3-4.3v-2.3l-20.6.1z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M235.9 208.4a11.5 11.5 0 002.2-1v-6.5H236zm3.1-1.6a6.5 6.5 0 001.2-1.2v-4.7H239zm-17.4-.8a7.6 7.6 0 001.2 1v-6h-1.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M238 196.8c4 2.2 4 6 0 8.4a16 16 0 01-14.4 0c-4-2.3-4.1-6-.1-8.4a16 16 0 0114.5 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M230.8 206a14 14 0 01-6.8-1.5c-1.7-1-2.7-2.2-2.7-3.5s1-2.5 2.6-3.4a15.2 15.2 0 0113.6-.1c1.7 1 2.7 2.2 2.7 3.5s-1 2.5-2.6 3.4a13.8 13.8 0 01-6.8 1.7z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M223.9 198.4a15.2 15.2 0 0113.7 0 4.7 4.7 0 012.5 3 2.2 2.2 0 000-.4c0-1.3-.9-2.5-2.6-3.5a15.2 15.2 0 00-13.7 0c-1.6 1-2.5 2.3-2.5 3.5a3 3 0 000 .4 4.6 4.6 0 012.6-3zm-18.5 55.2c0 1.6 1 3 3 4.2a16 16 0 0014.5 0c2-1.2 3-2.7 3-4.3v-2.2h-20.5z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M220.8 258.8a11.4 11.4 0 002.2-1l.1-.1v-6.4h-2.3zm3.2-1.7a6 6 0 001.1-1.2v-4.6h-1.2zm-17.5-.8a6.3 6.3 0 001.2 1v-6h-1.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M222.9 247c4 2.4 4 6.2 0 8.5a16 16 0 01-14.5 0c-4-2.2-4-6 0-8.4a16 16 0 0114.5 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M215.7 256.4a14 14 0 01-6.8-1.6c-1.7-1-2.6-2.2-2.7-3.4s1-2.5 2.6-3.5a15.1 15.1 0 0113.7 0c1.6 1 2.6 2.1 2.6 3.4s-1 2.5-2.6 3.5a13.9 13.9 0 01-6.8 1.6z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M208.8 248.8a15.1 15.1 0 0113.7-.1 4.7 4.7 0 012.5 3 2 2 0 000-.4c0-1.3-.9-2.6-2.6-3.5a15.1 15.1 0 00-13.6 0c-1.7 1-2.6 2.2-2.6 3.5a3 3 0 000 .4 4.7 4.7 0 012.6-3zm-46.2-3.6c-.5 1.5 0 3.2 1.7 5a16 16 0 0013.9 4.1c2.2-.5 3.6-1.7 4-3.2l.7-2.1-19.7-6z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M175.8 254.6a11.9 11.9 0 002.4-.3l2-6.1-2.3-.7zm3.5-.6a5.9 5.9 0 001.4-.8l1.4-4.4-1.1-.4zm-16.4-5.9a6.4 6.4 0 00.8 1.4l1.7-5.8-1.1-.3z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M181.2 244c3.2 3.5 2.1 7-2.4 8.2A16 16 0 01165 248c-3.2-3.4-2.1-7 2.4-8a16 16 0 0113.9 4z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M171.6 251a14 14 0 01-6-3.6c-1.4-1.4-2-2.9-1.6-4.1s1.6-2.1 3.5-2.6a15.2 15.2 0 0113 4c1.4 1.4 2 2.8 1.6 4s-1.6 2.2-3.5 2.6a13.9 13.9 0 01-7-.4z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M167.2 241.6a15.2 15.2 0 0113.1 3.9 4.7 4.7 0 011.6 3.7 2.9 2.9 0 00.2-.4c.3-1.3-.2-2.7-1.5-4.1a15.2 15.2 0 00-13.1-4c-1.9.5-3.1 1.4-3.5 2.6a2.7 2.7 0 000 .4 4.7 4.7 0 013.2-2.1zm78.7 40.3c0 1.5 1 3 3 4.1a16 16 0 0014.6 0c2-1.2 3-2.7 3-4.2v-2.3h-20.6z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M261.2 287a11.5 11.5 0 002.3-1v-6.5h-2.3zm3.2-1.7a6.4 6.4 0 001.2-1.2v-4.6h-1.2zm-17.4-.8a7 7 0 001.2 1v-6H247z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M263.4 275.3c4 2.3 4 6 0 8.4a16 16 0 01-14.5 0c-4-2.2-4-6 0-8.3a16 16 0 0114.5-.1z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M256.2 284.6a13.8 13.8 0 01-6.8-1.6c-1.7-1-2.7-2.2-2.7-3.4s1-2.5 2.6-3.5a13.8 13.8 0 016.8-1.7 14 14 0 016.8 1.6c1.7 1 2.7 2.2 2.7 3.5s-1 2.5-2.6 3.5a13.8 13.8 0 01-6.8 1.6z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M249.3 277a15.1 15.1 0 0113.6 0 4.7 4.7 0 012.6 3 3.1 3.1 0 000-.5c0-1.3-1-2.5-2.6-3.5a14 14 0 00-6.9-1.6 13.8 13.8 0 00-6.8 1.7c-1.6 1-2.5 2.2-2.5 3.5a2 2 0 000 .4 4.6 4.6 0 012.6-3zm-96-4.2c-.1 2.1 1.2 4.4 4 6.2 5.5 3.6 14.7 4 20.5 1 3-1.4 4.5-3.5 4.6-5.7l.2-3.5-29.1-1.5z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M177.8 280a11.4 11.4 0 001.6-1l.5-8.3h-1.6zm-4.3 1.5a17.7 17.7 0 002.9-.8l.5-10.1-2.8-.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M178.6 264.7c5.5 3.6 5.2 8.9-.6 11.9s-15 2.5-20.6-1.1-5.2-9 .6-12 15-2.4 20.6 1.2z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M167.7 277.7a20.1 20.1 0 01-9.8-3c-2.4-1.5-3.7-3.4-3.6-5.4s1.6-3.7 4-5a21.9 21.9 0 0119.8 1c2.4 1.7 3.7 3.6 3.6 5.5s-1.6 3.7-4 5a20 20 0 01-10 1.9z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M158.3 265.2a21.8 21.8 0 0119.7 1c2.3 1.5 3.5 3.3 3.6 5v-.4c.2-2-1-3.9-3.5-5.4a21.9 21.9 0 00-19.7-1c-2.5 1.2-4 3-4 5v.3c.2-1.7 1.6-3.3 4-4.5z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M147.7 259.5c-.1 2.2 1.2 4.4 4 6.2 5.5 3.6 14.7 4 20.6 1 2.9-1.4 4.4-3.5 4.5-5.7l.2-3.4-29.1-1.6z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M172.2 266.8a12.2 12.2 0 001.7-1l.4-8.4h-1.6zm-4.2 1.4a19.2 19.2 0 002.8-.8l.5-10.1-2.8-.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M173 251.4c5.5 3.6 5.3 9-.6 11.9s-15 2.5-20.5-1-5.3-9 .5-12 15-2.5 20.6 1z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M162 264.4a20.2 20.2 0 01-9.7-2.9c-2.4-1.6-3.7-3.5-3.6-5.4s1.6-3.7 4.1-5a19.9 19.9 0 0110-1.9 20.2 20.2 0 019.8 2.9c2.4 1.6 3.7 3.5 3.6 5.5s-1.6 3.6-4.1 5a20 20 0 01-10 1.8z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M152.8 252a19.9 19.9 0 0110-2 20.1 20.1 0 019.7 3c2.2 1.4 3.5 3.2 3.6 5v-.5c.2-2-1.1-3.9-3.5-5.4a20.2 20.2 0 00-9.8-2.9 19.9 19.9 0 00-10 1.8c-2.5 1.3-4 3.1-4 5a3 3 0 000 .5c.2-1.8 1.6-3.4 4-4.6zm-22.9 24.5c-.1 2.1 1.2 4.4 4 6.2 5.5 3.5 14.7 4 20.6 1 2.9-1.5 4.4-3.5 4.5-5.7l.2-3.5L130 273z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M154.4 283.8a13.3 13.3 0 001.6-1l.5-8.4h-1.6zm-4.3 1.4a20 20 0 002.9-.8l.5-10.2-2.8-.1z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M155.2 268.4c5.5 3.6 5.3 8.9-.6 11.9s-15 2.5-20.6-1.1-5.2-9 .6-12 15-2.4 20.6 1.2z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M144.3 281.3a20.1 20.1 0 01-9.8-2.8c-2.4-1.6-3.7-3.5-3.6-5.5s1.6-3.7 4-5a20 20 0 0110-1.8 20.2 20.2 0 019.8 2.9c2.4 1.5 3.7 3.5 3.6 5.4s-1.5 3.7-4 5a20 20 0 01-10 1.8z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M135 268.9a19.9 19.9 0 0110-1.8 20.2 20.2 0 019.8 2.8c2.2 1.5 3.4 3.3 3.5 5v-.4c.2-2-1-3.9-3.5-5.5a20.2 20.2 0 00-9.8-2.8 20 20 0 00-10 1.8c-2.5 1.3-4 3-4 5v.4c.2-1.7 1.6-3.3 4-4.5zm11.8 19.1c0 2 1.3 4.3 4 6.1 5.6 3.6 14.8 4.1 20.6 1.1 3-1.5 4.5-3.6 4.6-5.7l.1-3.5-29.1-1.5z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M171.4 295.2a12.6 12.6 0 001.6-1l.4-8.3-1.6-.1zm-4.4 1.5a20.4 20.4 0 003-.9l.5-10-2.9-.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M172.1 279.8c5.6 3.6 5.3 9-.5 12s-15 2.4-20.6-1.1-5.3-9 .6-12 15-2.5 20.5 1.1z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M161.2 292.8a20 20 0 01-9.7-2.9c-2.4-1.5-3.7-3.5-3.6-5.4s1.5-3.7 4-5a19.9 19.9 0 0110-1.8 20.1 20.1 0 019.8 2.9c2.4 1.5 3.7 3.4 3.6 5.4s-1.5 3.7-4 5a20 20 0 01-10 1.8z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M151.9 280.4a20 20 0 0110-1.9 20.1 20.1 0 019.8 3c2.2 1.4 3.4 3.1 3.5 5v-.5c.2-2-1-3.9-3.5-5.5a20.1 20.1 0 00-9.8-2.8 19.9 19.9 0 00-10 1.8c-2.5 1.3-4 3-4 5v.4c.3-1.7 1.7-3.3 4-4.5zm-28.4-12.1c0 1.5 1 3 3 4.1a16 16 0 0014.6-.1c2-1.2 3-2.8 3-4.3v-2.3l-20.6.3z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M139 273.3a10.6 10.6 0 002.1-1l.1-.1v-6.4h-2.4zm3-1.7a6.1 6.1 0 001.2-1.2v-4.6H142zm-17.3-.6a6.4 6.4 0 001.1 1v-6h-1.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M141 261.6c4 2.2 4.1 6 .1 8.4a16 16 0 01-14.5.2c-4-2.3-4.1-6-.1-8.5a16 16 0 0114.5-.1z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M133.8 271a14 14 0 01-6.8-1.6c-1.7-1-2.6-2.2-2.6-3.5s.8-2.4 2.5-3.4a15.1 15.1 0 0113.6-.2c1.7 1 2.7 2.2 2.7 3.5s-.9 2.5-2.5 3.4a13.9 13.9 0 01-6.8 1.8z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M126.9 263.3a15.1 15.1 0 0113.6-.1 4.7 4.7 0 012.6 3 3.1 3.1 0 000-.5c0-1.2-1-2.5-2.6-3.4a15.1 15.1 0 00-13.7.1c-1.6 1-2.5 2.3-2.5 3.5a3 3 0 000 .5 4.6 4.6 0 012.6-3z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M142 264.4c0 1.6 1 3 3.2 4.2a16 16 0 0014.5-.2c2-1.1 3-2.7 3-4.2v-2.3l-20.6.3z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M157.5 269.4a10.6 10.6 0 002.2-1h.1V262h-2.4zm3.2-1.6a6.1 6.1 0 001.1-1.2v-4.7h-1.2zm-17.4-.7a6.4 6.4 0 001.1 1v-6h-1.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M159.5 257.8c4 2.2 4.2 6 .2 8.4a16 16 0 01-14.6.1c-4-2.2-4-6-.1-8.4a16 16 0 0114.5-.1z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M152.4 267.1a14 14 0 01-6.8-1.5c-1.7-1-2.7-2.2-2.7-3.5s.9-2.5 2.5-3.4a15.1 15.1 0 0113.7-.2c1.7 1 2.6 2.2 2.7 3.4s-1 2.5-2.6 3.5a13.9 13.9 0 01-6.8 1.7z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M145.4 259.5a15.1 15.1 0 0113.7-.1 4.7 4.7 0 012.6 3 3.1 3.1 0 000-.5c0-1.3-1-2.5-2.6-3.4a15.1 15.1 0 00-13.7.1c-1.6 1-2.5 2.2-2.5 3.5a3 3 0 000 .4 4.7 4.7 0 012.5-3zm30.4 10.2c-.1 2.2 1.2 4.4 4 6.2 5.5 3.6 14.7 4 20.6 1 2.9-1.4 4.4-3.5 4.5-5.7l.2-3.4-29.1-1.6z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M200.3 277a11 11 0 001.7-1l.4-8.3-1.6-.1zm-4.3 1.4a17.8 17.8 0 003-.8l.4-10.1-2.8-.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M201 261.6c5.6 3.6 5.4 9-.5 11.9s-15 2.5-20.5-1-5.3-9 .6-12 15-2.5 20.5 1z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M190.2 274.6a20 20 0 01-9.8-3c-2.4-1.5-3.7-3.4-3.6-5.4s1.6-3.6 4.1-5a21.8 21.8 0 0119.7 1c2.4 1.6 3.7 3.6 3.6 5.5s-1.5 3.7-4 5a20 20 0 01-10 1.9z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M180.9 262.1a21.8 21.8 0 0119.7 1c2.2 1.5 3.5 3.2 3.6 5a2.2 2.2 0 000-.4c.1-2-1.2-3.9-3.6-5.5a21.8 21.8 0 00-19.7-1c-2.5 1.3-4 3.1-4 5a3.1 3.1 0 000 .5c.2-1.8 1.6-3.4 4-4.6zM166.5 284c1 1.2 2.7 1.8 5 1.4a16 16 0 0011.4-9c.8-2.2.7-4-.3-5.2l-1.4-1.8-16 12.8z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M181.8 278.5a11.4 11.4 0 001-2.1 1 1 0 000-.2l-4-5-1.7 1.5zm1.4-3.2a6.5 6.5 0 00.2-1.7l-2.9-3.6-1 .7zM169 285.4a6.6 6.6 0 001.6.1l-3.7-4.7-1 .7z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M176.2 268c4.6-.7 7 2.3 5.3 6.6a16 16 0 01-11.4 9c-4.6.7-7-2.2-5.3-6.5a16 16 0 0111.4-9.1z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M176.3 279.8a13.9 13.9 0 01-6.3 3c-2 .3-3.4-.1-4.2-1.1s-.9-2.5-.2-4.3a13.8 13.8 0 014.3-5.5 14 14 0 016.4-3c2-.3 3.4.1 4.2 1s.9 2.6.2 4.4a13.8 13.8 0 01-4.4 5.5z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M166.2 278a15.2 15.2 0 0110.7-8.4 4.7 4.7 0 013.9.7 3 3 0 00-.3-.3c-.8-1-2.3-1.4-4.2-1.1a14 14 0 00-6.4 3 13.8 13.8 0 00-4.3 5.5c-.7 1.8-.6 3.3.2 4.3l.3.3a4.6 4.6 0 010-4zm50.5-44.4c-.4 1.5.2 3.2 1.8 4.9a16 16 0 0014 3.8c2.2-.6 3.6-1.8 4-3.2l.6-2.2-19.8-5.5z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M230.1 242.7a11 11 0 002.4-.4h.1l1.7-6.2-2.2-.6zm3.5-.7a6.6 6.6 0 001.4-.8l1.3-4.5-1.2-.3zm-16.6-5.5a6.5 6.5 0 001 1.3l1.5-5.8-1.1-.3z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M235.3 232c3.2 3.3 2.3 7-2.2 8.1a16 16 0 01-14-3.8c-3.3-3.3-2.3-7 2.2-8.2a16 16 0 0114 3.9z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M225.9 239a14 14 0 01-6.2-3.3c-1.4-1.4-2-2.8-1.6-4s1.6-2.2 3.4-2.7a13.8 13.8 0 017 .2 14 14 0 016.2 3.4c1.3 1.4 1.9 2.8 1.6 4s-1.6 2.2-3.4 2.7a13.9 13.9 0 01-7-.2z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M221.3 229.8a13.8 13.8 0 017 .3 14 14 0 016.1 3.3 4.7 4.7 0 011.7 3.7 2.9 2.9 0 00.2-.4c.3-1.3-.3-2.7-1.6-4a14 14 0 00-6.2-3.4 13.8 13.8 0 00-7-.3c-1.9.5-3 1.5-3.4 2.7v.4a4.7 4.7 0 013.2-2.3zM191 250.7c-.7 1.3-.5 3.2.8 5.1a16 16 0 0013 6.5c2.3-.1 3.9-1 4.6-2.4l1-2-18.4-9.2z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M202.4 262.2a11.8 11.8 0 002.5.1h.1l2.9-5.7-2.1-1zm3.6-.1a6.3 6.3 0 001.6-.5l2-4.1-1-.6zm-15.2-8.5a7.4 7.4 0 00.6 1.4l2.7-5.3-1-.5z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M209.6 252.7c2.6 4 .9 7.3-3.7 7.6a16 16 0 01-13-6.5c-2.6-4-1-7.3 3.7-7.6a16 16 0 0113 6.5z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M199 257.8a14 14 0 01-5.4-4.5c-1-1.6-1.3-3.1-.8-4.3s2-1.8 3.9-2a15.2 15.2 0 0112.2 6.2c1 1.6 1.3 3.1.8 4.3s-2 1.8-3.9 2a13.8 13.8 0 01-6.8-1.7z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M196.3 247.8a15.2 15.2 0 0112.2 6.2 4.7 4.7 0 011 3.9 2 2 0 00.1-.4c.6-1.1.3-2.7-.7-4.3a15.2 15.2 0 00-12.2-6c-2 0-3.3.7-3.9 1.8l-.1.4a4.7 4.7 0 013.6-1.6zm43.9-5.5c0 1.5 1 3 3 4.2a16 16 0 0014.6 0c2-1.2 3-2.8 3-4.3V240l-20.6.1z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M255.6 247.4a11.2 11.2 0 002.2-1h.1v-6.5h-2.3zm3.2-1.6a6 6 0 001.1-1.2v-4.7h-1.2zm-17.5-.8a7 7 0 001.2 1v-6h-1.2z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M257.7 235.8c4 2.2 4 6 0 8.4a16 16 0 01-14.4 0c-4-2.3-4.1-6-.1-8.4a16 16 0 0114.5 0z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M250.5 245a14 14 0 01-6.8-1.5c-1.7-1-2.6-2.2-2.6-3.5s.9-2.5 2.5-3.4a13.8 13.8 0 016.8-1.7 14 14 0 016.9 1.6c1.6 1 2.6 2.2 2.6 3.5s-.9 2.5-2.5 3.4a13.8 13.8 0 01-6.9 1.7z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M243.6 237.4a13.8 13.8 0 016.8-1.6 14 14 0 016.9 1.5 4.7 4.7 0 012.5 3.1 2.2 2.2 0 000-.4c0-1.3-.9-2.5-2.6-3.5a14 14 0 00-6.8-1.6 13.8 13.8 0 00-6.8 1.7c-1.7 1-2.6 2.2-2.6 3.4a2 2 0 000 .4 4.6 4.6 0 012.6-3zM114 249.5c.2 1.5 1.4 2.9 3.5 3.8a16 16 0 0014.4-1.8c1.9-1.4 2.7-3 2.5-4.5l-.3-2.3-20.4 2.5z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M129.8 252.8a12.3 12.3 0 002.1-1.3h.1l-.8-6.4-2.3.3zm3-2a6.2 6.2 0 001-1.3l-.6-4.7-1.2.2zm-17.4 1.2a7.1 7.1 0 001.3.9l-.7-6-1.2.1z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M130.6 241c4.2 1.7 4.7 5.5 1 8.3a16 16 0 01-14.4 1.7c-4.3-1.8-4.8-5.6-1-8.3a16 16 0 0114.4-1.8z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M124.5 251a13.9 13.9 0 01-7-.8c-1.8-.7-2.8-1.9-3-3.1s.6-2.6 2.1-3.8a13.8 13.8 0 016.6-2.4 14 14 0 017 .8c1.8.7 2.9 1.9 3 3.1s-.6 2.6-2.1 3.7a13.8 13.8 0 01-6.6 2.5z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M116.8 244.2a13.8 13.8 0 016.5-2.4 14 14 0 017 .8 4.7 4.7 0 013 2.7 2.2 2.2 0 000-.5c-.2-1.2-1.3-2.3-3-3a14 14 0 00-7-.9 13.8 13.8 0 00-6.6 2.5c-1.6 1.1-2.3 2.4-2.2 3.7a2.7 2.7 0 00.1.4 4.6 4.6 0 012.2-3.3z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M98 247c.2 1.5 1.4 2.9 3.5 3.8a16 16 0 0014.5-1.5c1.9-1.4 2.7-3 2.5-4.5l-.2-2.3-20.4 2.2z"
+            className="prefix__cls-7"
+          />
+          <path
+            d="M113.9 250.5a11.3 11.3 0 002-1.2l.2-.1-.7-6.4-2.3.3zm2.9-2a6.3 6.3 0 001-1.2l-.4-4.7-1.2.1zm-17.3 1a6.8 6.8 0 001.2 1l-.6-6H99z"
+            className="prefix__cls-22"
+          />
+          <path
+            d="M114.8 238.7c4.3 1.9 4.7 5.6 1 8.3a16 16 0 01-14.5 1.5c-4.3-1.8-4.7-5.6-1-8.3a16 16 0 0114.5-1.5z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M108.6 248.7a13.8 13.8 0 01-7-1c-1.8-.7-2.8-1.9-3-3.1s.7-2.6 2.2-3.7a13.8 13.8 0 016.7-2.4 14 14 0 017 1c1.7.7 2.8 1.9 3 3.1s-.7 2.6-2.2 3.7a13.8 13.8 0 01-6.7 2.4z"
+            className="prefix__cls-4"
+          />
+          <path
+            d="M101 241.7a13.8 13.8 0 016.6-2.3 14 14 0 017 .9 4.7 4.7 0 012.9 2.8v-.5c-.2-1.2-1.2-2.4-3-3.2a14 14 0 00-7-.9 13.8 13.8 0 00-6.6 2.4c-1.6 1.1-2.3 2.4-2.2 3.7a2 2 0 000 .4 4.6 4.6 0 012.3-3.3z"
+            className="prefix__cls-7"
+          />
         </g>
-        </g>
-        <ellipse cx="138.6" cy="318.1" fill="none" stroke="#fff" strokeMiterlimit="10"
-        strokeWidth="1.3" rx="25.7" ry="14.9" transform="rotate(-.2 139.2 315.3)"
-        />
-        <path fill="#42145f" d="M558 62.8c-2.6 1.6-2.7 4.1 0 5.7a11 11 0 0 0 10 0c2.7-1.5 2.7-4.1 0-5.7a10.9 10.9 0 0 0-10 0z"
-        />
-        <path fill="#490b63" d="M79.3 337v4.5a1.6 1.6 0 0 0 .8 1.4l41.3 24a.8.8 0 0 0 1-.3.8.8 0 0 0 .1-.4v-4.7a1.1 1.1 0 0 0-.6-1l-41.5-24.2a.7.7 0 0 0-1 .3.7.7 0 0 0-.1.3z"
-        />
-        <g id="cont-robot" ref={cont8Robot}>
-        <polygon fill="#6581c3" points="212.1 244.9 151.8 279.9 91.1 244.9 151.4 209.9 212.1 244.9"
-        />
-        <polygon fill="#fff" points="105.2 239.3 151.6 266.3 198.4 239.3 151.9 212.3 105.2 239.3"
-        />
-        <polygon fill="#f8f4fa" points="105.2 239.3 105.2 246.4 151.6 273.4 151.6 266.3 105.2 239.3"
-        />
-        <polygon fill="url(#linear-gradient-3)" points="198.4 239.3 198.4 246.4 151.6 273.4 151.6 266.3 198.4 239.3"
-        />
-        <path fill="url(#linear-gradient-4)" d="M136.6 236.1c0 2.3 1.5 4.5 4.4 6.2a23.6 23.6 0 0 0 21.5 0c3-1.7 4.4-4 4.4-6.2v-22.4h-30.3z"
-        />
-        
-        <path fill="#fff" d="M154 180.1c-2-1-4.8-1-7.8.8-1 .6-27.3 20-27.3 20a18.5 18.5 0 0 0-8.5 14.5c0 2.7 1 4.6 2.5 5.5l5.5 3.3s42.5-39.6 42.2-40-6.7-4-6.7-4z"
-        />
-        <path fill="url(#linear-gradient-8)" d="M124.6 204.3s26.4-19.4 27.3-20c6-3.4 11-.6 11 6.3s-4.9 15.3-10.9 18.8l-27.4 14.3c-4.6 2.7-8.4.5-8.4-4.8s3.7-11.9 8.4-14.6z"
-        />
-        <path fill="#4a6cb8" d="M153 188.3a14.3 14.3 0 0 0-6.5 11.3c0 4.1 3 5.8 6.5 3.7a14.3 14.3 0 0 0 6.5-11.3c0-4-2.9-5.8-6.5-3.7z"
-        />
-        <path fill="#4a6cb7" d="M125 210.5a8.3 8.3 0 0 0-3.8 6.5c0 2.4 1.7 3.4 3.8 2.2a8.3 8.3 0 0 0 3.8-6.6c0-2.4-1.8-3.3-3.8-2.1z"
-        />
-        <g id="strut-main" ref={strutMain}>
-          <path fill="#f8f4fa" d="M126.8 229.3l-6.6-4a8.3 8.3 0 0 1-3.8-9.3l28.7-104.5 9.5-5.9 14.1 8.1-19.3 85z"
-          />
-          <polygon fill="url(#linear-gradient-9)" points="136.7 215.9 159.2 119.5 145.1 111.5 154.6 105.6 168.8 113.8 149.4 198.7 136.7 215.9"
-          />
-        </g>
-        <g id="strut-top" ref={strutTop}>
-          <path fill="#f8f4fa" d="M151.6 100.8c-1.2-.7-2.8-.6-4.6.5l-.8.5-59.3 39a11.2 11.2 0 0 0-5.1 8.8 4 4 0 0 0 1 2.9l6.2 3.8 68.7-51.9z"
-          />
-          <path fill="url(#linear-gradient-5)" d="M93 144.5l59.2-39 .8-.6c3.6-2 6.6-.4 6.6 3.7A14.3 14.3 0 0 1 153 120l-60.2 36.3c-2.8 1.6-5 .3-5-3a11.2 11.2 0 0 1 5-8.7z"
-          />
-          <path fill="#4a6cb7" d="M153 107a10.2 10.2 0 0 0-4.6 8c0 3 2.1 4.2 4.7 2.7a10.2 10.2 0 0 0 4.6-8c0-3-2.1-4.1-4.6-2.7z"
-          />
-          <path fill="#4a6cb8" d="M93 147a6.3 6.3 0 0 0-3 5c0 1.8 1.4 2.5 3 1.6a6.3 6.3 0 0 0 2.8-5c0-1.7-1.3-2.5-2.9-1.6z"
-          />
-          <polygon fill="#f8f4fa" points="79.6 157.5 93.4 165.5 107.2 157.5 93.4 149.5 79.6 157.5"
-          />
-          <polygon fill="#f8f4fa" points="79.6 157.5 79.6 164.3 93.4 172.3 93.4 165.5 79.6 157.5"
-          />
-          <polygon fill="url(#linear-gradient-6)" points="107.2 157.5 107.2 164.3 93.4 172.3 93.4 165.5 107.2 157.5"
-          />
-          <polygon fill="#33c0c9" points="21.6 158.7 55 178.1 88.6 158.7 55.2 139.3 21.6 158.7"
-          />
-          <polygon fill="#fff" points="59.8 164.3 69.2 169.8 74.3 166.9 64.9 161.4 59.8 164.3"
-          />
-          <polygon fill="#4a6cb7" points="21.6 158.7 21.6 192.4 55 211.8 55 178.1 21.6 158.7"
-          />
-          <polygon fill="#00b0bc" points="88.6 158.7 88.6 192.4 55 211.8 55 178.1 88.6 158.7"
-          />
-          <polygon fill="#f8f4fa" points="74.3 166.9 74.3 176.8 69.2 179.6 69.2 169.8 74.3 166.9"
-          />
-          <polygon fill="#fff" points="36 150.3 45.5 155.8 50.5 152.9 41.1 147.4 36 150.3"
-          />
-          <polygon fill="#fff" points="77.6 181.5 79.1 182.4 92.9 172.3 88.6 169.7 88.6 173.6 77.6 181.5"
-          />
-          <polygon fill="#f8f4fa" points="77.6 181.5 77.6 188.4 79.1 189.3 79.1 182.4 77.6 181.5"
-          />
-          <polygon fill="url(#linear-gradient-7)" points="92.9 172.3 92.9 181.3 79.1 189.3 79.1 182.4 92.9 172.3"
-          />
-                  <path fill="#f8f4fa" d="M165 109.6c-1.3-.6-2.9-.5-4.7.5l-.8.5-59.3 39a11.2 11.2 0 0 0-5.1 8.9 4 4 0 0 0 .9 2.8l6.3 3.8 68.7-51.8z"
-        />
-        <path fill="url(#linear-gradient-11)" d="M106.2 153.3l59.4-39a7.2 7.2 0 0 1 .8-.5c3.6-2.1 6.5-.4 6.5 3.7a14.3 14.3 0 0 1-6.5 11.2l-60.1 36.4c-2.9 1.6-5.2.3-5.2-3a11.2 11.2 0 0 1 5.1-8.8z"
-        />
-        <path fill="#4a6cb8" d="M166.4 115.9a10.1 10.1 0 0 0-4.6 8c0 3 2 4.1 4.6 2.6a10.2 10.2 0 0 0 4.6-8c0-2.9-2-4-4.6-2.6zM106.2 155.9a6.3 6.3 0 0 0-2.8 5c0 1.8 1.3 2.5 2.9 1.6a6.3 6.3 0 0 0 2.8-5c0-1.8-1.3-2.5-2.9-1.6z"
-        />
-        <path fill="none" stroke="#fff" strokeMiterlimit="10" strokeWidth="0.8"
-        d="M118.1 155.1v5.2a6.3 6.3 0 0 1-3 5.4l-14.4 8.6a1.8 1.8 0 0 1-2.4-.6 1.8 1.8 0 0 1-.2-1V167"
-        />
-        <polygon fill="#f8f4fa" points="145.1 111.5 152.2 115.5 159.2 119.5 167.9 114.2 161.5 109.6 154.6 105.6 145.1 111.5"
-        />
-        </g>
-        <path fill="#fff" d="M167.8 188.6c-2-1.1-4.7-1-7.7.8-1 .5-27.4 19.9-27.4 19.9a18.6 18.6 0 0 0-8.4 14.6c0 2.7 1 4.6 2.5 5.4l5.5 3.3s42.5-39.6 42.1-39.8l-6.6-4.2z"
-        />
-        <path fill="url(#linear-gradient-10)" d="M138.4 212.8s26.4-19.4 27.4-20c6-3.4 10.9-.6 11 6.3s-5 15.3-11 18.8l-27.3 14.3c-4.7 2.7-8.5.5-8.5-4.8s3.8-12 8.4-14.7z"
-        />
-        <path fill="#4a6cb8" d="M166.9 196.8a14.3 14.3 0 0 0-6.5 11.2c0 4.1 3 5.8 6.5 3.7a14.3 14.3 0 0 0 6.5-11.2c0-4.1-2.9-5.8-6.5-3.7zM138.8 219a8.3 8.3 0 0 0-3.7 6.5c0 2.4 1.7 3.3 3.8 2.1a8.3 8.3 0 0 0 3.7-6.5c0-2.4-1.7-3.4-3.8-2.2z"
-        />
-        </g>
-        <g id="cont-wifi" ref={cont2Wifi}>
-        <polygon fill="#6581c3" points="591.7 140 543.3 168.1 494.5 140 542.9 111.8 591.7 140"
-        />
-        <polygon fill="#fff" points="512 133.3 543.1 151.4 574.4 133.3 543.3 115.3 512 133.3"
-        />
-        <polygon fill="#f8f4fa" points="512 133.3 512 142.3 543.1 160.4 543.1 151.4 512 133.3"
-        />
-        <polygon fill="url(#linear-gradient-12)" points="574.4 133.3 574.4 142.3 543.1 160.4 543.1 151.4 574.4 133.3"
-        />
-        <g id="wifi-large" ref={wifiLarge}>
-            <path fill="#fff" d="M562.3 48.4l2.6 1.2 5 1.7a40.6 40.6 0 0 0-7.6-2.9m-23-10.9A68.5 68.5 0 0 0 510.7 49a107 107 0 0 0-29.4 30.6l5.5 5.3 5 1.7.8-1.3-.9 1.3-5-1.7-5.4-5.3 5 1.7c8-12.3 18-23.1 29.3-30.6a69 69 0 0 1 32.5-11.9 50.3 50.3 0 0 1 20.2 2.6 50.1 50.1 0 0 0-25.1-4.3l-3.9.4"
-            />
-            <path fill="url(#linear-gradient-13)" d="M544.2 39.2a68.8 68.8 0 0 0-28.6 11.5 107 107 0 0 0-29.4 30.6l5.5 5.3.9-1.4a98 98 0 0 1 26.7-27.7 60.6 60.6 0 0 1 25.2-10 54 54 0 0 1 3.3-.4 43.4 43.4 0 0 1 14.5 1.3 40.6 40.6 0 0 1 7.6 2.9l3.5-7.8a48.4 48.4 0 0 0-5-2.1 50.3 50.3 0 0 0-20.3-2.6c-1.3 0-2.6.2-3.8.4"
-            />
-            <polyline fill="#f8f3f8" points="481.3 79.6 486.8 84.9 491.8 86.6 486.2 81.3 481.3 79.6"
-            />
-        </g>
-        <g id="wifi-med" ref={wifiMed}>
-            <path fill="#fff" d="M554.6 68.3l1.6.8 5 1.7a23 23 0 0 0-6.5-2.5m-14.8-10.2a48.2 48.2 0 0 0-20 8.1c-9.6 6.4-18.1 16-24.7 26.8l5.6 5.4 5 1.6.3-.7-.4.7-5-1.6-5.5-5.4 5 1.7a85.5 85.5 0 0 1 24.5-26.8 48.5 48.5 0 0 1 20-8.1l2.6-.3a32.8 32.8 0 0 1 13 1.6c-5.3-2-11.7-3.7-18-3.3l-2.5.3"
-            />
-            <path fill="url(#linear-gradient-14)" d="M544.8 59.8a48.5 48.5 0 0 0-20 8.1 86 86 0 0 0-24.6 26.8l5.5 5.3.4-.7a76 76 0 0 1 22.3-24.5A40.2 40.2 0 0 1 545 68l2-.2a26 26 0 0 1 7.6.5 23 23 0 0 1 6.5 2.5l3.5-7.9a30 30 0 0 0-4.3-1.8 32.8 32.8 0 0 0-13-1.6q-1.3 0-2.5.3"
-            />
-            <polyline fill="#f8f3f8" points="495.2 93 500.7 98.4 505.7 100 500.1 94.7 495.2 93"
-            />
-        </g>
-        <g id="wifi-small" ref={wifiSmall}>
-            <path fill="#fff" d="M546.7 88.5a7 7 0 0 1 .5.5l5 1.7a7 7 0 0 0-1.7-1.4 7.3 7.3 0 0 0-3.8-.8m-6-9.8a28.4 28.4 0 0 0-11.7 4.8 64.3 64.3 0 0 0-19.8 23l5.8 5.5 5 1.7.5-1.1-.5 1-5-1.6-5.8-5.6 5 1.7c5-9.4 12-17.8 19.8-23a28.2 28.2 0 0 1 11.5-4.8 15.2 15.2 0 0 1 7.2.6l-2.2-1a17.6 17.6 0 0 0-9.7-1.3"
-            />
-            <path fill="url(#linear-gradient-15)" d="M545.4 80.3a28.2 28.2 0 0 0-11.5 4.8 64.2 64.2 0 0 0-19.8 23l5.8 5.6.5-1.1A55.6 55.6 0 0 1 537.5 92a20 20 0 0 1 8-3.4 10.5 10.5 0 0 1 1.1-.1 7.3 7.3 0 0 1 3.9.8 7 7 0 0 1 1.6 1.4l3.7-8.1a10.8 10.8 0 0 0-1.2-.8 13.8 13.8 0 0 0-2.1-.9 15.2 15.2 0 0 0-7.2-.6"
-            />
-            <polyline fill="#f8f3f8" points="509.1 106.5 514.9 112.1 519.9 113.7 514.1 108.2 509.1 106.5"
-            />
-        </g>
-        </g>
-        <g id="cont-cloud" ref={cont6Cloud}>
-        <polygon fill="#6581c3" points="314.3 162 272.1 186.5 229.6 162 271.8 137.5 314.3 162"
-        />
-        <polygon fill="#f8f4fa" points="297.6 163.5 272 178.4 246.2 163.5 246.2 161.6 297.6 161.6 297.6 163.5"
-        />
-        <polygon fill="#fff" points="297.6 161.6 272 176.5 246.2 161.6 271.9 146.7 297.6 161.6"
-        />
-        <g clipPath="url(#clip-path)">
-            <polyline fill="none" stroke="#00b0bc" strokeMiterlimit="10" points="286.6 174 269.7 164.1 259.9 164.1"
-            />
-            <path fill="#00afbb" d="M260.3 163.4a.7.7 0 0 1 .4 1 .7.7 0 0 1-.5.4 2.6 2.6 0 0 1-2.3 0 .7.7 0 0 1 0-1.4 2.6 2.6 0 0 1 2.4 0z"
-            />
-            <line x1="289.9" x2="263.2" y1="171.9" y2="156.2" fill="none" stroke="#00b0bc"
-            strokeMiterlimit="10" />
-            <path fill="#00afbb" d="M264.3 155.5a.7.7 0 0 1 0 1.4 2.6 2.6 0 0 1-2.4 0c-.6-.4-.6-1 0-1.4a2.6 2.6 0 0 1 2.4 0z"
-            />
-            <line x1="311" x2="284.3" y1="174" y2="158.2" fill="none" stroke="#00b0bc"
-            strokeMiterlimit="10" />
-            <path fill="#00afbb" d="M285 157.3a.8.8 0 0 1 .4 1 .7.7 0 0 1-.4.4 2.7 2.7 0 0 1-2.4 0c-.6-.4-.6-1 0-1.4a2.7 2.7 0 0 1 2.4 0z"
-            />
-            <polyline fill="none" stroke="#00b0bc" strokeMiterlimit="10" points="292.1 169.8 270.3 156.9 270.3 150.4"
-            />
-            <path fill="#00afbb" d="M271.4 149.7a.7.7 0 0 1 .5 1 .7.7 0 0 1-.5.4 2.6 2.6 0 0 1-2.3 0 .7.7 0 0 1 0-1.4 2.6 2.6 0 0 1 2.3 0z"
-            />
-        </g>
-        <line x1="259" x2="259" y1="67" y2="164.5" fill="none" stroke="#00b0bc"
-        strokeMiterlimit="10" />
-        <line x1="263.1" x2="263.1" y1="65" y2="156" fill="none" stroke="#00b0bc"
-        strokeMiterlimit="10" />
-        <line x1="270.3" x2="270.3" y1="65.9" y2="155.5" fill="none" stroke="#00b0bc"
-        strokeMiterlimit="10" />
-        <path fill="#f8f4fa" d="M305.2 45l-77.6 57.6-11-6.5V92a28 28 0 0 1 12.7-21.9v-7.7c0-12.3 8.6-27.2 19.3-33.4l8.9-5.1a14.2 14.2 0 0 1 15.4-.2c2.4 1.5 10.1 5.8 10.1 5.8l-6.1 13.1 15.6-9a9.1 9.1 0 0 1 10.2 0l10.3 6z"
-        />
-        <path fill="#fff" d="M233.2 88.8l7-12.2-11-6.5a26.3 26.3 0 0 0-9.4 10.4zM249.3 50.5l31.4-18L261.6 22a17.9 17.9 0 0 0-4.2 1.8l-9 5.2a39 39 0 0 0-13.2 13.8c5.8 3 14 7.4 14 7.7z"
-        />
-        <polygon fill="#fff" points="278.9 38.2 273.3 40.1 281.6 53.2 303.5 40.1 292.5 33.6 276.9 42.6 278.9 38.2"
-        />
-        <path fill="url(#linear-gradient-16)" d="M268.4 30.3c10.7-6.1 19.4-1.2 19.5 11.1v7.7l15.6-9c7-4 12.7-.8 12.7 7.3v4l-88.6 51.2v-4.1a28 28 0 0 1 12.6-21.9V69c0-12.3 8.6-27.2 19.3-33.4z"
-        />
-        </g>
-        <g id="msg-2" ref={cont5Msg}>
-            <polygon fill="#6581c3" points="344.7 256.2 325.6 267.3 306.3 256.2 325.4 245.1 344.7 256.2"
-            />
-            <polygon fill="#f8f4fa" points="321.1 207.2 321.2 242.2 320.9 245 274.3 275 269.8 271.8 269.7 236.9 321.1 207.2"
-            />
-            <polygon fill="url(#linear-gradient-17)" points="325.5 210.4 325.6 245.3 325.6 255.3 316.9 250.4 274.3 275 274.1 240 325.5 210.4"
-            />
-            <path ref={msg2Bub1} id="msg2Bub1" fill="#4a6cb8" d="M311.8 234c1.2-.7 2-.1 2 1.2a4.5 4.5 0 0 1-2 3.5c-1 .6-2 .1-2-1.2a4.5 4.5 0 0 1 2-3.5z"
-            />
-            <path ref={msg2Bub2} id="msg2Bub2" fill="#4a6cb8" d="M300 240.5c1.1-.6 2 0 2 1.2a4.4 4.4 0 0 1-2 3.5c-1.1.7-2 .1-2-1.2a4.5 4.5 0 0 1 2-3.5z"
-            />
-            <path ref={msg2Bub3} id="msg1Bub1" fill="#4a6cb8" d="M288.2 246.7c1.2-.6 2-.1 2 1.2a4.5 4.5 0 0 1-2 3.5c-1 .6-2 .1-2-1.2a4.5 4.5 0 0 1 2-3.5z"
-            />
-            <polygon fill="#fff" points="325.5 210.4 321.1 207.2 269.7 236.9 274.1 240 325.5 210.4"
-            />
-        </g>
-        <g id="msg-1" ref={cont4Msg}>
-            <polygon fill="#6581c3" points="358.8 196.2 339.6 207.3 320.4 196.2 339.5 185.1 358.8 196.2"
-            />
-            <polygon fill="#f8f4fa" points="335 148.4 335.1 183.3 334.8 186.2 288.1 216.1 283.8 213 283.6 178 335 148.4"
-            />
-            <polygon fill="url(#linear-gradient-18)" points="339.4 151.5 339.5 186.5 339.6 196.5 330.8 191.5 288.1 216.1 288.1 181.2 339.4 151.5"
-            />
-            <path ref={msg1Bub1} id="msg1Bub1" fill="#4a6cb8" d="M325.8 175.1c1-.7 2-.1 2 1.2a4.4 4.4 0 0 1-2 3.5c-1.2.6-2 .1-2-1.2a4.5 4.5 0 0 1 2-3.5z"
-            />
-            <path ref={msg1Bub2} id="msg1Bub2" fill="#4a6cb8" d="M314 181.7c1.1-.7 2-.1 2 1.2a4.5 4.5 0 0 1-2 3.5c-1.1.6-2 .1-2-1.2a4.5 4.5 0 0 1 2-3.5z"
-            />
-            <path ref={msg1Bub3} id="msg1Bub3" fill="#4a6cb8" d="M302.1 187.9c1.2-.7 2-.2 2.1 1.1a4.5 4.5 0 0 1-2 3.5c-1.1.7-2 .2-2-1.1a4.5 4.5 0 0 1 2-3.5z"
-            />
-            <polygon fill="#fff" points="339.4 151.5 335 148.4 283.6 178 288.1 181.2 339.4 151.5"
-            />
-        </g>
-        <g id="cont-cyl" ref={cont7Cyl}>
-        <polygon fill="#6581c3" points="301.4 319.7 259.2 344.2 216.8 319.7 258.9 295.2 301.4 319.7"
-        />
-        <path fill="#f8f4fa" d="M277.4 320v-47.2h-36.6v47.1c0 2.8 1.8 5.5 5.4 7.5a28.5 28.5 0 0 0 25.9 0c3.5-2 5.3-4.8 5.3-7.5z"
-        />
-        <g id="cyl-liquid">
-        <path fill="#00b0bc" d="M259.1 327.6a23.7 23.7 0 0 1-11.4-2.7c-2.5-1.4-4-3.3-4-5V295h30.8v24.8c0 1.8-1.4 3.6-3.9 5a23.5 23.5 0 0 1-11.5 2.7z"
-        />
-        <path fill="#4a6cb7" d="M261.5 327.5a22.3 22.3 0 0 0 9-2.6c2.5-1.4 4-3.2 4-5v-24.8h-13z"
-        />
-        <path fill="#33c0c9" d="M270 288.8c6 3.5 6 9.1 0 12.6s-15.7 3.5-21.7 0-6-9.1-.1-12.6 15.7-3.5 21.7 0z"
-        />
-        </g>
-        <path fill="#fff" d="M272 265.3c7.2 4.1 7.2 10.8 0 15s-18.6 4.1-25.8 0-7.2-10.9 0-15 18.6-4.2 25.8 0z"
-        />
-        <path fill="#f8f4fa" d="M259.1 273.9a8.3 8.3 0 0 1-4-1c-.8-.5-1.3-1.1-1.3-1.7v-3h10.5v3c0 .6-.4 1.3-1.3 1.8a8.2 8.2 0 0 1-3.9.9z"
-        />
-        <path fill="#fff" d="M262.8 266c2 1.3 2.1 3.2 0 4.4a8.3 8.3 0 0 1-7.5 0c-2-1.2-2-3.1 0-4.3a8.2 8.2 0 0 1 7.5 0z"
-        />
-        </g>
-        <g id="cont-watch" ref={cont3Watch}>
-        <polygon fill="#6581c3" points="478.5 207.8 420.6 240.4 388.5 222.3 446.4 189.7 478.5 207.8"
-        />
-        <polygon fill="#fff" points="469.4 176 465.9 174.5 464.9 176.2 466.9 176.8 469.4 176"
-        />
-        <path fill="#f2fbfc" d="M380.7 197.8s2.6 7.5 8.9 11 26.1 13.8 26.1 13.8l-9.3-10.3-11-10.6z"
-        />
-        <path fill="#fff" d="M448.2 180.8a46.4 46.4 0 0 1-9.6 18.2c-7.6 8.9-13.2 15.2-27.6 17 0 0 6.6 9 20.2 7.3s26-17.1 34.2-34l1.5-12.5-10.5-3.3z"
-        />
-        <path fill="url(#linear-gradient-19)" d="M409.2 213.2a22.6 22.6 0 0 0 21.8 9c14.5-2 25-16.2 29.8-26a69 69 0 0 0 6-19.5l2.6-.7a77 77 0 0 1-5.9 20.4c-4.8 10.5-14.5 25.4-32.5 28.7-17.4 3.1-26.2-13.4-26.2-13.4z"
-        />
-        <polygon fill="#4a6cb8" points="416.6 162.8 416.4 209.2 408.3 213.7 375.1 148.1 383.1 143.6 416.6 162.8"
-        />
-        <polygon fill="#00b0bc" points="408.4 167.4 408.3 213.7 374.9 194.4 375.1 148.1 408.4 167.4"
-        />
-        <polygon fill="#33c0c9" points="408.4 167.4 416.6 162.8 383.1 143.6 375.1 148.1 408.4 167.4"
-        />
-        <path fill="url(#linear-gradient-20)" d="M461.5 186s5.2-13.5 2.7-27.5-10.6-25.3-25.6-25.3c-16 0-30.3 22.1-30.2 26.1l-3 1.8-3.5-19.8 38.3-14L451 133s12 5.3 15.4 23.7c3 17-2.3 28.4-2.3 28.4z"
-        />
-        <path fill="#fff" d="M384.4 149.2s2-11.2 14.8-21.5 24.9-8.2 28.4-6.7 23.4 12 23.4 12-9.3-4.5-19.2-1-24.3 16.3-26.5 29.2z"
-        />
-        <path fill="#f2fbfc" d="M464.2 158.5c-2.1-12-8.4-22-19.6-24.6 3.2 5.1 4.6 10 5.9 21 1.3 11.8-4.3 25.1-4.3 25.1l15.3 6s5.2-13.5 2.7-27.5z"
-        />
-        <polyline fill="none" stroke="#944eab" strokeMiterlimit="10" points="391.7 164.6 391.7 180.9 397.7 193.7"
-        />
-        </g>
-    </g>
-</svg>
+      </g>
+    </svg>
   );
 }

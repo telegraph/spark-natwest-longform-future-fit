@@ -18,7 +18,7 @@
     color: white;
     transform: translateX(50%);
     z-index: 6;
-    min-width: 100%;
+    min-width: 60%;
     transition: opacity 0.4s;
 
     &.fade {
@@ -27,7 +27,7 @@
 
     &.fixed {
       position: fixed;
-      top: 110px;
+      top: 67px;
     }
   }
 

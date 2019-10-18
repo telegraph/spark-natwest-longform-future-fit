@@ -10,8 +10,11 @@ function Slider({ link }) {
   const [items, setItems] = useState([]);
   const [currentItem, changeCurrentItem] = useState(0);
   const [itemProgress, changeItemProgress] = useState(0);
+  const [childEls, setChildEls] = useState(null);
+  const [containerHeight, setContainerHeight] = useState(0);
 
   const points = useRef(null);
+  const container = useRef(null);
 
   function calcItemProgress() {
     // works out gap between each point
@@ -23,15 +26,22 @@ function Slider({ link }) {
   }
 
   useEffect(() => {
-    // on Mount
+    // on Mount set item data
     setItems(shopSlider);
   }, []);
 
   useEffect(() => {
+    // When container ref is loaded / changes
+    if (container.current !== null) {
+      setChildEls([...container.current.querySelectorAll('.container__item')]);
+    }
+  }, [container.current]);
+
+  useEffect(() => {
     // Whenever currentItem is updated...
     calcItemProgress();
+    if (container.current !== null && childEls !== null) setContainerHeight(childEls[currentItem].offsetHeight);
   }, [currentItem]);
-
 
   function handleThis(e) {
     changeCurrentItem(parseInt(e.target.value, 10));
@@ -57,13 +67,16 @@ function Slider({ link }) {
         Transforming our business landscape
       </h2>
       <div className="slider__bg" />
-      <div className="slider__container">
+      <div className="slider__container" ref={container}
+        style={{ height: `${containerHeight}px` }}
+      >
         {items.map((item, i) => (
           <div
             className={`container__item ${currentItem === i ? 'visible' : ''}`}
             key={`container-item-${i + 1}`}
           >
-            {item.copy}
+            <h3>{item.title}</h3>
+            <p>{item.copy}</p>
           </div>
         ))}
       </div>

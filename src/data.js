@@ -12,6 +12,44 @@ import handsShaking from './assets/retain-talent/hands_shaking.svg';
 import parasol from './assets/retain-talent/parasol.svg';
 import plant from './assets/retain-talent/plant.svg';
 
+// Flipboard assets 
+import ai from './assets/flip/ai.svg';
+import print from './assets/flip/3d_printing.svg';
+import chatbots from './assets/flip/chatbots.svg';
+import dataMining from './assets/flip/data_mining.svg';
+import iot from './assets/flip/iot.svg';
+import revolution from './assets/flip/revolution.svg';
+
+// case studies slider
+import contentGuruLogo from './assets/case-studies/content-guru/logo_content.png';
+import contentGuruHeadShot from './assets/case-studies/content-guru/martin_content.png';
+
+import futureBrandLogo from './assets/case-studies/future-brand/logo_futurebrand.png';
+import futureBrandHeadshot from './assets/case-studies/future-brand/jon_futurebrand.png';
+
+import imperialLogo from './assets/case-studies/imperial-college/logo_imperial.png';
+import imperialHeadshot from './assets/case-studies/imperial-college/nelson_imperial.png';
+
+import metapraxisLogo from './assets/case-studies/metapraxis/logo_metapraxis.png';
+import metapraxisHeadshot from './assets/case-studies/metapraxis/simon_metapraxis.png';
+
+import mondiHeadshot from './assets/case-studies/mondi-group/peter_mondi.png';
+import mondiLogo from './assets/case-studies/mondi-group/logo_mondi.png';
+
+import podHeadshot from './assets/case-studies/pod-group/charles_pod.png';
+import podLogo from './assets/case-studies/pod-group/logo_pod.png';
+
+import smartHeadshot from './assets/case-studies/smart-ideas/erica_smartideas.png';
+
+import straightHeadshot from './assets/case-studies/straight-teeth/aalok_straightteeeth.png';
+import straightLogo from './assets/case-studies/straight-teeth/logo_straightteeeth.png';
+
+// how to future slider assets
+import teethImg from './assets/futue-proof-slider/ortodontics.svg';
+import devicesImg from './assets/futue-proof-slider/devices.svg';
+import competitionImg from './assets/futue-proof-slider/competition.svg';
+
+
 export const FiveGTimeline = [
   {
     id: 0,
@@ -83,6 +121,25 @@ export const shopSlider = [
   },
 ];
 
+export const forefront = [
+  {
+    logo: teethImg,
+    title: 'Taking orthodontics online',
+    copy: 'A huge number of adults have crooked teeth – up to 77pc of people in London, according to Aalok Y Shukla, of Straight Teeth Direct – but only 1pc get treatment, as it is often extremely expensive.<br />In 2009, he set up a business focused on making the process cheaper, using at-home consultations and 3D printing. He says: “In all other industries, technology makes things more affordable, so we wanted to do that.<br />“I’ve always been tracking cutting-edge technologies and I saw the costs of 3D printing and computer-aided design [CAD] systems were becoming more accessible. So we started researching and seeing if there could be a way to internally manufacture the most desirable teeth-straightening solution – invisible aligners using 3D printing for a price that would mean we could offer it for a third of the price of in-clinic options.<br />“We realised we could, so we sold our clinic and Straight Teeth Direct was born.”',
+  },
+  {
+    logo: competitionImg,
+    title: 'Taking advantage of the competition',
+    copy:
+      'Charlie Thuiller invented Oppo ice cream with his brother Harry, with a goal of making ice cream with fewer calories than an apple. At the time, the idea of “healthy” ice cream was seen as “out there”.<br />But within five years, their ice cream (made from natural ingredients, such as coconut milk and stevia leaf, a natural sweetener) faced steep competition. Mr Thuiller says his competitors actually energised sales.<br />“When we first launched Oppo we were the first healthy ice cream globally. Five years later there are 35 companies. This space has become massively congested.<br />“It\'s very important to welcome competitors, using their might to support their company. Within six months of Unilever coming into the space, they educated consumers about healthy ice cream, and our sales doubled. We always focus on innovation.”',
+  },
+  {
+    logo: devicesImg,
+    title: 'Helping all businesses embrace the tech revolution',
+    copy: 'Digital Catapult, for example, helps smaller companies to access advanced digital technologies such as augmented reality, 5G, AI and the internet of things (IoT), says chief executive Jeremy Silver. <br /> Mr Silver says that his government-backed organisation brings together start-up businesses, large corporations and academic research. The resulting collaboration helps businesses to “develop technologies which solve problems, increase productivity, boost the UK economy and open up new markets faster”.<br />He adds: “Digital Catapult provides physical and digital facilities for experimentation, testing and development that would otherwise not be accessible for smaller companies.<br />“In January, we launched the Future Networks Lab in partnership with Siemens, BT and a number of other big industry players. It’s one of the first facilities in Europe specifically designed to enable UK start-ups, corporations and network platform providers to collaborate on solutions using 5G and IoT technologies.”<br />Such facilities can supercharge the process by which businesses reach out to support networks, suppliers and other businesses in order to collaborate and grow.',
+  },
+];
+
 export const retainTalent = [
   {
     img: clock,
@@ -118,58 +175,50 @@ export const retainTalent = [
 
 export const verticalSlider = [
   {
-    stat: 'Automation',
     copy:
-      'In professional services, such as the accounting, legal and consulting sectors, the automation of routine tasks such as invoicing is already saving time and reducing costs. Increasingly, AI and machine learning will enable innovation and differentiation in product and service offerings as well as the automation of more complex tasks.',
+      'Only 25pc of respondents put strategic plans for the business for the next five years at the top of their agendas (based on interviews with 110 UK manufacturers)',
     coordTop: '6',
     coordRight: '60',
   },
   {
-    stat: 'Navigation and control systems',
     copy:
-      'Electric technology is already redefining the way cars use fuel, with electric, hybrid and solar energy systems beginning to displace internal combustion engine and gas-fed engines. However, it is the growth of autonomous technologies that will redefine the driving experience, with control slowly being handed over to onboard computers. Ultimately customers will interact with these navigation systems, but will not be in direct control.',
+      'Most businesses are still fairly optimistic about their journey, with 60pc saying they felt optimistic overall (although 44pc are only “fairly optimistic”).',
     coordTop: '12',
     coordRight: '15',
   },
   {
-    stat: 'Digital tracking',
     copy:
-      'Tiny sensors mean manufacturers can monitor products long after they have left the factory. This lets customers know how long goods will take to arrive with customers. It also allows manufacturers to offer that monitoring to their customers as an additional, paid-for, service – warning customers if a component is wearing out or malfunctioning, for example.',
+      'A large majority (80pc) of respondents say that innovation is crucial to be competitive in the next five years',
     coordTop: '21',
     coordRight: '42',
   },
   {
-    stat: 'Just-in-time delivery',
     copy:
-      'Big data lets manufacturers track each item sold, including sale date and time. Inputting additional information such as when demand peaks and drops means companies can generate detailed demand forecasts and manufacture products to order, minimising the amount of inventory that will go unsold.',
+      'Only 15pc of businesses put innovation and research at the top of their agenda',
     coordTop: '32',
     coordRight: '20',
   },
   {
-    stat: 'Dynamic pricing',
     copy:
-      'Retailers can use algorithms that change prices according to various criteria, for example matching the lowest competitor’s price or keeping a price below average. Because the process is automated, retailers can react to rivals’ moves in minutes rather than days, improving margins and top-line profit.',
+      '73pc of respondents agreed that collaboration with the supply chain would become more important in future',
     coordTop: '43',
     coordRight: '65',
   },
   {
-    stat: 'Data analytics',
     copy:
-      'Firms can increasingly capture high-quality information on their customers, allowing them to understand who they are and what they want. Sectors such as banking and leisure, for example, can use this to build tailored, customised promotions and offers to meet those demands, increasing customer loyalty.',
+      '£141.5bn in GDP growth could be lost due to Britain’s digital skills gap, according to Accenture',
     coordTop: '54',
     coordRight: '30',
   },
   {
-    stat: 'Chatbots',
     copy:
-      'Banks have already taken advantage of AI-enabled tools such as chatbots to interact with customers. This is just the beginning. AI is also enabling banks to automate credit scoring and predict future customer behaviours. Automation means staff can focus on valuable, higher-level work such as conversations with customers about new products.',
+      '81pc of employees believe that the skills they need to do their job will change in the next five years, according to City & Guilds Group research',
     coordTop: '65',
     coordRight: '54',
   },
   {
-    stat: 'Artificial intelligence',
     copy:
-      'AI is increasingly being used to detect diseases, such as cancers, more accurately and at an early stage. The use of AI is also allowing health organisations to review X-rays faster and with more accuracy. Meanwhile, a rapid increase in consumer tech means doctors and other health specialists are able to better monitor and detect disease and illness earlier when it is still treatable.',
+      '40pc of IT spending in 2019 is set to be on digital transformation, according to IDC',
     coordTop: '76',
     coordRight: '10',
   },
@@ -177,33 +226,60 @@ export const verticalSlider = [
 
 export const flipBoardData = [
   {
-    img: books,
+    img: ai,
     title: 'Artificial intelligence',
     copy: 'AI uses algorithms to find patterns in large sets of data (for example, from customer interactions)',
   },
   {
-    img: books,
+    img: chatbots,
     title: 'Chatbots',
     copy: 'AI-enabled software that can simulate chats with users through instant messaging systems, apps or on the phone. They streamline customer interactions and can improve operational efficiency.',
   },
   {
-    img: books,
+    img: revolution,
     title: 'The Fourth Industrial Revolution',
     copy: 'Also known as 4IR, it refers to a change in the way manufacturing works, with sensors and smart factories used to deliver more information to companies',
   },
   {
-    img: books,
+    img: iot,
     title: 'Internet of things',
     copy: 'Connected objects, such as sensors, that can allow businesses to gather data, for example from smart factories)',
   },
   {
-    img: books,
+    img: dataMining,
     title: 'Data mining',
     copy: 'How companies can examine large data sets, for instance the behaviour of customers, to find patterns and innovate',
   },
   {
-    img: books,
+    img: print,
     title: '3D printing',
     copy: 'Also known as additive manufacturing, a process where devices can print three-dimensional objects, which can considerably lower the cost of manufacturing',
   },
 ];
+
+export const basicSlider = [
+  {
+    img: mondiHeadshot, logo: mondiLogo, title: 'Peter Oswald, chief executive, Mondi Group', copy: '“It is not technology, but the intelligent application of technology that helps to answer business questions. We should not become too dazzled by digitalisation. It is not an answer in itself, but an enabler. Like all enablers, it is only as smart as the people using it.”',
+  },
+  {
+    img: straightHeadshot, logo: straightLogo, title: 'Aalok Y Shukla, Straight Teeth Direct', copy: '“You have to have a vision for your business. You have to think, ‘What capabilities do I have now, and what capabilities do other people have, that I’d like to acquire?’ You can look at partners and your network and you can figure out, \'How can I add that?’ ”',
+  },
+  {
+    img: smartHeadshot, logo: books, title: 'Erica Wolfe-Murray, author of Simple Tips, Smart Ideas', copy: '“Many companies operate in a silo, focused on doing the do rather than second-guessing what is coming down the tracks towards them. Having their radar constantly on is critical – working collaboratively with suppliers, networking with competitors, with universities, with emergent disruptors, with corporate venture partners.”',
+  },
+  {
+    img: futureBrandHeadshot, logo: futureBrandLogo, title: 'Jon Tipple, Future Brand', copy: '“To do what you say, practise what you preach. Regardless of business size, the process of future-proofing starts with a commitment to align corporate purpose with everyday experience for all stakeholders – employees, investors, customers, consumers and so on.”',
+  },
+  {
+    img: imperialHeadshot, logo: imperialLogo, title: 'Nelson Phillips, professor of strategy and innovation at Imperial College Business School', copy: '“Make sure to hire and integrate Generate X members of staff. Their perspective provides an important challenge to old ways of thinking and offers some insight into where politics and societal concerns and interests are going.”',
+  },
+  {
+    img: metapraxisHeadshot, logo: metapraxisLogo, title: 'Simon Bittlestone, chief executive, Metapraxis', copy: '“It starts with building the right skills and experience in the team, but there are also other practical steps businesses can take. Conducting a strategic market review and mapping the skills and experiences the business already has against those it needs will help paint a fuller picture of what resources they have right now.”',
+  },
+  {
+    img: contentGuruHeadShot, logo: contentGuruLogo, title: 'Martin Taylor, deputy chief executive, Content Guru', copy: '“The key is to embrace technology, rather than thinking of it as a threat – especially a threat to jobs. No technology has ever created unemployment in the long term. It has only ever driven increased productivity, innovation and a superior experience.”',
+  },
+  {
+    img: podHeadshot, logo: podLogo, title: 'Charles Towers-Clark, group chief executive of Pod Group', copy: '“Businesses need to put employees before anything else – including shareholders and customers. By creating an employee-first workplace that encourages people to use emotional intelligence and take initiative and responsibility, companies will witness an improvement in their bottom line.”',
+  },
+]
