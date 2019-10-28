@@ -7,7 +7,7 @@ import officeSliderCube from '../../assets/office-slider-cube.svg';
 import './style.scss';
 
 function Slider({ link }) {
-  const [items, setItems] = useState([]);
+  const [items] = useState(shopSlider);
   const [currentItem, changeCurrentItem] = useState(0);
   const [itemProgress, changeItemProgress] = useState(0);
   const [childEls, setChildEls] = useState(null);
@@ -26,16 +26,11 @@ function Slider({ link }) {
   }
 
   useEffect(() => {
-    // on Mount set item data
-    setItems(shopSlider);
-  }, []);
-
-  useEffect(() => {
     // When container ref is loaded / changes
     if (container.current !== null) {
       setChildEls([...container.current.querySelectorAll('.container__item')]);
     }
-  }, [container.current]);
+  }, [items]);
 
   useEffect(() => {
     // Whenever currentItem is updated...
@@ -43,13 +38,10 @@ function Slider({ link }) {
     if (container.current !== null && childEls !== null) setContainerHeight(childEls[currentItem].offsetHeight);
   }, [currentItem]);
 
-  function handleThis(e) {
-    changeCurrentItem(parseInt(e.target.value, 10));
-  }
-
-  function changeItem(index) {
-    changeCurrentItem(index);
-  }
+  useEffect(() => {
+    // if the child els are present - but only do this function on first slide
+    if (childEls !== null && currentItem === 0) setContainerHeight(childEls[0].offsetHeight);
+  }, [childEls]);
 
   function prevItem() {
     const itemState = currentItem;
@@ -85,27 +77,34 @@ function Slider({ link }) {
         <div className="slider-total">
           {`${currentItem + 1} of ${items.length}`}
         </div>
-        <div role="button" className={`slider-cont slider-next ${currentItem >= 16 ? 'noclick' : ''}`} onClick={() => nextItem()} />
+        <div role="button" className={`slider-cont slider-next ${currentItem >= (items.length - 1) ? 'noclick' : ''}`} onClick={() => nextItem()} />
       </div>
       <div className="slider__progress">
         <div className="progress-points" ref={points}>
           {items.map((item, i) => {
             return (
               <div
+                role="button"
                 className={`progress-point ${
                   currentItem === i ? 'active' : ''
-                  }`}
-                onClick={(e) => changeItem(i, e)}
+                }`}
+                onClick={() => changeCurrentItem(i)}
                 key={`office-slider${i + 1}`}
               />
             );
           })}
         </div>
         <div className="progress-line">
-          <input type="range"
-            min="0" max="16" onChange={handleThis} value={currentItem} step="1"></input>
+          <input
+            type="range"
+            min="0"
+            max={items.length - 1}
+            onChange={e => changeCurrentItem(parseInt(e.target.value, 10))}
+            value={currentItem}
+            step="1"
+          />
           <div className="line-marker" style={{ left: `${itemProgress}%` }}>
-            <img src={officeSliderCube} />
+            <img src={officeSliderCube} alt="cube" />
           </div>
         </div>
       </div>

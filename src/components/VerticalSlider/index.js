@@ -9,7 +9,7 @@ import './style.scss';
 
 
 function VerticalSlider() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(verticalSlider);
   const [scrolled, setScrolled] = useState(0);
   const [conDimensions, setContainerDimensions] = useState(0);
   const [fixed, updateFixed] = useState(false);
@@ -39,11 +39,6 @@ function VerticalSlider() {
     });
   };
 
-  const grabData = () => {
-    setData(verticalSlider);
-    // Set mouse position to state when hovering over slider
-  };
-
   const amountScrolledandHeight = () => {
     handleScroll();
     // get amount of slider scrolled
@@ -55,11 +50,6 @@ function VerticalSlider() {
       setContainerDimensions(ConHeight);
     }
   };
-
-  useEffect(() => {
-    // On mount
-    grabData();
-  }, []);
 
   useEffect(() => {
     // on update
