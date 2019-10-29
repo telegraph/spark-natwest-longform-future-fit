@@ -177,49 +177,49 @@ export const verticalSlider = [
   {
     copy:
       'Only 25pc of respondents put strategic plans for the business for the next five years at the top of their agendas (based on interviews with 110 UK manufacturers)',
-    coordTop: '6',
+    coordTop: '10',
     coordRight: '60',
   },
   {
     copy:
       'Most businesses are still fairly optimistic about their journey, with 60pc saying they felt optimistic overall (although 44pc are only “fairly optimistic”).',
-    coordTop: '12',
+    coordTop: '20',
     coordRight: '15',
   },
   {
     copy:
       'A large majority (80pc) of respondents say that innovation is crucial to be competitive in the next five years',
-    coordTop: '21',
+    coordTop: '30',
     coordRight: '42',
   },
   {
     copy:
       'Only 15pc of businesses put innovation and research at the top of their agenda',
-    coordTop: '32',
+    coordTop: '40',
     coordRight: '20',
   },
   {
     copy:
       '73pc of respondents agreed that collaboration with the supply chain would become more important in future',
-    coordTop: '43',
+    coordTop: '50',
     coordRight: '65',
   },
   {
     copy:
       '£141.5bn in GDP growth could be lost due to Britain’s digital skills gap, according to Accenture',
-    coordTop: '54',
+    coordTop: '65',
     coordRight: '30',
   },
   {
     copy:
       '81pc of employees believe that the skills they need to do their job will change in the next five years, according to City & Guilds Group research',
-    coordTop: '65',
+    coordTop: '75',
     coordRight: '54',
   },
   {
     copy:
       '40pc of IT spending in 2019 is set to be on digital transformation, according to IDC',
-    coordTop: '76',
+    coordTop: '85',
     coordRight: '10',
   },
 ];

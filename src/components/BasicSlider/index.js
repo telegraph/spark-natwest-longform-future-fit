@@ -35,7 +35,7 @@ export default function BasicSlider({ dataProp, columns, title }) {
       <h2 className="basic-slider__title">
         {title}
       </h2>
-      <div className="basic-slider__container" style={{ height: `${currentSlideHeight}px` }}>
+      <div className={`basic-slider__container ${columns ? 'with-columns' : ''}`} style={{ height: `${currentSlideHeight}px` }}>
         <div className="controls">
           <div
             className={`arrow left-arrow ${currentSlide <= 0 ? 'noclick' : ''}`}

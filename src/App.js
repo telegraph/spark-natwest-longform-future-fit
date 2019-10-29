@@ -208,9 +208,9 @@ function App() {
         <AnimationTrigger>
           <Pullquote quote>
             <h3>
-              If you want to move at pace and offer your clients the very best, most of the time collaboration with an expert provider provides the answer,” he says.
+              If you want to move at pace and offer your clients the very best, most of the time collaboration with an expert provider provides the answer,”
             </h3>
-            <p>Mr Bellamy, of NatWest.</p>
+            <p>says Neil Bellamy, head of technology, media and telecoms at NatWest</p>
           </Pullquote>
         </AnimationTrigger>
         <AnimationTrigger>
