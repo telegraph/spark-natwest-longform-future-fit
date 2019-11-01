@@ -42,27 +42,6 @@ import innovation from './assets/titles/innovation.svg';
 
 
 function App() {
-  const [progress, setProgress] = useState(0);
-
-  const changeProgress = () => {
-    window.requestAnimationFrame(() => {
-      let progressState = progress;
-      const docHeight = document.body.scrollHeight;
-      const scrolled = window.scrollY + window.innerHeight;
-      const difference = docHeight + scrolled;
-      const percentage = difference / docHeight - 1;
-      progressState = percentage;
-      setProgress(progressState);
-    });
-  };
-
-  useEffect(() => {
-    // on update
-    document.addEventListener('scroll', changeProgress);
-    return function cleanup() {
-      document.removeEventListener('scroll', changeProgress);
-    };
-  });
 
   useEffect(() => {
     analytics.send('App Loaded');
@@ -70,7 +49,7 @@ function App() {
 
   return (
     <>
-      <Header progress={progress} />
+      <Header />
       <Hero />
       <Pagebody>
         <AnimationTrigger>

@@ -1,14 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { useSpring, animated, useTransition } from 'react-spring';
+import React, { useState } from 'react';
 import './style.scss';
 
 export default function Bubbles({ lessBubbles, leastBubbles }) {
-  const [data, setData] = useState([]);
-  const transitions = useTransition (data, '1', {
-    from: { transform: 'translate3d(0,-40px,0)' },
-    enter: { transform: 'translate3d(0,0px,0)' },
-    leave: { transform: 'translate3d(0,-40px,0)' },
-  });
 
   const bubbleData = [
     { x: 15, y: 3 },
@@ -75,21 +68,19 @@ export default function Bubbles({ lessBubbles, leastBubbles }) {
     { x: 70, y: 87 },
   ];
 
-  useEffect(() => {
-    setData(() => {
-      if (lessBubbles) {
-        return bubbleLessData;
-      } else if (leastBubbles) {
-        return bubblesLeastData;
-      } else {
-        return bubbleData;
-      }
-    });
-  }, []);
+  const [data] = useState(() => {
+    if (lessBubbles) {
+      return bubbleLessData;
+    } else if (leastBubbles) {
+      return bubblesLeastData;
+    } else {
+      return bubbleData;
+    }
+  });
 
   return (
     <div className="container">
-      { data.map(bubble => <animated.div className="box" style={{ top: `${bubble.y}%`, left: `${bubble.x}%` }} />)}
+      { data.map(bubble => <div className="box" style={{ top: `${bubble.y}%`, left: `${bubble.x}%` }} />)}
     </div>
   );
 }
