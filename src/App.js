@@ -57,7 +57,7 @@ function App() {
             <Dropcap>C</Dropcap>
             an you actually be future-proof in a time of rapid
             technological change? It is a question that many businesses
-            are asking, as technologies such as articial intelligence (AI)
+            are asking, as technologies such as artificial intelligence (AI)
             and automation supercharge the pace of innovation worldwide.
           </p>
           <p>
@@ -82,7 +82,7 @@ function App() {
           <p>
             “All businesses are being framed by one macro force: complexity,” says
             Nelson Phillips, professor of strategy and innovation at Imperial
-            College Business School in London. “From automotive to nancial
+            College Business School in London. “From automotive to financial
             services, retail to leisure and luxury, adapting to the disruption
             associated with new technologies, and complex customer and
             consumer demand, is framing everything. Digital strategy has become
@@ -101,10 +101,10 @@ function App() {
           </p>
           <Pullquote quote>
             <h3>
-              Most businesses I work with realise that if they are going to compete with born-digital businesses they need to get busy and deal effectively with these digital technologies.
+              Most businesses I work with realise that if they are going to compete with born-digital businesses they need to get busy and deal effectively with these digital technologies."
             </h3>
             <p>
-              explains Nelson Phillips, professor of strategy and innovation at Imperial College Business School
+              Nelson Phillips, professor of strategy and innovation at Imperial College Business School
             </p>
           </Pullquote>
         </AnimationTrigger>
@@ -132,7 +132,7 @@ function App() {
         </AnimationTrigger>
         <AnimationTrigger>
           <Pullquote quote>
-            <h3>With economic, political and technological challenges, it can be tempting to seek safe harbour and ride out the storm. But future-proofing is just as important.</h3>
+            <h3>With economic, political and technological challenges, it can be tempting to seek safe harbour and ride out the storm. But future-proofing is just as important."</h3>
             <p>Howard Kerr, chief executive at BSI.</p>
           </Pullquote>
         </AnimationTrigger>
@@ -169,9 +169,9 @@ function App() {
         </AnimationTrigger>
         <Pullquote quote>
           <h3>
-            “Almost every business will have a number of people that for one reason or another are not heard at board level,” he says. “Employees and managers at the heart of the business spot gaps as well as opportunities, but the business culture often prevents these being articulated.”
+            Almost every business will have a number of people that for one reason or another are not heard at board level. Employees and managers at the heart of the business spot gaps as well as opportunities, but the business culture often prevents these being articulated.”
           </h3>
-          <p>reveals Stefan Haase, director at Whitecap Consulting</p>
+          <p>Stefan Haase, director at Whitecap Consulting</p>
         </Pullquote>
         <AnimationTrigger>
           <p>
@@ -187,9 +187,9 @@ function App() {
         <AnimationTrigger>
           <Pullquote quote>
             <h3>
-              If you want to move at pace and offer your clients the very best, most of the time collaboration with an expert provider provides the answer,”
+              If you want to move at pace and offer your clients the very best, most of the time collaboration with an expert provider provides the answer”
             </h3>
-            <p>says Neil Bellamy, head of technology, media and telecoms at NatWest</p>
+            <p>Neil Bellamy, head of technology, media and telecoms at NatWest</p>
           </Pullquote>
         </AnimationTrigger>
         <AnimationTrigger>
@@ -319,7 +319,7 @@ function App() {
               Retail
             </h3>
             <p>
-              Facing challenges from online shopping, many retailers are still struggling to adapt, says Mr Griffiths. “According to new research by [communications and IT service provider] KCOM, the retail sector is lagging behind others in technology innovation as they struggle to cope with the impact of e-tailing and changes in consumer spending.”
+              “According to new research by [communications and IT service provider] KCOM, the retail sector is lagging behind others in technology innovation as they struggle to cope with the impact of e-tailing and changes in consumer spending.”
             </p>
           </Pullquote>
         </AnimationTrigger>
@@ -341,12 +341,12 @@ function App() {
           </p>
         </AnimationTrigger>
         <AnimationTrigger>
-          <Pullquote>
+          <Pullquote quote>
             <h3>
-              In this age of innovation, it is key to borrow ideas from other industries and other businesses, says Mr Thuiller, of Oppo ice cream. “Networks are crucial when you start up. We try to bring our network together to solve problems – help each other to leap over potholes. It’s amazing what ideas you can find from other industries.”
+              Networks are crucial when you start up. We try to bring our network together to solve problems – help each other to leap over potholes. It’s amazing what ideas you can find from other industries.”
             </h3>
             <p>
-              says Mr Thuiller, of Oppo ice cream
+              Mr Thuiller, of Oppo ice cream
             </p>
           </Pullquote>
         </AnimationTrigger>
@@ -359,12 +359,12 @@ function App() {
           </p>
         </AnimationTrigger>
         <AnimationTrigger>
-          <Pullquote>
+          <Pullquote quote>
             <h3>
-              When it comes to collaboration, and taking the first steps to future-proof your company, the most important thing is to be bold, says Mr Bellamy, of NatWest.
+              When it comes to collaboration, and taking the first steps to future-proof your company, the most important thing is to be bold."
             </h3>
             <p>
-              says Neil Bellamy, head of technology, media and telecoms at NatWest
+              Neil Bellamy, head of technology, media and telecoms at NatWest
             </p>
           </Pullquote>
         </AnimationTrigger>

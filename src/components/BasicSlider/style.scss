@@ -51,6 +51,11 @@
       column-rule: 2px solid #00b6be;
       column-gap: 60px;
 
+      p {
+        margin-top: 0;
+      }
+
+
       @media (max-width: 730px) {
         columns: unset !important;
       }

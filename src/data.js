@@ -243,7 +243,7 @@ export const flipBoardData = [
   {
     img: iot,
     title: 'Internet of things',
-    copy: 'Connected objects, such as sensors, that can allow businesses to gather data, for example from smart factories)',
+    copy: 'Connected objects, such as sensors, that can allow businesses to gather data, for example from smart factories',
   },
   {
     img: dataMining,
